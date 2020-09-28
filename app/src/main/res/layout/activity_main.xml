@@ -107,13 +107,12 @@
             android:id="@+id/register1"
             android:layout_width="150dp"
             android:layout_height="wrap_content"
-            android:enabled="true"
-            android:textSize="16sp"
-            android:textStyle="bold"
-            android:textColor="#ffffff"
             android:background="#6004bd"
-            android:text="\nnew user? \nregister here\n"
-            />
+            android:enabled="true"
+            android:text=" \nregister here\n"
+            android:textColor="#ffffff"
+            android:textSize="16sp"
+            android:textStyle="bold" />
 
         <Button
             android:id="@+id/forgot_password"
