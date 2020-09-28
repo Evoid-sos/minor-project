@@ -9,16 +9,19 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".register"
-            android:theme="@style/NoActionBarTheme"
+        <activity android:name=".forgotPassword"
             android:screenOrientation="portrait"
-            android:windowSoftInputMode="adjustResize">
-
-        </activity>
+            android:theme="@style/NoActionBarTheme"
+            android:windowSoftInputMode="adjustResize"></activity>
+        <activity
+            android:name=".register"
+            android:screenOrientation="portrait"
+            android:theme="@style/NoActionBarTheme"
+            android:windowSoftInputMode="adjustResize"></activity>
         <activity
             android:name=".MainActivity"
-            android:theme="@style/NoActionBarTheme"
             android:screenOrientation="portrait"
+            android:theme="@style/NoActionBarTheme"
             android:windowSoftInputMode="adjustResize">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />

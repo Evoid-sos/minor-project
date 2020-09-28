@@ -20,6 +20,12 @@ class MainActivity : AppCompatActivity() {
             finish()
         }
 
+        forgot_password.setOnClickListener {
+            val intent = Intent(this, forgotPassword::class.java)
+            startActivity(intent)
+            finish()
+        }
+
     }
 
 
