@@ -109,7 +109,7 @@
             android:layout_height="wrap_content"
             android:background="#6004bd"
             android:enabled="true"
-            android:text=" \nregister here\n"
+            android:text=" \nNew User?\nregister here\n"
             android:textColor="#ffffff"
             android:textSize="16sp"
             android:textStyle="bold" />
