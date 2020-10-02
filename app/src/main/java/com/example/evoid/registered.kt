@@ -4,20 +4,16 @@ import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.View
-import kotlinx.android.synthetic.main.activity_forgot_password.*
 import kotlinx.android.synthetic.main.activity_register.*
+import kotlinx.android.synthetic.main.activity_registered.*
 
-class forgotPassword : AppCompatActivity() {
+class registered : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         window.decorView.systemUiVisibility = View.SYSTEM_UI_FLAG_LAYOUT_FULLSCREEN
-        setContentView(R.layout.activity_forgot_password)
+        setContentView(R.layout.activity_registered)
 
-        reset_forgot_password.setOnClickListener {
-            sent_mail.text = "A recovery mail is sent to you, see it for more deatils."
-        }
-
-        back_to_login_forgot_password.setOnClickListener {
+        back_to_login_registered.setOnClickListener {
             val intent = Intent(this, MainActivity::class.java)
             startActivity(intent)
             finish()

@@ -14,16 +14,16 @@ class MainActivity : AppCompatActivity() {
         window.decorView.systemUiVisibility = View.SYSTEM_UI_FLAG_LAYOUT_FULLSCREEN
         setContentView(R.layout.activity_main)
 
-        register1.setOnClickListener {
+        new_register_main.setOnClickListener {
             val intent = Intent(this, register::class.java)
             startActivity(intent)
-            finish()
+
         }
 
-        forgot_password.setOnClickListener {
+        forgot_password_main.setOnClickListener {
             val intent = Intent(this, forgotPassword::class.java)
             startActivity(intent)
-            finish()
+
         }
 
     }
