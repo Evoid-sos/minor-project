@@ -67,7 +67,7 @@
             android:padding="15dp">
 
             <EditText
-                android:id="@+id/first_name"
+                android:id="@+id/first_name_register"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:hint="First Name"
@@ -81,7 +81,7 @@
             </EditText>
 
             <EditText
-                android:id="@+id/last_name"
+                android:id="@+id/last_name_register"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="10dp"
@@ -96,7 +96,7 @@
             </EditText>
 
             <EditText
-                android:id="@+id/phone_number"
+                android:id="@+id/phone_number_register"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="10dp"
@@ -112,7 +112,7 @@
 
 
             <EditText
-                android:id="@+id/username"
+                android:id="@+id/email_id_register"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:hint="Email Id"
@@ -127,7 +127,7 @@
             </EditText>
 
             <EditText
-                android:id="@+id/password"
+                android:id="@+id/password_register"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="10dp"
@@ -167,6 +167,16 @@
 
     </androidx.cardview.widget.CardView>
 
+    <TextView
+        android:id="@+id/enter_all_details_register"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:gravity="center"
+        android:textColor="@android:color/holo_red_light"
+        android:textSize="15sp"
+        />
+
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -190,6 +200,7 @@
             android:textColor="#ffffff"
             android:background="#6004bd"
             android:text="back to login"
+
             />
 
 
