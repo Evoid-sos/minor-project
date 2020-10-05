@@ -31,10 +31,10 @@
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="  REGISTERD  "
+            android:text="@string/registered"
             android:textColor="#ffffff"
-            android:textStyle="bold"
-            android:textSize="22sp">
+            android:textSize="22sp"
+            android:textStyle="bold">
 
         </TextView>
 
@@ -67,48 +67,46 @@
             android:gravity="center">
 
 
-
             <LinearLayout
+                android:id="@+id/nameRegistered"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:gravity="start"
                 android:orientation="horizontal"
-                android:padding="10dp"
-                android:gravity="start">
+                android:padding="10dp">
 
                 <TextView
                     android:layout_width="140dp"
                     android:layout_height="wrap_content"
-                    android:text="Name :"
-                    android:textSize="20sp"
+                    android:text="@string/name"
                     android:textColor="@android:color/black"
-                    android:textStyle="bold"
-                    />
+                    android:textSize="20sp"
+                    android:textStyle="bold" />
 
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="Eshika Agarwal"
-                    android:textSize="18sp"
+                    android:text="@string/eshika_agarwal"
                     android:textColor="@android:color/black"
-                    />
-
+                    android:textSize="18sp" />
 
 
             </LinearLayout>
 
             <LinearLayout
+                android:id="@+id/phoneNumberRegistered"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:gravity="start"
                 android:orientation="horizontal"
-                android:padding="10dp"
-                android:gravity="start">
+                android:padding="10dp">
 
                 <TextView
                     android:layout_width="140dp"
                     android:layout_height="wrap_content"
-                    android:text="Mobile No. :"
-                    android:textSize="20sp"
+                    android:text="@string/mobile_no"
                     android:textColor="@android:color/black"
+                    android:textSize="20sp"
                     android:textStyle="bold"
 
                     />
@@ -116,27 +114,27 @@
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="976*******"
-                    android:textSize="18sp"
+                    android:text="@string/_976"
                     android:textColor="@android:color/black"
-                    />
+                    android:textSize="18sp" />
 
 
             </LinearLayout>
 
             <LinearLayout
+                android:id="@+id/emailIdRegistered"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:gravity="start"
                 android:orientation="horizontal"
-                android:padding="10dp"
-                android:gravity="start">
+                android:padding="10dp">
 
                 <TextView
                     android:layout_width="140dp"
                     android:layout_height="wrap_content"
-                    android:text="Email Id :"
-                    android:textSize="20sp"
+                    android:text="@string/email_id_registered"
                     android:textColor="@android:color/black"
+                    android:textSize="20sp"
                     android:textStyle="bold"
 
                     />
@@ -144,27 +142,27 @@
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="agarwaleshi@gmail.com"
-                    android:textSize="18sp"
+                    android:text="@string/agarwaleshi_gmail_com"
                     android:textColor="@android:color/black"
-                    />
+                    android:textSize="18sp" />
 
 
             </LinearLayout>
 
             <LinearLayout
+                android:id="@+id/registeredOnRegistered"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:gravity="start"
                 android:orientation="horizontal"
-                android:padding="10dp"
-                android:gravity="start">
+                android:padding="10dp">
 
                 <TextView
                     android:layout_width="140dp"
                     android:layout_height="wrap_content"
-                    android:text="Registered on :"
-                    android:textSize="20sp"
+                    android:text="@string/registered_on"
                     android:textColor="@android:color/black"
+                    android:textSize="20sp"
                     android:textStyle="bold"
 
                     />
@@ -172,10 +170,9 @@
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="03/10/2020"
-                    android:textSize="18sp"
+                    android:text="@string/_03_10_2020"
                     android:textColor="@android:color/black"
-                    />
+                    android:textSize="18sp" />
 
 
             </LinearLayout>
@@ -194,28 +191,27 @@
 
 
     <LinearLayout
+        android:id="@+id/back_to_login"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:gravity="center"
         android:orientation="horizontal"
-        android:paddingTop="100dp"
         android:paddingLeft="5dp"
-        android:paddingRight="5dp"
-        >
+        android:paddingTop="100dp"
+        android:paddingRight="5dp">
 
 
         <Button
-            android:id="@+id/back_to_login_registered"
+            android:id="@+id/back_to_login"
             android:layout_width="180dp"
             android:layout_height="wrap_content"
-            android:layout_marginLeft="15dp"
-            android:enabled="true"
-            android:textSize="20sp"
-            android:textStyle="bold"
-            android:textColor="#ffffff"
+            android:layout_marginStart="15dp"
             android:background="#6004bd"
-            android:text="back to login"
-            />
+            android:enabled="true"
+            android:text="@string/back_to_login"
+            android:textColor="#ffffff"
+            android:textSize="20sp"
+            android:textStyle="bold" />
 
 
     </LinearLayout>

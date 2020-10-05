@@ -10,7 +10,6 @@ import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.auth.ktx.auth
 import com.google.firebase.ktx.Firebase
 import kotlinx.android.synthetic.main.activity_main.*
-import kotlinx.android.synthetic.main.activity_register.*
 
 class MainActivity : AppCompatActivity() {
     private lateinit var auth: FirebaseAuth
@@ -24,25 +23,25 @@ class MainActivity : AppCompatActivity() {
 
 
 
-        login_main.setOnClickListener {
-            val emailid = email_id_main.text.toString()
-            val password = password_main.text.toString()
+        loginMain.setOnClickListener {
+            val emailId = emailIdRegister.text.toString()
+            val password = passwordMain.text.toString()
 
-            if (validateForm(emailid, password)) //check if all the details are entered
+            if (validateForm(emailId, password)) //check if all the details are entered
             {
-                signUser(emailid, password, auth)
+                signUser(emailId, password, auth)
             }
 
 
         }
 
-        new_register_main.setOnClickListener {
+        newRegisterMain.setOnClickListener {
             val intent = Intent(this, register::class.java)
             startActivity(intent)
 
         }
 
-        forgot_password_main.setOnClickListener {
+        forgotPasswordMain.setOnClickListener {
             val intent = Intent(this, forgotPassword::class.java)
             startActivity(intent)
 
@@ -56,7 +55,7 @@ class MainActivity : AppCompatActivity() {
     {
         if (emailid.isEmpty() || password.isEmpty())
         {
-            enter_all_details_main.text = "*Please enter all the details"
+            enterAllDetailsMain.text = "*Please enter all the details"
             return false
         }
         else return true

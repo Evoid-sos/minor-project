@@ -2,14 +2,9 @@ package com.example.evoid
 
 import android.content.Intent
 import android.os.Bundle
-import android.text.TextUtils
-import android.util.Log
 import android.view.View
-import android.widget.Button
-import android.widget.LinearLayout
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
-import com.google.android.gms.tasks.Task
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.auth.ktx.auth
 import com.google.firebase.ktx.Firebase
@@ -25,7 +20,7 @@ class register : AppCompatActivity() {
         setContentView(R.layout.activity_register)
 
 
-        back_to_login_register.setOnClickListener {
+        backToLoginRegister.setOnClickListener {
             val intent = Intent(this, MainActivity::class.java)
             startActivity(intent)
             finish()
@@ -33,16 +28,16 @@ class register : AppCompatActivity() {
 
 
 
-        register_now_register.setOnClickListener {
-            val first_name = first_name_register.text.toString()
-            val last_name = last_name_register.text.toString()
-            val mobile = phone_number_register.text.toString()
-            val emailid = email_id_register.text.toString()
-            val password = password_register.text.toString()
+        registerNowRegister.setOnClickListener {
+            val firstName = firstNameRegister.text.toString()
+            val lastName = lastNameRegister.text.toString()
+            val mobile = phoneNumberRegister.text.toString()
+            val emailId = emailIdRegister.text.toString()
+            val password = passwordRegister.text.toString()
 
-            if (validateForm(first_name, last_name, mobile, emailid, password)){
+            if (validateForm(firstName, lastName, mobile, emailId, password)){
 
-                registerUser(first_name, last_name, mobile, emailid, password, auth)
+                registerUser(firstName, lastName, mobile, emailId, password, auth)
             }
 
 
@@ -57,7 +52,7 @@ class register : AppCompatActivity() {
     {
         if (firstName.isEmpty() || lastName.isEmpty() || mobile.isEmpty() || emailid.isEmpty() || password.isEmpty())
         {
-            enter_all_details_register.text = "*Please enter all the details"
+            enterAllDetailsRegister.text = "*Please enter all the details"
             return false
         }
         else return true
