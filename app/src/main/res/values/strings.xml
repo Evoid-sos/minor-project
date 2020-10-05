@@ -29,4 +29,5 @@
     <string name="email_id">Email Id</string>
     <string name="reset">Reset</string>
     <string name="back_to_login">back to login</string>
+    <string name="todo">TODO</string>
 </resources>
