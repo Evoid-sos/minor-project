@@ -12,7 +12,7 @@ class registered : AppCompatActivity() {
         window.decorView.systemUiVisibility = View.SYSTEM_UI_FLAG_LAYOUT_FULLSCREEN
         setContentView(R.layout.activity_registered)
 
-        backToLogin.setOnClickListener {
+        backToLoginRegistered.setOnClickListener {
             val intent = Intent(this, MainActivity::class.java)
             startActivity(intent)
             finish()

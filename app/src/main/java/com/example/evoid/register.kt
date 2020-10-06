@@ -6,6 +6,8 @@ import android.view.View
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import com.google.firebase.auth.FirebaseAuth
+import com.google.firebase.auth.FirebaseUser
+import com.google.firebase.firestore.auth.User
 import com.google.firebase.auth.ktx.auth
 import com.google.firebase.ktx.Firebase
 import kotlinx.android.synthetic.main.activity_register.*
@@ -13,9 +15,11 @@ import kotlinx.android.synthetic.main.activity_register.*
 class register : AppCompatActivity() {
     private lateinit var auth:FirebaseAuth
     override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
         auth = Firebase.auth
-        val currentUser = auth.currentUser
+
+
+        super.onCreate(savedInstanceState)
+
         window.decorView.systemUiVisibility = View.SYSTEM_UI_FLAG_LAYOUT_FULLSCREEN
         setContentView(R.layout.activity_register)
 
@@ -48,6 +52,8 @@ class register : AppCompatActivity() {
 
     }
 
+
+
     private fun validateForm(firstName: String, lastName: String, mobile: String, emailid: String, password: String): Boolean
     {
         if (firstName.isEmpty() || lastName.isEmpty() || mobile.isEmpty() || emailid.isEmpty() || password.isEmpty())
@@ -59,20 +65,24 @@ class register : AppCompatActivity() {
 
     }
 
-    private fun registerUser(firstName: String, lastName: String, mobile: String, emailid: String, password: String, auth: FirebaseAuth) {
+    private fun registerUser(firstName: String, lastName: String, mobile: String, emailId: String, password: String,
+                             auth: FirebaseAuth) {
 
-        auth.createUserWithEmailAndPassword(emailid, password).addOnCompleteListener(this){task->
+        auth.createUserWithEmailAndPassword(emailId, password).addOnCompleteListener(this){task->
             if (task.isSuccessful) {
-                val user = auth.currentUser
-                val intent = Intent(this, registered::class.java)
-                startActivity(intent)
-                finish()
+                val currentUser = auth.currentUser
+                val user = com.example.evoid.User(currentUser!!.uid, firstName, lastName, mobile.toLong(), emailId)
+                firestoreClass().registerUser(this, user)
+//                val intent = Intent(this, registered::class.java)
+//                startActivity(intent)
+//                finish()
+                Toast.makeText(this, "hi", Toast.LENGTH_SHORT).show()
 
                 // Sign in success, update UI with the signed-in user's information
 
             } else {
                 // If sign in fails, display a message to the user.
-                Toast.makeText(this, "failed", Toast.LENGTH_SHORT).show()
+                enterAllDetailsRegister.text = "It seems you already have an account"
             }
 
 
