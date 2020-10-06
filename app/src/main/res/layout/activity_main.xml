@@ -118,7 +118,7 @@
             android:layout_height="wrap_content"
             android:background="#6004bd"
             android:enabled="true"
-            android:text="@string/nnew_user_nregister_here_n"
+            android:text="@string/new_user_register_here_n"
             android:textColor="#ffffff"
             android:textSize="16sp"
             android:textStyle="bold" />
@@ -133,7 +133,7 @@
             android:textStyle="bold"
             android:textColor="#ffffff"
             android:background="#6004bd"
-            android:text="@string/nforgot_password_n"
+            android:text="@string/forgot_password"
             />
 
 
