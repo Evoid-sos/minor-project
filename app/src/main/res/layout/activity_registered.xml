@@ -70,7 +70,7 @@
             <LinearLayout
                 android:id="@+id/nameRegistered"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
+                android:layout_height="match_parent"
                 android:gravity="start"
                 android:orientation="horizontal"
                 android:padding="10dp">
@@ -96,7 +96,7 @@
             <LinearLayout
                 android:id="@+id/phoneNumberRegistered"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
+                android:layout_height="match_parent"
                 android:gravity="start"
                 android:orientation="horizontal"
                 android:padding="10dp">
@@ -140,8 +140,8 @@
                     />
 
                 <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
                     android:text="@string/agarwaleshi_gmail_com"
                     android:textColor="@android:color/black"
                     android:textSize="18sp" />
@@ -152,7 +152,7 @@
             <LinearLayout
                 android:id="@+id/registeredOnRegistered"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
+                android:layout_height="match_parent"
                 android:gravity="start"
                 android:orientation="horizontal"
                 android:padding="10dp">
@@ -193,7 +193,7 @@
     <LinearLayout
         android:id="@+id/backToLogin"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="match_parent"
         android:gravity="center"
         android:orientation="horizontal"
         android:paddingLeft="5dp"
@@ -204,7 +204,7 @@
         <Button
             android:id="@+id/backToLoginRegistered"
             android:layout_width="180dp"
-            android:layout_height="wrap_content"
+            android:layout_height="38dp"
             android:layout_marginStart="15dp"
             android:background="#6004bd"
             android:enabled="true"
