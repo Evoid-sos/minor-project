@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+    <item android:title="@string/guidelines" android:id="@+id/guidelines"></item>
+    <item android:title="@string/covid_19_helplines" android:id="@+id/covid"></item>
+    <item android:title="@string/cyber_crime_protection_guideline" android:id="@+id/cybercrime"></item>
+    <item android:title="@string/help" android:id="@+id/help"></item>
+
+
+</menu>
