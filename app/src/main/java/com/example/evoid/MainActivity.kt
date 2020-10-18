@@ -23,8 +23,6 @@ class MainActivity : AppCompatActivity() {
         window.setSoftInputMode(WindowManager.LayoutParams.SOFT_INPUT_STATE_ALWAYS_HIDDEN);
         setContentView(R.layout.activity_main)
 
-
-
         loginMain.setOnClickListener {
             val emailId = emailIdRegister.text.toString()
             val password = passwordMain.text.toString()
@@ -57,7 +55,7 @@ class MainActivity : AppCompatActivity() {
     {
         if (emailid.isEmpty() || password.isEmpty())
         {
-            enterAllDetailsMain.text = "*Please enter all the details"
+            enterAllDetailsMain.text = "*Please enter all the details*"
             return false
         }
         else return true

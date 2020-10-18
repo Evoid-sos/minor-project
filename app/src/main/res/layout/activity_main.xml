@@ -1,147 +1,175 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/linearLayout"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:orientation="vertical"
-    android:gravity="center"
-    android:padding="10dp"
     android:background="@drawable/login_bg3"
+    android:gravity="center"
+    android:orientation="vertical"
+    android:padding="10dp"
     tools:context=".MainActivity">
 
+
     <ImageView
-        android:layout_width="match_parent"
-        android:layout_height="180dp"
+        android:id="@+id/imageView"
+        android:layout_width="132dp"
+        android:layout_height="106dp"
+
+        android:layout_marginStart="145dp"
+        android:layout_marginTop="40dp"
+        android:layout_marginEnd="145dp"
+        android:layout_marginBottom="56dp"
         android:contentDescription="@string/logo"
+        android:src="@drawable/logo1"
+        app:layout_constraintBottom_toTopOf="@+id/emailIdRegister"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.545"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"></ImageView>
 
-        android:src="@drawable/logo1"></ImageView>
+    <Button
+        android:id="@+id/newRegisterMain"
+        android:layout_width="167dp"
+        android:layout_height="69dp"
+        android:layout_marginStart="14dp"
+        android:layout_marginTop="19dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginBottom="39dp"
+        android:background="#6004bd"
+        android:enabled="true"
+        android:text="@string/new_user_register_here_n"
+        android:textAlignment="inherit"
+        android:textColor="#ffffff"
+        android:textSize="16sp"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toTopOf="@+id/enterAllDetailsMain"
+        app:layout_constraintEnd_toStartOf="@+id/forgotPasswordMain"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/loginMain" />
 
-    <androidx.cardview.widget.CardView
-        android:layout_width="match_parent"
+    <Button
+        android:id="@+id/forgotPasswordMain"
+        android:layout_width="167dp"
+        android:layout_height="69dp"
+        android:layout_marginStart="9dp"
+        android:layout_marginEnd="27dp"
+        android:layout_marginBottom="39dp"
+        android:background="#6004bd"
+        android:enabled="true"
+        android:text="@string/forgot_password"
+        android:textColor="#ffffff"
+        android:textSize="16sp"
+        android:textStyle="bold"
+        android:textAlignment="center"
+        app:layout_constraintBottom_toTopOf="@+id/enterAllDetailsMain"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/newRegisterMain"
+        app:layout_constraintTop_toBottomOf="@+id/loginMain" />
+
+    <Button
+        android:id="@+id/loginMain"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="20dp"
-        android:layout_marginEnd="20dp"
-        android:layout_marginTop="60dp"
+        android:layout_marginStart="157dp"
+        android:layout_marginTop="5dp"
+        android:layout_marginEnd="156dp"
+        android:layout_marginBottom="18dp"
+        android:background="#8a2be2"
+        android:enabled="true"
+        android:text="@string/login"
+        android:textColor="#ffffff"
+        android:textSize="20sp"
+        android:textStyle="bold"
+        android:textAlignment="center"
+        app:layout_constraintBottom_toTopOf="@+id/forgotPasswordMain"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/remember" />
+
+    <EditText
+        android:id="@+id/passwordMain"
+        android:layout_width="match_parent"
+        android:layout_height="63dp"
+        android:layout_marginStart="10dp"
+        android:layout_marginTop="10dp"
+        android:layout_marginEnd="10dp"
+        android:layout_marginBottom="19dp"
+        android:autofillHints=""
         android:background="#ffffff"
-        android:layout_gravity="center_vertical"
-        app:cardCornerRadius="8dp"
-        app:cardElevation="10dp"
-        >
+        android:hint="@string/password"
+        android:imeActionLabel="Sign in"
+        android:imeOptions="actionDone"
+        android:inputType="textPassword"
+        android:selectAllOnFocus="true"
+        android:textColor="#000000"
+        android:textSize="20sp"
+        android:textStyle="italic"
+        android:windowSoftInputMode="stateHidden"
+        app:layout_constraintBottom_toTopOf="@+id/remember"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/emailIdRegister">
 
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="vertical"
-            android:gravity="center"
-            android:padding="15dp">
+    </EditText>
 
-            <EditText
-                android:id="@+id/emailIdRegister"
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:hint="@string/email_id"
-                android:inputType="textEmailAddress"
-                android:selectAllOnFocus="true"
-                android:textSize="20sp"
-                android:textStyle="italic"
-                android:textColor="#292929"
-                android:autofillHints=""
-                android:windowSoftInputMode="stateHidden"
-                >
-
-            </EditText>
-
-            <EditText
-                android:id="@+id/passwordMain"
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:layout_marginTop="10dp"
-                android:hint="@string/password"
-                android:imeActionLabel="Sign in"
-                android:imeOptions="actionDone"
-                android:inputType="textPassword"
-                android:selectAllOnFocus="true"
-                android:textSize="20sp"
-                android:textStyle="italic"
-                android:textColor="#292929"
-                android:autofillHints=""
-                android:windowSoftInputMode="stateHidden"
-                >
-
-            </EditText>
-
-            <TextView
-                android:id="@+id/enterAllDetailsMain"
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:layout_marginTop="20dp"
-                android:gravity="center"
-                android:textColor="@android:color/holo_red_light"
-                android:textSize="15sp"
-                />
-
-            <Button
-                android:id="@+id/loginMain"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="30dp"
-                android:layout_marginLeft="40dp"
-                android:layout_marginRight="40dp"
-                android:enabled="true"
-                android:textSize="20sp"
-                android:textStyle="bold"
-                android:textColor="#ffffff"
-                android:background="#8a2be2"
-                android:text="@string/login"
-                />
-
-
-        </LinearLayout>
-
-
-
-
-
-    </androidx.cardview.widget.CardView>
-
-
-    <LinearLayout
+    <EditText
+        android:id="@+id/emailIdRegister"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:gravity="center"
-        android:orientation="horizontal"
-        android:paddingTop="60dp"
-        android:paddingLeft="5dp"
-        android:paddingRight="5dp"
-        >
+        android:layout_height="62dp"
+        android:layout_marginStart="9dp"
+        android:layout_marginEnd="9dp"
+        android:layout_marginBottom="10dp"
+        android:autofillHints=""
+        android:background="#ffffff"
+        android:hint="@string/email_id"
+        android:inputType="textEmailAddress"
+        android:selectAllOnFocus="true"
+        android:textColor="#000000"
+        android:textSize="20sp"
+        android:textStyle="italic"
+        android:windowSoftInputMode="stateHidden"
+        app:layout_constraintBottom_toTopOf="@+id/passwordMain"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/passwordMain"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/imageView">
 
-        <Button
-            android:id="@+id/newRegisterMain"
-            android:layout_width="150dp"
-            android:layout_height="wrap_content"
-            android:background="#6004bd"
-            android:enabled="true"
-            android:text="@string/new_user_register_here_n"
-            android:textColor="#ffffff"
-            android:textSize="16sp"
-            android:textStyle="bold" />
+    </EditText>
 
-        <Button
-            android:id="@+id/forgotPasswordMain"
-            android:layout_width="150dp"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="15dp"
-            android:enabled="true"
-            android:textSize="16sp"
-            android:textStyle="bold"
-            android:textColor="#ffffff"
-            android:background="#6004bd"
-            android:text="@string/forgot_password"
-            />
+    <TextView
+        android:id="@+id/enterAllDetailsMain"
+        android:layout_width="match_parent"
+        android:layout_height="36dp"
+        android:layout_marginStart="10dp"
+        android:layout_marginEnd="18dp"
+        android:layout_marginBottom="33dp"
+        android:textAlignment="center"
+        android:textColor="#FF0000"
+
+        android:textSize="20dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.684"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/newRegisterMain" />
+
+    <CheckBox
+        android:id="@+id/remember"
+        android:layout_width="214dp"
+        android:layout_height="28dp"
+        android:layout_marginStart="110dp"
+        android:layout_marginEnd="99dp"
+        android:layout_marginBottom="8dp"
+        android:buttonTint="#ffffff"
+        android:text="Remember Me"
+        android:textColor="#ffffff"
+        android:textSize="20dp"
+        app:layout_constraintBottom_toTopOf="@+id/loginMain"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/passwordMain" />
 
 
-    </LinearLayout>
-
-
-</LinearLayout>
+</androidx.constraintlayout.widget.ConstraintLayout>
