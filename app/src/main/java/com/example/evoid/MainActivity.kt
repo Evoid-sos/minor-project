@@ -70,6 +70,8 @@ class MainActivity : AppCompatActivity() {
                 if (task.isSuccessful) {
                     val user = auth.currentUser
                     Toast.makeText(this, "signed in successfully", Toast.LENGTH_SHORT).show()
+                    val intent = Intent(this, MainActivity2::class.java)
+                    startActivity(intent)
                 } else {
                     Log.w("failure", "signInWithEmail:failure", task.exception)
                     Toast.makeText(this, "Sign in failed.",
