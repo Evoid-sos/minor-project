@@ -4,6 +4,20 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@drawable/login_bg3"
     tools:context=".MainActivity2">
 
+    <ImageView
+        android:id="@+id/panicButton"
+        android:layout_width="175dp"
+        android:layout_height="163dp"
+        android:layout_marginStart="118dp"
+        android:layout_marginTop="284dp"
+        android:layout_marginEnd="118dp"
+        android:layout_marginBottom="284dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@android:drawable/ic_notification_overlay" />
 </androidx.constraintlayout.widget.ConstraintLayout>
