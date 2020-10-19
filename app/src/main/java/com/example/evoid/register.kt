@@ -79,7 +79,6 @@ class register : AppCompatActivity() {
 //                val intent = Intent(this, registered::class.java)
 //                startActivity(intent)
 //                finish()
-                Toast.makeText(this, "hi", Toast.LENGTH_SHORT).show()
 
                 // Sign in success, update UI with the signed-in user's information
 

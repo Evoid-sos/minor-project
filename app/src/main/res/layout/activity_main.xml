@@ -23,7 +23,7 @@
         android:layout_marginBottom="56dp"
         android:contentDescription="@string/logo"
         android:src="@drawable/logo1"
-        app:layout_constraintBottom_toTopOf="@+id/emailIdRegister"
+        app:layout_constraintBottom_toTopOf="@+id/emailIdMain"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.545"
         app:layout_constraintStart_toStartOf="parent"
@@ -86,7 +86,7 @@
         app:layout_constraintBottom_toTopOf="@+id/forgotPasswordMain"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/remember" />
+        app:layout_constraintTop_toBottomOf="@+id/rememberMain" />
 
     <EditText
         android:id="@+id/passwordMain"
@@ -108,15 +108,15 @@
         android:textSize="20sp"
         android:textStyle="italic"
         android:windowSoftInputMode="stateHidden"
-        app:layout_constraintBottom_toTopOf="@+id/remember"
+        app:layout_constraintBottom_toTopOf="@+id/rememberMain"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/emailIdRegister">
+        app:layout_constraintTop_toBottomOf="@+id/emailIdMain">
 
     </EditText>
 
     <EditText
-        android:id="@+id/emailIdRegister"
+        android:id="@+id/emailIdMain"
         android:layout_width="match_parent"
         android:layout_height="62dp"
         android:layout_marginStart="9dp"
@@ -158,7 +158,7 @@
         app:layout_constraintTop_toBottomOf="@+id/newRegisterMain" />
 
     <CheckBox
-        android:id="@+id/remember"
+        android:id="@+id/rememberMain"
         android:layout_width="wrap_content"
         android:layout_height="28dp"
         android:layout_marginStart="99dp"

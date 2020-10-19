@@ -17,7 +17,6 @@ class firestoreClass {
 
     fun registerUser(activity:register, userInfo:com.example.evoid.User)
     {
-        Toast.makeText(activity, "lol", Toast.LENGTH_SHORT).show()
         mFireStore.collection(constants.USERS)
             .document(getCurrentUserId())
             .set(userInfo, SetOptions.merge())

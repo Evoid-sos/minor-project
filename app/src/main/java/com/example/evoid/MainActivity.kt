@@ -24,12 +24,13 @@ class MainActivity : AppCompatActivity() {
         setContentView(R.layout.activity_main)
 
         loginMain.setOnClickListener {
-            val emailId = emailIdRegister.text.toString()
+            val emailId = emailIdMain.text.toString()
             val password = passwordMain.text.toString()
 
             if (validateForm(emailId, password)) //check if all the details are entered
             {
                 signUser(emailId, password, auth)
+
             }
 
 
@@ -82,6 +83,7 @@ class MainActivity : AppCompatActivity() {
 
 
     }
+
 
 
 }
