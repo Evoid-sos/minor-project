@@ -8,6 +8,7 @@ import android.util.Log
 import android.view.View
 import android.view.WindowManager
 import android.widget.CheckBox
+import android.widget.ImageView
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import com.google.firebase.auth.FirebaseAuth
@@ -21,19 +22,39 @@ class MainActivity : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         auth = Firebase.auth
+        var b = 0
         super.onCreate(savedInstanceState)
         window.decorView.systemUiVisibility = View.SYSTEM_UI_FLAG_LAYOUT_FULLSCREEN
         window.setSoftInputMode(WindowManager.LayoutParams.SOFT_INPUT_STATE_ALWAYS_HIDDEN);
         setContentView(R.layout.activity_main)
 
-        val remember=findViewById<CheckBox>(R.id.rememberMain)
-        val hide= findViewById<CheckBox>(R.id.showhide)
-        hide.setOnCheckedChangeListener { compoundButton, b ->
-            if(b){
+
+        showHideMain.setOnClickListener() {
+            if (b == 0)
+            {
                 passwordMain.transformationMethod = HideReturnsTransformationMethod.getInstance();
-            }else{
+                b = 1;
+                showHideMain.visibility = View.INVISIBLE
+                showHide2Main.visibility = View.VISIBLE
+
+            }
+
+        }
+
+        showHide2Main.setOnClickListener(){
+            if (b==1)
+            {
                 passwordMain.transformationMethod = PasswordTransformationMethod.getInstance();
-            }}
+                b=0
+                showHide2Main.visibility = View.INVISIBLE
+                showHideMain.visibility = View.VISIBLE
+            }
+        }
+
+
+
+
+
         loginMain.setOnClickListener {
             val emailId = emailIdMain.text.toString()
             val password = passwordMain.text.toString()
