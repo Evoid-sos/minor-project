@@ -2,9 +2,12 @@ package com.example.evoid
 
 import android.content.Intent
 import android.os.Bundle
+import android.text.method.HideReturnsTransformationMethod
+import android.text.method.PasswordTransformationMethod
 import android.util.Log
 import android.view.View
 import android.view.WindowManager
+import android.widget.CheckBox
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import com.google.firebase.auth.FirebaseAuth
@@ -23,6 +26,13 @@ class MainActivity : AppCompatActivity() {
         window.setSoftInputMode(WindowManager.LayoutParams.SOFT_INPUT_STATE_ALWAYS_HIDDEN);
         setContentView(R.layout.activity_main)
 
+        val hide= findViewById<CheckBox>(R.id.showhide)
+        hide.setOnCheckedChangeListener { compoundButton, b ->
+            if(b){
+                passwordMain.transformationMethod = HideReturnsTransformationMethod.getInstance();
+            }else{
+                passwordMain.transformationMethod = PasswordTransformationMethod.getInstance();
+            }}
         loginMain.setOnClickListener {
             val emailId = emailIdMain.text.toString()
             val password = passwordMain.text.toString()
@@ -68,12 +78,12 @@ class MainActivity : AppCompatActivity() {
             .addOnCompleteListener(this) { task ->
                 if (task.isSuccessful) {
                     val user = auth.currentUser
-                    Toast.makeText(this, "signed in successfully", Toast.LENGTH_SHORT).show()
+                    Toast.makeText(this, "Signed In Successfully", Toast.LENGTH_SHORT).show()
                     val intent = Intent(this, MainActivity2::class.java)
                     startActivity(intent)
                 } else {
                     Log.w("failure", "signInWithEmail:failure", task.exception)
-                    Toast.makeText(this, "Sign in failed.",
+                    Toast.makeText(this, "E-mail Id/Password Incorrect",
                         Toast.LENGTH_SHORT).show()
 
                 }
