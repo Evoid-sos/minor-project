@@ -206,12 +206,13 @@
             android:layout_width="180dp"
             android:layout_height="38dp"
             android:layout_marginStart="15dp"
-            android:background="#6004bd"
+            android:background="@drawable/roundedcorners"
             android:enabled="true"
             android:text="@string/back_to_login"
             android:textColor="#ffffff"
             android:textSize="20sp"
-            android:textStyle="bold" />
+            android:textStyle="bold"
+            android:textAlignment="center"/>
 
 
     </LinearLayout>
