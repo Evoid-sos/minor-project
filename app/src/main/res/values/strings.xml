@@ -49,6 +49,7 @@
     <string name="cyber_crime_protection_guideline">Cyber Crime Protection Guideline</string>
     <string name="help">Help</string>
     <string name="selected_item">Selected item:</string>
+    <string name="logout">logout</string>
     <string-array name="States">
         <item>Andaman and Nicobar Islands</item>
         <item>Andhra Pradesh</item>

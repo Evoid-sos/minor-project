@@ -26,6 +26,7 @@ class MainActivity : AppCompatActivity() {
         window.setSoftInputMode(WindowManager.LayoutParams.SOFT_INPUT_STATE_ALWAYS_HIDDEN);
         setContentView(R.layout.activity_main)
 
+        val remember=findViewById<CheckBox>(R.id.rememberMain)
         val hide= findViewById<CheckBox>(R.id.showhide)
         hide.setOnCheckedChangeListener { compoundButton, b ->
             if(b){
@@ -81,6 +82,7 @@ class MainActivity : AppCompatActivity() {
                     Toast.makeText(this, "Signed In Successfully", Toast.LENGTH_SHORT).show()
                     val intent = Intent(this, MainActivity2::class.java)
                     startActivity(intent)
+
                 } else {
                     Log.w("failure", "signInWithEmail:failure", task.exception)
                     Toast.makeText(this, "E-mail Id/Password Incorrect",

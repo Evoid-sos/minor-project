@@ -28,6 +28,7 @@ class MainActivity2 : AppCompatActivity() {
             R.id.covid -> startActivity(Intent(this,covidHelplines::class.java))
             R.id.cybercrime -> Toast.makeText(applicationContext, "CyberCrimes", Toast.LENGTH_SHORT).show()
             R.id.help -> Toast.makeText(applicationContext, "Help", Toast.LENGTH_SHORT).show()
+            R.id.logout -> Toast.makeText(applicationContext, "Logout", Toast.LENGTH_SHORT).show()
             else -> Toast.makeText(applicationContext, "Could not complete the request", Toast.LENGTH_SHORT).show()
         }
         return true
