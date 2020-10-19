@@ -36,11 +36,48 @@ class covidHelplines : AppCompatActivity() {
                         parent: AdapterView<*>,
                         view: View, position: Int, id: Long
                     ) {
-                        Toast.makeText(
+                        when(spinner.selectedItemId)
+                        {
+                            spinner.getItemIdAtPosition(0)-> covidDisp.text = "0866-2410978"
+                            spinner.getItemIdAtPosition(1)-> covidDisp.text = "9436055743"
+                            spinner.getItemIdAtPosition(2)-> covidDisp.text = "6913347770"
+                            spinner.getItemIdAtPosition(3)-> covidDisp.text = "104"
+                            spinner.getItemIdAtPosition(4)-> covidDisp.text = "077122-35091"
+                            spinner.getItemIdAtPosition(5)-> covidDisp.text = "104"
+                            spinner.getItemIdAtPosition(6)-> covidDisp.text = "104"
+                            spinner.getItemIdAtPosition(7)-> covidDisp.text = "8558893911"
+                            spinner.getItemIdAtPosition(8)-> covidDisp.text = "104"
+                            spinner.getItemIdAtPosition(9)-> covidDisp.text = "104"
+                            spinner.getItemIdAtPosition(10)-> covidDisp.text = "104"
+                            spinner.getItemIdAtPosition(11)-> covidDisp.text = "0471-2552056"
+                            spinner.getItemIdAtPosition(12)-> covidDisp.text = "0755-2527177"
+                            spinner.getItemIdAtPosition(13)-> covidDisp.text = "020-26127394"
+                            spinner.getItemIdAtPosition(14)-> covidDisp.text = "03852411668"
+                            spinner.getItemIdAtPosition(15)-> covidDisp.text = "108"
+                            spinner.getItemIdAtPosition(15)-> covidDisp.text = "102"
+                            spinner.getItemIdAtPosition(15)-> covidDisp.text = "7005539653"
+                            spinner.getItemIdAtPosition(15)-> covidDisp.text = "9439994859"
+                            spinner.getItemIdAtPosition(15)-> covidDisp.text = "104"
+                            spinner.getItemIdAtPosition(15)-> covidDisp.text = "0141-2225624"
+                            spinner.getItemIdAtPosition(15)-> covidDisp.text = "104"
+                            spinner.getItemIdAtPosition(15)-> covidDisp.text = "044-29510500"
+                            spinner.getItemIdAtPosition(15)-> covidDisp.text = "104"
+                            spinner.getItemIdAtPosition(15)-> covidDisp.text = "0381-2315879"
+                            spinner.getItemIdAtPosition(15)-> covidDisp.text = "104"
+                            spinner.getItemIdAtPosition(15)-> covidDisp.text = "104"
+                            spinner.getItemIdAtPosition(15)-> covidDisp.text = "104"
+                            spinner.getItemIdAtPosition(15)-> covidDisp.text = "104"
+
+
+
+                        }
+
+
+                        /*Toast.makeText(
                             applicationContext,
                             getString(R.string.selected_item) + " " +
                                     "" + languages[position], Toast.LENGTH_SHORT
-                        ).show()
+                        ).show()*/
                     }
 
                     override fun onNothingSelected(parent: AdapterView<*>) {

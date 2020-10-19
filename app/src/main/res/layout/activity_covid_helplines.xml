@@ -36,4 +36,19 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
+    <TextView
+        android:id="@+id/covidDisp"
+        android:layout_width="match_parent"
+        android:layout_height="79dp"
+        android:layout_marginTop="53dp"
+        android:layout_marginBottom="287dp"
+        android:text="TextView"
+        android:textAlignment="center"
+        android:textColor="#ffffff"
+        android:textSize="20dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/spinner1" />
+
 </androidx.constraintlayout.widget.ConstraintLayout>
