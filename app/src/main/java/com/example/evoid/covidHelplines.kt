@@ -13,6 +13,8 @@ class covidHelplines : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_covid_helplines)
+
+        title = "COVID-19 Helplines"
         val states = resources.getStringArray(R.array.States)
         val spinner = R.id.spinner1
         if (spinner != null) {

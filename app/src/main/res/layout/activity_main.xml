@@ -31,12 +31,10 @@
 
     <Button
         android:id="@+id/newRegisterMain"
-        android:layout_width="160dp"
-        android:layout_height="80dp"
-        android:layout_marginStart="55dp"
-        android:layout_marginTop="19dp"
-        android:layout_marginEnd="9dp"
-        android:layout_marginBottom="39dp"
+        android:layout_width="156dp"
+        android:layout_height="71dp"
+        android:layout_marginStart="38dp"
+        android:layout_marginTop="25dp"
         android:background="@drawable/roundedcorners"
         android:enabled="true"
         android:text="@string/new_user_register_here_n"
@@ -44,18 +42,17 @@
         android:textColor="#ffffff"
         android:textSize="15dp"
         android:textStyle="bold"
-        app:layout_constraintBottom_toTopOf="@+id/enterAllDetailsMain"
         app:layout_constraintEnd_toStartOf="@+id/forgotPasswordMain"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/loginMain" />
 
     <Button
         android:id="@+id/forgotPasswordMain"
-        android:layout_width="160dp"
-        android:layout_height="80dp"
-        android:layout_marginStart="9dp"
-        android:layout_marginEnd="55dp"
-        android:layout_marginBottom="39dp"
+        android:layout_width="156dp"
+        android:layout_height="71dp"
+        android:layout_marginStart="24dp"
+        android:layout_marginTop="24dp"
+        android:layout_marginEnd="38dp"
         android:background="@drawable/roundedcorners"
         android:enabled="true"
         android:text="@string/forgot_password"
@@ -63,8 +60,8 @@
         android:textColor="#ffffff"
         android:textSize="15dp"
         android:textStyle="bold"
-        app:layout_constraintBottom_toTopOf="@+id/enterAllDetailsMain"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="1.0"
         app:layout_constraintStart_toEndOf="@+id/newRegisterMain"
         app:layout_constraintTop_toBottomOf="@+id/loginMain" />
 
@@ -73,30 +70,30 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginStart="10dp"
-        android:layout_marginTop="5dp"
+        android:layout_marginTop="30dp"
         android:layout_marginEnd="10dp"
-        android:layout_marginBottom="18dp"
+        android:layout_marginBottom="112dp"
         android:background="@drawable/roundedcorners"
         android:enabled="true"
+
         android:text="@string/login"
         android:textAlignment="center"
         android:textColor="#ffffff"
-
         android:textSize="20sp"
         android:textStyle="bold"
         app:layout_constraintBottom_toTopOf="@+id/forgotPasswordMain"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/rememberMain" />
+        app:layout_constraintTop_toBottomOf="@+id/passwordMain" />
 
     <EditText
         android:id="@+id/passwordMain"
         android:layout_width="match_parent"
         android:layout_height="63dp"
         android:layout_marginStart="9dp"
-        android:layout_marginTop="10dp"
+        android:layout_marginTop="35dp"
         android:layout_marginEnd="9dp"
-        android:layout_marginBottom="19dp"
         android:autofillHints=""
         android:background="@drawable/roundedtext"
         android:hint="@string/password"
@@ -109,7 +106,6 @@
         android:textSize="20sp"
         android:textStyle="italic"
         android:windowSoftInputMode="stateHidden"
-        app:layout_constraintBottom_toTopOf="@+id/rememberMain"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/emailIdMain">
@@ -147,7 +143,7 @@
         android:layout_height="36dp"
         android:layout_marginStart="18dp"
         android:layout_marginEnd="18dp"
-        android:layout_marginBottom="33dp"
+        android:layout_marginBottom="20dp"
         android:textAlignment="center"
         android:textColor="#FF0000"
         android:textSize="20dp"
@@ -156,39 +152,6 @@
         app:layout_constraintHorizontal_bias="0.684"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/newRegisterMain" />
-
-    <CheckBox
-        android:id="@+id/rememberMain"
-        android:layout_width="wrap_content"
-        android:layout_height="28dp"
-        android:layout_marginStart="1dp"
-        android:layout_marginEnd="35dp"
-        android:layout_marginBottom="8dp"
-        android:buttonTint="#ffffff"
-        android:text="Remember Me"
-        android:textColor="#ffffff"
-        android:textSize="15dp"
-        app:layout_constraintBottom_toTopOf="@+id/loginMain"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toEndOf="@+id/showhideMain"
-        app:layout_constraintTop_toBottomOf="@+id/passwordMain" />
-
-    <CheckBox
-        android:id="@+id/showhideMain"
-        android:layout_width="153dp"
-        android:layout_height="33dp"
-        android:layout_marginStart="35dp"
-        android:layout_marginTop="20dp"
-        android:layout_marginEnd="4dp"
-        android:layout_marginBottom="19dp"
-        android:buttonTint="#ffffff"
-        android:text="Show Password"
-        android:textColor="#ffffff"
-        android:textSize="15dp"
-        app:layout_constraintBottom_toTopOf="@+id/loginMain"
-        app:layout_constraintEnd_toStartOf="@+id/rememberMain"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/passwordMain" />
 
     <ImageView
         android:id="@+id/showHideMain"
@@ -207,11 +170,10 @@
         android:id="@+id/showHide2Main"
         android:layout_width="35dp"
         android:layout_height="43dp"
-        android:layout_marginEnd="10dp"
         android:visibility="invisible"
-        app:layout_constraintBottom_toBottomOf="@+id/showHideMain"
-        app:layout_constraintEnd_toEndOf="@+id/passwordMain"
-        app:layout_constraintTop_toTopOf="@+id/showHideMain"
+        app:layout_constraintBottom_toBottomOf="@+id/passwordMain"
+        app:layout_constraintEnd_toEndOf="@+id/showHideMain"
+        app:layout_constraintTop_toTopOf="@+id/passwordMain"
         app:srcCompat="@drawable/eyecl" />
 
 

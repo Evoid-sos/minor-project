@@ -9,7 +9,9 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".covidHelplines"></activity>
+
+        <activity android:name=".guidelines" />
+        <activity android:name=".covidHelplines" />
         <activity android:name=".MainActivity2" />
         <activity
             android:name=".registered"
@@ -28,6 +30,7 @@
             android:windowSoftInputMode="adjustResize" />
         <activity
             android:name=".MainActivity"
+            android:noHistory="true"
             android:screenOrientation="portrait"
             android:theme="@style/NoActionBarTheme"
             android:windowSoftInputMode="adjustResize">

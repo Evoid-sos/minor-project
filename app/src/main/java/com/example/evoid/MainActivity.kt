@@ -112,8 +112,8 @@ class MainActivity : AppCompatActivity() {
 
                 } else {
                     Log.w("failure", "signInWithEmail:failure", task.exception)
-                    Toast.makeText(this, "E-mail Id/Password Incorrect",
-                        Toast.LENGTH_SHORT).show()
+                    enterAllDetailsMain.text = "E-mail Id/Password Incorrect"
+                    //Toast.makeText(this, "E-mail Id/Password Incorrect",Toast.LENGTH_SHORT).show()
 
                 }
 

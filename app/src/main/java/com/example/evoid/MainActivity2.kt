@@ -1,17 +1,12 @@
 package com.example.evoid
 
 import android.content.Intent
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.Menu
-import android.view.MenuInflater
 import android.view.MenuItem
 import android.widget.ImageView
 import android.widget.Toast
-import android.widget.Toast.LENGTH_LONG
-import androidx.lifecycle.whenCreated
-import com.google.android.material.snackbar.BaseTransientBottomBar.LENGTH_LONG
-import com.google.firebase.auth.FirebaseAuth
+import androidx.appcompat.app.AppCompatActivity
 import com.google.firebase.auth.ktx.auth
 import com.google.firebase.ktx.Firebase
 
@@ -31,12 +26,17 @@ class MainActivity2 : AppCompatActivity() {
          super.onOptionsItemSelected(item)
         when(item.itemId)
         {
-            R.id.guidelines -> Toast.makeText(applicationContext, "Guidelines", Toast.LENGTH_SHORT).show()
-            R.id.covid -> startActivity(Intent(this,covidHelplines::class.java))
-            R.id.cybercrime -> Toast.makeText(applicationContext, "CyberCrimes", Toast.LENGTH_SHORT).show()
+            R.id.guidelines -> startActivity(Intent(this, guidelines::class.java))
+            R.id.covid -> startActivity(Intent(this, covidHelplines::class.java))
+            R.id.cybercrime -> Toast.makeText(applicationContext, "CyberCrimes", Toast.LENGTH_SHORT)
+                .show()
             R.id.help -> Toast.makeText(applicationContext, "Help", Toast.LENGTH_SHORT).show()
             R.id.logout -> signOut()
-            else -> Toast.makeText(applicationContext, "Could not complete the request", Toast.LENGTH_SHORT).show()
+            else -> Toast.makeText(
+                applicationContext,
+                "Could not complete the request",
+                Toast.LENGTH_SHORT
+            ).show()
         }
         return true
     }
@@ -46,7 +46,7 @@ class MainActivity2 : AppCompatActivity() {
         val panicButton = findViewById(R.id.panicButton) as ImageView
         panicButton.setOnClickListener()
         {
-            Toast.makeText(applicationContext,"PANIC",Toast.LENGTH_LONG).show()
+            Toast.makeText(applicationContext, "PANIC", Toast.LENGTH_LONG).show()
         }
     }
 
@@ -55,6 +55,12 @@ class MainActivity2 : AppCompatActivity() {
 
         auth.signOut()
         val intent = Intent(this, MainActivity::class.java)
+        intent.putExtra("finish", true) // if you are checking for this in your other Activities
+
+        intent.flags = Intent.FLAG_ACTIVITY_CLEAR_TOP or
+                Intent.FLAG_ACTIVITY_CLEAR_TASK or
+                Intent.FLAG_ACTIVITY_NEW_TASK
         startActivity(intent)
+        finish()
     }
 }
