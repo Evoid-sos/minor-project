@@ -11,13 +11,20 @@ import android.widget.Toast
 import android.widget.Toast.LENGTH_LONG
 import androidx.lifecycle.whenCreated
 import com.google.android.material.snackbar.BaseTransientBottomBar.LENGTH_LONG
+import com.google.firebase.auth.FirebaseAuth
+import com.google.firebase.auth.ktx.auth
+import com.google.firebase.ktx.Firebase
 
 class MainActivity2 : AppCompatActivity() {
+
     override fun onCreateOptionsMenu(menu: Menu?): Boolean {
         val inflater = menuInflater;
         inflater.inflate(R.menu.main_menu, menu);
         return super.onCreateOptionsMenu(menu)
     }
+
+
+    var auth = Firebase.auth
 
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
 
@@ -28,7 +35,7 @@ class MainActivity2 : AppCompatActivity() {
             R.id.covid -> startActivity(Intent(this,covidHelplines::class.java))
             R.id.cybercrime -> Toast.makeText(applicationContext, "CyberCrimes", Toast.LENGTH_SHORT).show()
             R.id.help -> Toast.makeText(applicationContext, "Help", Toast.LENGTH_SHORT).show()
-            R.id.logout -> Toast.makeText(applicationContext, "Logout", Toast.LENGTH_SHORT).show()
+            R.id.logout -> signOut()
             else -> Toast.makeText(applicationContext, "Could not complete the request", Toast.LENGTH_SHORT).show()
         }
         return true
@@ -41,5 +48,13 @@ class MainActivity2 : AppCompatActivity() {
         {
             Toast.makeText(applicationContext,"PANIC",Toast.LENGTH_LONG).show()
         }
+    }
+
+    private fun signOut()
+    {
+
+        auth.signOut()
+        val intent = Intent(this, MainActivity::class.java)
+        startActivity(intent)
     }
 }

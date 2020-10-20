@@ -28,6 +28,12 @@ class MainActivity : AppCompatActivity() {
         window.setSoftInputMode(WindowManager.LayoutParams.SOFT_INPUT_STATE_ALWAYS_HIDDEN);
         setContentView(R.layout.activity_main)
 
+        if (auth.currentUser != null)
+        {
+            val intent = Intent(this, MainActivity2::class.java)
+            startActivity(intent)
+        }
+
 
         showHideMain.setOnClickListener() {
             if (b == 0)
@@ -116,6 +122,8 @@ class MainActivity : AppCompatActivity() {
 
 
     }
+
+
 
 
 
