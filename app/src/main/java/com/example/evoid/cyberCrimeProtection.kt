@@ -9,6 +9,7 @@ class cyberCrimeProtection : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_cyber_crime_protection)
+        title="Cyber Crimes Protection Guidelines"
         reportLink.movementMethod=LinkMovementMethod.getInstance()
         cybercrime.setOnClickListener()
         {
