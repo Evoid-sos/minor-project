@@ -9,7 +9,7 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-
+        <activity android:name=".cyberCrimeProtection"></activity>
         <activity android:name=".guidelines" />
         <activity android:name=".covidHelplines" />
         <activity android:name=".MainActivity2" />

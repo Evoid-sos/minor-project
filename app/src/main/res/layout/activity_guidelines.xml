@@ -44,7 +44,7 @@
                 android:id="@+id/guideText"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="CLICK ON IMAGES TO VIEW GUIDELINES"
+                android:text="CLICK ON THE IMAGES TO VIEW GUIDELINES"
                 android:textAlignment="center"
                 android:textColor="#ffffff" />
         </LinearLayout>
