@@ -8,6 +8,7 @@ import com.google.firebase.firestore.FirebaseFirestore
 import com.google.firebase.firestore.SetOptions
 import com.google.firebase.firestore.auth.User
 import com.google.firebase.firestore.ktx.firestore
+import com.google.firebase.firestore.ktx.toObject
 import com.google.firebase.ktx.Firebase
 
 class firestoreClass {
@@ -23,6 +24,24 @@ class firestoreClass {
             .addOnSuccessListener {
                 Toast.makeText(activity, "registered", Toast.LENGTH_SHORT).show()
             }
+    }
+
+    fun displayRegisterUser()
+    {
+        mFireStore.collection(constants.USERS)
+            .document(getCurrentUserId())
+            .get()
+            .addOnSuccessListener {document->
+                val loggedInUser = document.toObject(User::class.java)!!
+                displayRegisteredDetails(loggedInUser)
+
+        }
+    }
+
+    private fun displayRegisteredDetails(loggedInUser: User) {
+
+
+
     }
 
     fun getCurrentUserId():String

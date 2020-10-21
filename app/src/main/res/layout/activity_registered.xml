@@ -84,9 +84,9 @@
                     android:textStyle="bold" />
 
                 <TextView
+                    android:id="@+id/fullNameRegistered"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="@string/eshika_agarwal"
                     android:textColor="@android:color/black"
                     android:textSize="18sp" />
 
@@ -112,9 +112,9 @@
                     />
 
                 <TextView
+                    android:id="@+id/phoneRegistered"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="@string/_976"
                     android:textColor="@android:color/black"
                     android:textSize="18sp" />
 
@@ -140,9 +140,9 @@
                     />
 
                 <TextView
+                    android:id="@+id/emailRegistered"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
-                    android:text="@string/agarwaleshi_gmail_com"
                     android:textColor="@android:color/black"
                     android:textSize="18sp" />
 
@@ -168,9 +168,9 @@
                     />
 
                 <TextView
+                    android:id="@+id/dateRegistered"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="@string/_03_10_2020"
                     android:textColor="@android:color/black"
                     android:textSize="18sp" />
 

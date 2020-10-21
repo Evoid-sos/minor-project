@@ -76,9 +76,9 @@ class register : AppCompatActivity() {
                 val currentUser = auth.currentUser
                 val user = com.example.evoid.User(currentUser!!.uid, firstName, lastName, mobile.toLong(), emailId)
                 firestoreClass().registerUser(this, user)
-//                val intent = Intent(this, registered::class.java)
-//                startActivity(intent)
-//                finish()
+                val intent = Intent(this, registered::class.java)
+                startActivity(intent)
+                finish()
 
                 // Sign in success, update UI with the signed-in user's information
 
