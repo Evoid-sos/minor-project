@@ -6,20 +6,19 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:background="@drawable/login_bg3"
     tools:context=".MainActivity2">
+
     <com.google.android.material.tabs.TabLayout
         android:id="@+id/tabLayout"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:background="@color/colorPrimary"
-        app:tabTextColor="#DEB887"
-        app:tabSelectedTextColor="#ffffff">
-    </com.google.android.material.tabs.TabLayout>
+        app:tabSelectedTextColor="#ffffff"
+        app:tabTextColor="#DEB887"></com.google.android.material.tabs.TabLayout>
+
     <androidx.viewpager.widget.ViewPager
         android:id="@+id/viewPager"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_below="@id/tabLayout"
-        android:layout_centerInParent="true"
-        android:layout_marginTop="100dp"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_marginTop="50dp"
         tools:layout_editor_absoluteX="8dp" />
 </RelativeLayout>

@@ -12,15 +12,70 @@
 
     <ImageView
         android:id="@+id/emergencybutton"
-        android:layout_width="151dp"
-        android:layout_height="214dp"
-        android:layout_marginStart="120dp"
-        android:layout_marginTop="163dp"
-        android:layout_marginEnd="120dp"
-        android:layout_marginBottom="344dp"
+        android:layout_width="144dp"
+        android:layout_height="141dp"
+        android:layout_marginStart="109dp"
+        android:layout_marginEnd="109dp"
+        android:layout_marginBottom="140dp"
         android:src="@drawable/emergencybutton"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <ImageView
+        android:id="@+id/fireHelpline"
+        android:layout_width="115dp"
+        android:layout_height="43dp"
+        android:layout_marginStart="34dp"
+        android:layout_marginTop="77dp"
+        android:layout_marginEnd="61dp"
+        android:layout_marginBottom="212dp"
+        android:src="@drawable/callfire"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/ambulanceHelpline"
+        app:layout_constraintTop_toBottomOf="@+id/emergencybutton" />
+
+    <ImageView
+        android:id="@+id/policeHelpline"
+        android:layout_width="115dp"
+        android:layout_height="43dp"
+        android:layout_marginStart="34dp"
+        android:layout_marginTop="50dp"
+        android:layout_marginEnd="63dp"
+        android:layout_marginBottom="77dp"
+        android:src="@drawable/callpolice"
+        app:layout_constraintBottom_toTopOf="@+id/emergencybutton"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/womenHelpline"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <ImageView
+        android:id="@+id/ambulanceHelpline"
+        android:layout_width="115dp"
+        android:layout_height="43dp"
+        android:layout_marginStart="68dp"
+        android:layout_marginTop="77dp"
+        android:layout_marginEnd="34dp"
+        android:layout_marginBottom="212dp"
+        android:src="@drawable/callambulance"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toStartOf="@+id/fireHelpline"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/emergencybutton" />
+
+    <ImageView
+        android:id="@+id/womenHelpline"
+        android:layout_width="115dp"
+        android:layout_height="43dp"
+        android:layout_marginStart="65dp"
+        android:layout_marginTop="50dp"
+        android:layout_marginEnd="34dp"
+        android:layout_marginBottom="77dp"
+        android:src="@drawable/womenhelpline"
+        app:layout_constraintBottom_toTopOf="@+id/emergencybutton"
+        app:layout_constraintEnd_toStartOf="@+id/policeHelpline"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 

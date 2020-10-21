@@ -18,12 +18,26 @@ class emergency : Fragment() {
         // Inflate the layout for this fragment
         val view: View = inflater!!.inflate(R.layout.fragment_emergency, container, false)
 
-        view.emergencybutton.setOnClickListener { view ->
-            val intent = Intent(Intent.ACTION_DIAL)
-            intent.data = Uri.parse("tel:0123456789")
+        view.fireHelpline.setOnClickListener { view ->
+            val intent = Intent(Intent.ACTION_CALL)
+            intent.data = Uri.parse("tel:9560983181")
             startActivity(intent)
         }
-
+        view.womenHelpline.setOnClickListener { view ->
+            val intent = Intent(Intent.ACTION_CALL)
+            intent.data = Uri.parse("tel:9560983181")
+            startActivity(intent)
+        }
+        view.policeHelpline.setOnClickListener { view ->
+            val intent = Intent(Intent.ACTION_CALL)
+            intent.data = Uri.parse("tel:9560983181")
+            startActivity(intent)
+        }
+        view.ambulanceHelpline.setOnClickListener { view ->
+            val intent = Intent(Intent.ACTION_CALL)
+            intent.data = Uri.parse("tel:9560983181")
+            startActivity(intent)
+        }
         // Return the fragment view/layout
         return view
     }
