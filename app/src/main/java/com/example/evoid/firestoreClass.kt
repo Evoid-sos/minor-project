@@ -26,23 +26,7 @@ class firestoreClass {
             }
     }
 
-    fun displayRegisterUser()
-    {
-        mFireStore.collection(constants.USERS)
-            .document(getCurrentUserId())
-            .get()
-            .addOnSuccessListener {document->
-                val loggedInUser = document.toObject(User::class.java)!!
-                displayRegisteredDetails(loggedInUser)
 
-        }
-    }
-
-    private fun displayRegisteredDetails(loggedInUser: User) {
-
-
-
-    }
 
     fun getCurrentUserId():String
     {
