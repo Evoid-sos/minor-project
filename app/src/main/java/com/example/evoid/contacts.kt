@@ -87,18 +87,44 @@ class contacts : Fragment() {
 
     private fun deleteContact() {
         if (position == 1) {
-            //var batch: WriteBatch = mFireStore.batch()
-            //getDocument()
             mFireStore.collection(constants.USERS)
                 .document(auth.currentUser!!.uid)
                 .collection(constants.ContactsDetails)
                 .document(docId1).delete()
             clearContact()
             displayContact()
-
-
-
-
+        }
+        if (position == 2) {
+            mFireStore.collection(constants.USERS)
+                .document(auth.currentUser!!.uid)
+                .collection(constants.ContactsDetails)
+                .document(docId2).delete()
+            clearContact()
+            displayContact()
+        }
+        if (position == 3) {
+            mFireStore.collection(constants.USERS)
+                .document(auth.currentUser!!.uid)
+                .collection(constants.ContactsDetails)
+                .document(docId3).delete()
+            clearContact()
+            displayContact()
+        }
+        if (position == 4) {
+            mFireStore.collection(constants.USERS)
+                .document(auth.currentUser!!.uid)
+                .collection(constants.ContactsDetails)
+                .document(docId4).delete()
+            clearContact()
+            displayContact()
+        }
+        if (position == 5) {
+            mFireStore.collection(constants.USERS)
+                .document(auth.currentUser!!.uid)
+                .collection(constants.ContactsDetails)
+                .document(docId5).delete()
+            clearContact()
+            displayContact()
         }
 
     }
