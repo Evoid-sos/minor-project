@@ -24,13 +24,37 @@ class emergency : Fragment() {
         val view: View = inflater!!.inflate(R.layout.fragment_emergency, container, false)
 
         view.fireHelpline.setOnClickListener { view ->
-            makePhoneCall()
+            if (ActivityCompat.checkSelfPermission(activity as MainActivity2, android.Manifest.permission.CALL_PHONE) != PackageManager.PERMISSION_GRANTED){
+
+                ActivityCompat.requestPermissions(activity as MainActivity2,
+                    arrayOf(android.Manifest.permission.CALL_PHONE),REQUEST_PHONE_CALL)
+            }
+            else
+            {
+                makePhoneCall()
+            }
         }
         view.womenHelpline.setOnClickListener { view ->
-            makePhoneCall()
+            if (ActivityCompat.checkSelfPermission(activity as MainActivity2, android.Manifest.permission.CALL_PHONE) != PackageManager.PERMISSION_GRANTED){
+
+                ActivityCompat.requestPermissions(activity as MainActivity2,
+                    arrayOf(android.Manifest.permission.CALL_PHONE),REQUEST_PHONE_CALL)
+            }
+            else
+            {
+                makePhoneCall()
+            }
         }
         view.policeHelpline.setOnClickListener { view ->
-            makePhoneCall()
+            if (ActivityCompat.checkSelfPermission(activity as MainActivity2, android.Manifest.permission.CALL_PHONE) != PackageManager.PERMISSION_GRANTED){
+
+                ActivityCompat.requestPermissions(activity as MainActivity2,
+                    arrayOf(android.Manifest.permission.CALL_PHONE),REQUEST_PHONE_CALL)
+            }
+            else
+            {
+                makePhoneCall()
+            }
         }
         view.ambulanceHelpline.setOnClickListener { view ->
             if (ActivityCompat.checkSelfPermission(activity as MainActivity2, android.Manifest.permission.CALL_PHONE) != PackageManager.PERMISSION_GRANTED){
