@@ -15,6 +15,10 @@ import java.util.jar.Manifest
 
 class emergency : Fragment() {
     val REQUEST_PHONE_CALL = 1
+    var fire = 0
+    var women = 0
+    var police = 0
+    var ambulance = 0
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -23,58 +27,62 @@ class emergency : Fragment() {
         // Inflate the layout for this fragment
         val view: View = inflater!!.inflate(R.layout.fragment_emergency, container, false)
 
-        view.fireHelpline.setOnClickListener { view ->
-            if (ActivityCompat.checkSelfPermission(activity as MainActivity2, android.Manifest.permission.CALL_PHONE) != PackageManager.PERMISSION_GRANTED){
 
-                ActivityCompat.requestPermissions(activity as MainActivity2,
-                    arrayOf(android.Manifest.permission.CALL_PHONE),REQUEST_PHONE_CALL)
-            }
-            else
-            {
-                makePhoneCall()
-            }
+        view.fireHelpline.setOnClickListener { view ->
+            fire=1
+            askPermission()
         }
         view.womenHelpline.setOnClickListener { view ->
-            if (ActivityCompat.checkSelfPermission(activity as MainActivity2, android.Manifest.permission.CALL_PHONE) != PackageManager.PERMISSION_GRANTED){
-
-                ActivityCompat.requestPermissions(activity as MainActivity2,
-                    arrayOf(android.Manifest.permission.CALL_PHONE),REQUEST_PHONE_CALL)
-            }
-            else
-            {
-                makePhoneCall()
-            }
+            women = 1
+            askPermission()
         }
         view.policeHelpline.setOnClickListener { view ->
-            if (ActivityCompat.checkSelfPermission(activity as MainActivity2, android.Manifest.permission.CALL_PHONE) != PackageManager.PERMISSION_GRANTED){
-
-                ActivityCompat.requestPermissions(activity as MainActivity2,
-                    arrayOf(android.Manifest.permission.CALL_PHONE),REQUEST_PHONE_CALL)
-            }
-            else
-            {
-                makePhoneCall()
-            }
+            police=1
+            askPermission()
         }
         view.ambulanceHelpline.setOnClickListener { view ->
-            if (ActivityCompat.checkSelfPermission(activity as MainActivity2, android.Manifest.permission.CALL_PHONE) != PackageManager.PERMISSION_GRANTED){
-
-                ActivityCompat.requestPermissions(activity as MainActivity2,
-                    arrayOf(android.Manifest.permission.CALL_PHONE),REQUEST_PHONE_CALL)
-            }
-            else
-            {
-                makePhoneCall()
-            }
+            ambulance=1
+            askPermission()
 
         }
         // Return the fragment view/layout
         return view
     }
 
+    private fun askPermission() {
+        if (ActivityCompat.checkSelfPermission(activity as MainActivity2, android.Manifest.permission.CALL_PHONE) != PackageManager.PERMISSION_GRANTED){
+
+            ActivityCompat.requestPermissions(activity as MainActivity2,
+                arrayOf(android.Manifest.permission.CALL_PHONE),REQUEST_PHONE_CALL)
+        }
+        else
+        {
+            makePhoneCall()
+        }
+
+    }
+
     private fun makePhoneCall() {
+        var phoneNumber:Long = 0
+        if (fire ==1)
+        {
+            phoneNumber = 9560983181
+        }
+        else if (police ==1)
+        {
+            phoneNumber = 9560983181
+        }
+        else if (women ==1)
+        {
+            phoneNumber = 9560983181
+        }
+        else if (ambulance ==1)
+        {
+            phoneNumber = 9560983181
+        }
+
         val intent = Intent(Intent.ACTION_CALL)
-        intent.data = Uri.parse("tel:9560983181")
+        intent.data = Uri.parse("tel:$phoneNumber")
         startActivity(intent)
     }
 

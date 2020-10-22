@@ -36,4 +36,16 @@ class firestoreClass {
 
     }
 
+    fun addContact(contactInfo:ContactsDetails, phoneId:String)
+    {
+        mFireStore.collection(constants.USERS)
+            .document(getCurrentUserId())
+            .collection(constants.ContactsDetails).document(phoneId)
+            .set(contactInfo, SetOptions.merge())
+    }
+
+
+
+
+
 }

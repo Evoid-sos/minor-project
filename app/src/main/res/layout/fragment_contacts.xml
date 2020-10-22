@@ -11,8 +11,8 @@
     tools:context=".contacts">
 
     <TextView
-        android:id="@+id/textView11"
-        android:layout_width="250dp"
+        android:id="@+id/contact1Contacts"
+        android:layout_width="280dp"
         android:layout_height="36dp"
         android:layout_marginStart="123dp"
         android:layout_marginTop="200dp"
@@ -20,15 +20,15 @@
         android:layout_marginBottom="9dp"
         android:background="@drawable/roundedtext"
         android:gravity="center"
-        android:text="Contact"
-        app:layout_constraintBottom_toTopOf="@+id/textView12"
+        android:visibility="invisible"
+        app:layout_constraintBottom_toTopOf="@+id/contact2Contacts"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
-        android:id="@+id/textView12"
-        android:layout_width="250dp"
+        android:id="@+id/contact2Contacts"
+        android:layout_width="280dp"
         android:layout_height="36dp"
         android:layout_marginStart="123dp"
         android:layout_marginTop="24dp"
@@ -36,142 +36,161 @@
         android:layout_marginBottom="9dp"
         android:background="@drawable/roundedtext"
         android:gravity="center"
-        android:text="Contact"
-        app:layout_constraintBottom_toTopOf="@+id/textView13"
+        android:visibility="invisible"
+        app:layout_constraintBottom_toTopOf="@+id/contact3Contacts"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView11" />
+        app:layout_constraintTop_toBottomOf="@+id/contact1Contacts" />
 
     <TextView
-        android:id="@+id/textView13"
-        android:layout_width="250dp"
+        android:id="@+id/contact3Contacts"
+        android:layout_width="280dp"
         android:layout_height="36dp"
         android:layout_marginStart="123dp"
         android:layout_marginTop="24dp"
         android:layout_marginEnd="123dp"
         android:layout_marginBottom="9dp"
-        android:gravity="center"
-        android:text="Contact"
         android:background="@drawable/roundedtext"
-        app:layout_constraintBottom_toTopOf="@+id/textView14"
+        android:gravity="center"
+        android:visibility="invisible"
+        app:layout_constraintBottom_toTopOf="@+id/contact4Contacts"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView12" />
+        app:layout_constraintTop_toBottomOf="@+id/contact2Contacts" />
 
     <TextView
-        android:id="@+id/textView14"
-        android:layout_width="250dp"
+        android:id="@+id/contact4Contacts"
+        android:layout_width="280dp"
         android:layout_height="36dp"
         android:layout_marginStart="123dp"
         android:layout_marginTop="24dp"
         android:layout_marginEnd="123dp"
         android:layout_marginBottom="9dp"
-        android:gravity="center"
-        android:text="Contact"
         android:background="@drawable/roundedtext"
-        app:layout_constraintBottom_toTopOf="@+id/textView15"
+        android:gravity="center"
+        android:visibility="invisible"
+        app:layout_constraintBottom_toTopOf="@+id/contact5Contacts"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView13" />
+        app:layout_constraintTop_toBottomOf="@+id/contact3Contacts" />
 
     <TextView
-        android:id="@+id/textView15"
-        android:layout_width="250dp"
+        android:id="@+id/contact5Contacts"
+        android:layout_width="280dp"
         android:layout_height="36dp"
         android:layout_marginStart="123dp"
         android:layout_marginTop="24dp"
         android:layout_marginEnd="123dp"
-        android:gravity="center"
-        android:text="Contact"
         android:background="@drawable/roundedtext"
-        app:layout_constraintBottom_toTopOf="@+id/imageView7"
+        android:gravity="center"
+        android:visibility="invisible"
+        app:layout_constraintBottom_toTopOf="@+id/addContactButton"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView14" />
+        app:layout_constraintTop_toBottomOf="@+id/contact4Contacts" />
 
     <ImageView
-        android:id="@+id/imageView3"
+        android:id="@+id/deleteContact1"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:src="@android:drawable/ic_delete"
-        app:layout_constraintBottom_toBottomOf="@+id/textView12"
-        app:layout_constraintEnd_toEndOf="@+id/textView12"
-        app:layout_constraintTop_toTopOf="@+id/textView12" />
+        android:visibility="invisible"
+        app:layout_constraintBottom_toBottomOf="@+id/contact1Contacts"
+        app:layout_constraintEnd_toEndOf="@+id/contact1Contacts"
+        app:layout_constraintTop_toTopOf="@+id/contact1Contacts" />
 
     <ImageView
-        android:id="@+id/imageView5"
+        android:id="@+id/deleteContact2"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:src="@android:drawable/ic_delete"
-        app:layout_constraintBottom_toBottomOf="@+id/textView14"
-        app:layout_constraintEnd_toEndOf="@+id/textView14"
-        app:layout_constraintTop_toTopOf="@+id/textView14" />
+        android:visibility="invisible"
+        app:layout_constraintBottom_toBottomOf="@+id/contact2Contacts"
+        app:layout_constraintEnd_toEndOf="@+id/contact2Contacts"
+        app:layout_constraintTop_toTopOf="@+id/contact2Contacts" />
 
     <ImageView
-        android:id="@+id/imageView4"
+        android:id="@+id/deleteContact3"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:src="@android:drawable/ic_delete"
-        app:layout_constraintBottom_toBottomOf="@+id/textView13"
-        app:layout_constraintEnd_toEndOf="@+id/textView13"
-        app:layout_constraintTop_toTopOf="@+id/textView13" />
+        android:visibility="invisible"
+        app:layout_constraintBottom_toBottomOf="@+id/contact3Contacts"
+        app:layout_constraintEnd_toEndOf="@+id/contact3Contacts"
+        app:layout_constraintTop_toTopOf="@+id/contact3Contacts" />
 
     <ImageView
-        android:id="@+id/imageView6"
+        android:id="@+id/deleteContact4"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:src="@android:drawable/ic_delete"
-        app:layout_constraintBottom_toBottomOf="@+id/textView15"
-        app:layout_constraintEnd_toEndOf="@+id/textView15"
-        app:layout_constraintTop_toTopOf="@+id/textView15" />
+        android:visibility="invisible"
+        app:layout_constraintBottom_toBottomOf="@+id/contact4Contacts"
+        app:layout_constraintEnd_toEndOf="@+id/contact4Contacts"
+        app:layout_constraintTop_toTopOf="@+id/contact4Contacts" />
 
     <ImageView
-        android:id="@+id/imageView12"
+        android:id="@+id/deleteContact5"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:src="@android:drawable/ic_delete"
+        android:visibility="invisible"
+        app:layout_constraintBottom_toBottomOf="@+id/contact5Contacts"
+        app:layout_constraintEnd_toEndOf="@+id/contact5Contacts"
+        app:layout_constraintTop_toTopOf="@+id/contact5Contacts" />
+
+    <ImageView
+        android:id="@+id/contactIcon1"
         android:layout_width="38dp"
         android:layout_height="37dp"
         android:src="@drawable/clist"
-        app:layout_constraintBottom_toBottomOf="@+id/textView15"
-        app:layout_constraintStart_toStartOf="@+id/textView15"
-        app:layout_constraintTop_toTopOf="@+id/textView15" />
+        android:visibility="invisible"
+        app:layout_constraintBottom_toBottomOf="@+id/contact1Contacts"
+        app:layout_constraintStart_toStartOf="@+id/contact1Contacts"
+        app:layout_constraintTop_toTopOf="@+id/contact1Contacts" />
 
     <ImageView
-        android:id="@+id/imageView10"
+        android:id="@+id/contactIcon2"
         android:layout_width="38dp"
         android:layout_height="37dp"
         android:src="@drawable/clist"
-        app:layout_constraintBottom_toBottomOf="@+id/textView13"
-        app:layout_constraintStart_toStartOf="@+id/textView13"
-        app:layout_constraintTop_toTopOf="@+id/textView13" />
+        android:visibility="invisible"
+        app:layout_constraintBottom_toBottomOf="@+id/contact2Contacts"
+        app:layout_constraintStart_toStartOf="@+id/contact2Contacts"
+        app:layout_constraintTop_toTopOf="@+id/contact2Contacts" />
 
     <ImageView
-        android:id="@+id/imageView11"
+        android:id="@+id/contactIcon3"
         android:layout_width="38dp"
         android:layout_height="37dp"
         android:src="@drawable/clist"
-        app:layout_constraintBottom_toBottomOf="@+id/textView14"
-        app:layout_constraintStart_toStartOf="@+id/textView14"
-        app:layout_constraintTop_toTopOf="@+id/textView14" />
+        android:visibility="invisible"
+        app:layout_constraintBottom_toBottomOf="@+id/contact3Contacts"
+        app:layout_constraintStart_toStartOf="@+id/contact3Contacts"
+        app:layout_constraintTop_toTopOf="@+id/contact3Contacts" />
 
     <ImageView
-        android:id="@+id/imageView9"
+        android:id="@+id/contactIcon4"
         android:layout_width="38dp"
         android:layout_height="37dp"
         android:src="@drawable/clist"
-        app:layout_constraintBottom_toBottomOf="@+id/textView12"
-        app:layout_constraintStart_toStartOf="@+id/textView12"
-        app:layout_constraintTop_toTopOf="@+id/textView12" />
+        android:visibility="invisible"
+        app:layout_constraintBottom_toBottomOf="@+id/contact4Contacts"
+        app:layout_constraintStart_toStartOf="@+id/contact4Contacts"
+        app:layout_constraintTop_toTopOf="@+id/contact4Contacts" />
 
     <ImageView
-        android:id="@+id/imageView2"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:src="@android:drawable/ic_delete"
-        app:layout_constraintBottom_toBottomOf="@+id/textView11"
-        app:layout_constraintEnd_toEndOf="@+id/textView11"
-        app:layout_constraintTop_toTopOf="@+id/textView11" />
+        android:id="@+id/contactIcon5"
+        android:layout_width="38dp"
+        android:layout_height="37dp"
+        android:src="@drawable/clist"
+        android:visibility="invisible"
+        app:layout_constraintBottom_toBottomOf="@+id/contact5Contacts"
+        app:layout_constraintStart_toStartOf="@+id/contact5Contacts"
+        app:layout_constraintTop_toTopOf="@+id/contact5Contacts" />
 
     <ImageView
-        android:id="@+id/imageView7"
+        android:id="@+id/addContactButton"
         android:layout_width="43dp"
         android:layout_height="49dp"
         android:layout_marginStart="165dp"
@@ -182,15 +201,6 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView15" />
-
-    <ImageView
-        android:id="@+id/imageView8"
-        android:layout_width="38dp"
-        android:layout_height="37dp"
-        android:src="@drawable/clist"
-        app:layout_constraintBottom_toBottomOf="@+id/textView11"
-        app:layout_constraintStart_toStartOf="@+id/textView11"
-        app:layout_constraintTop_toTopOf="@+id/textView11" />
+        app:layout_constraintTop_toBottomOf="@+id/contact5Contacts" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
