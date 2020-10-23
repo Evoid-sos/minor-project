@@ -3,53 +3,43 @@ package com.example.evoid
 import android.content.Intent
 import android.content.pm.ActivityInfo
 import android.os.Bundle
-import android.view.Menu
 import android.view.MenuItem
 import android.widget.Toast
+import androidx.appcompat.app.ActionBarDrawerToggle
 import androidx.appcompat.app.AppCompatActivity
+import androidx.core.view.GravityCompat
+import androidx.drawerlayout.widget.DrawerLayout
 import androidx.viewpager.widget.ViewPager
+import com.google.android.material.navigation.NavigationView
 import com.google.android.material.tabs.TabLayout
 import com.google.firebase.auth.ktx.auth
 import com.google.firebase.ktx.Firebase
 import kotlinx.android.synthetic.main.activity_main2.*
+import kotlinx.android.synthetic.main.content_main.*
+import kotlinx.android.synthetic.main.nav_header_main.profileIconNav
 
-class MainActivity2 : AppCompatActivity() {
+class MainActivity2 : AppCompatActivity(),NavigationView.OnNavigationItemSelectedListener{
     lateinit var tabLayout: TabLayout
     lateinit var viewPager: ViewPager
-
-    override fun onCreateOptionsMenu(menu: Menu?): Boolean {
-        val inflater = menuInflater;
-        inflater.inflate(R.menu.main_menu, menu);
-        return super.onCreateOptionsMenu(menu)
-    }
-
-
+    lateinit var drawerLayout: DrawerLayout
+    lateinit var navigationView: NavigationView
     var auth = Firebase.auth
 
-    override fun onOptionsItemSelected(item: MenuItem): Boolean {
-
-         super.onOptionsItemSelected(item)
-        when(item.itemId)
-        {
-            R.id.guidelines -> startActivity(Intent(this, guidelines::class.java))
-            R.id.covid -> startActivity(Intent(this, covidHelplines::class.java))
-            R.id.cybercrime -> startActivity(Intent(this, cybersecurity::class.java))
-            R.id.help -> startActivity(Intent(this, faqs::class.java))
-            R.id.logout -> signOut()
-            else -> Toast.makeText(
-                applicationContext,
-                "Could not complete the request",
-                Toast.LENGTH_SHORT
-            ).show()
-        }
-        return true
-    }
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main2)
         this.setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_PORTRAIT)
+        drawerLayout = findViewById(R.id.drawer)
+        val navView: NavigationView = findViewById(R.id.nav_view)
+        val toggle = ActionBarDrawerToggle(this, drawerLayout, toolbar, R.string.navigation_drawer_open, R.string.navigation_drawer_close)
+        drawerLayout.addDrawerListener(toggle)
+        supportActionBar?.setDisplayHomeAsUpEnabled(true)
+        supportActionBar?.setHomeButtonEnabled(true)
+        toggle.syncState()
+        navView.setNavigationItemSelectedListener(this)
         tabLayout = findViewById(R.id.tabLayout)
         viewPager = findViewById(R.id.viewPager)
+        setSupportActionBar(toolbar)
         tabLayout.addTab(tabLayout.newTab().setText("EMERGENCY"))
         tabLayout.addTab(tabLayout.newTab().setText("ADD CONTACTS"))
         tabLayout.tabGravity = TabLayout.GRAVITY_FILL
@@ -80,5 +70,37 @@ class MainActivity2 : AppCompatActivity() {
                 Intent.FLAG_ACTIVITY_NEW_TASK
         startActivity(intent)
         finish()
+    }
+    override fun onOptionsItemSelected(item: MenuItem): Boolean {
+        return when (item.itemId) {
+            android.R.id.home -> {
+                drawer.openDrawer(GravityCompat.START)
+                true
+            }
+            else -> super.onOptionsItemSelected(item)
+        }
+    }
+    override fun onNavigationItemSelected(item: MenuItem): Boolean {
+        when(item.itemId)
+        {
+            R.id.guidelines -> startActivity(Intent(this, guidelines::class.java))
+            R.id.covid -> startActivity(Intent(this, covidHelplines::class.java))
+            R.id.cybercrime -> startActivity(Intent(this, cybersecurity::class.java))
+            R.id.help -> startActivity(Intent(this, faqs::class.java))
+            R.id.logout -> signOut()
+            else -> Toast.makeText(
+                applicationContext,
+                "Could not complete the request",
+                Toast.LENGTH_SHORT
+            ).show()
+        }
+        return true
+    }
+    override fun onBackPressed() {
+        if (drawer.isDrawerOpen(GravityCompat.START)) {
+            drawer.closeDrawer(GravityCompat.START)
+        } else {
+            super.onBackPressed()
+        }
     }
 }

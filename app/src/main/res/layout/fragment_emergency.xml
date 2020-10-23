@@ -10,6 +10,50 @@
     android:padding="10dp"
     tools:context=".emergency">
 
+    <View
+        android:id="@+id/view"
+        android:layout_width="1dp"
+        android:layout_height="140dp"
+        android:layout_marginBottom="211dp"
+        android:background="@android:color/white"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.497"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/emergencybutton" />
+
+    <View
+        android:id="@+id/view5"
+        android:layout_width="1dp"
+        android:layout_height="140dp"
+        android:layout_marginTop="70dp"
+        android:layout_marginBottom="496dp"
+        android:background="@android:color/white"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <View
+        android:id="@+id/view2"
+        android:layout_width="170dp"
+        android:layout_height="1dp"
+        android:layout_marginBottom="150dp"
+        android:background="@android:color/white"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toStartOf="@+id/emergencybutton"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <View
+        android:id="@+id/view3"
+        android:layout_width="170dp"
+        android:layout_height="1dp"
+        android:layout_marginBottom="150dp"
+        android:background="@android:color/white"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/emergencybutton"
+        app:layout_constraintTop_toTopOf="parent" />
+
     <ImageView
         android:id="@+id/emergencybutton"
         android:layout_width="144dp"
@@ -24,59 +68,70 @@
         app:layout_constraintTop_toTopOf="parent" />
 
     <ImageView
-        android:id="@+id/fireHelpline"
-        android:layout_width="115dp"
-        android:layout_height="43dp"
-        android:layout_marginStart="34dp"
-        android:layout_marginTop="77dp"
-        android:layout_marginEnd="61dp"
-        android:layout_marginBottom="212dp"
-        android:src="@drawable/callfire"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toEndOf="@+id/ambulanceHelpline"
-        app:layout_constraintTop_toBottomOf="@+id/emergencybutton" />
+        android:id="@+id/womenHelpline"
+        android:layout_width="144dp"
+        android:layout_height="60dp"
+        android:src="@drawable/womenhelpline"
+        app:layout_constraintBottom_toTopOf="@+id/view2"
+        app:layout_constraintEnd_toStartOf="@+id/view5"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 
     <ImageView
         android:id="@+id/policeHelpline"
-        android:layout_width="115dp"
-        android:layout_height="43dp"
-        android:layout_marginStart="34dp"
-        android:layout_marginTop="50dp"
-        android:layout_marginEnd="63dp"
-        android:layout_marginBottom="77dp"
+        android:layout_width="144dp"
+        android:layout_height="60dp"
         android:src="@drawable/callpolice"
-        app:layout_constraintBottom_toTopOf="@+id/emergencybutton"
+        app:layout_constraintBottom_toTopOf="@+id/view3"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toEndOf="@+id/womenHelpline"
+        app:layout_constraintStart_toEndOf="@+id/view5"
         app:layout_constraintTop_toTopOf="parent" />
 
     <ImageView
         android:id="@+id/ambulanceHelpline"
-        android:layout_width="115dp"
-        android:layout_height="43dp"
-        android:layout_marginStart="68dp"
-        android:layout_marginTop="77dp"
-        android:layout_marginEnd="34dp"
-        android:layout_marginBottom="212dp"
+        android:layout_width="144dp"
+        android:layout_height="60dp"
+        android:layout_marginBottom="120dp"
         android:src="@drawable/callambulance"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toStartOf="@+id/fireHelpline"
+        app:layout_constraintEnd_toStartOf="@+id/view"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/emergencybutton" />
+        app:layout_constraintTop_toBottomOf="@+id/view2" />
 
     <ImageView
-        android:id="@+id/womenHelpline"
-        android:layout_width="115dp"
-        android:layout_height="43dp"
-        android:layout_marginStart="65dp"
-        android:layout_marginTop="50dp"
-        android:layout_marginEnd="34dp"
-        android:layout_marginBottom="77dp"
-        android:src="@drawable/womenhelpline"
-        app:layout_constraintBottom_toTopOf="@+id/emergencybutton"
-        app:layout_constraintEnd_toStartOf="@+id/policeHelpline"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        android:id="@+id/fireHelpline"
+        android:layout_width="144dp"
+        android:layout_height="60dp"
+        android:layout_marginBottom="120dp"
+        android:src="@drawable/callfire"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/view"
+        app:layout_constraintTop_toBottomOf="@+id/view3" />
+
+    <ImageView
+        android:id="@+id/play"
+        android:layout_width="80dp"
+        android:layout_height="58dp"
+        android:layout_marginStart="288dp"
+        android:layout_marginEnd="43dp"
+        android:layout_marginBottom="79dp"
+        android:src="@android:drawable/ic_media_play"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <ImageView
+        android:id="@+id/pause"
+        android:layout_width="81dp"
+        android:layout_height="60dp"
+        android:layout_marginStart="288dp"
+        android:layout_marginEnd="43dp"
+        android:layout_marginBottom="79dp"
+        android:visibility="invisible"
+        android:src="@android:drawable/ic_media_pause"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

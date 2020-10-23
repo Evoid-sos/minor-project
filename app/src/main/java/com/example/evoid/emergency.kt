@@ -4,11 +4,15 @@ import android.content.Intent
 import android.content.pm.PackageManager
 import android.net.Uri
 import android.os.Bundle
+import android.text.method.HideReturnsTransformationMethod
+import android.text.method.PasswordTransformationMethod
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.core.app.ActivityCompat
 import androidx.fragment.app.Fragment
+import kotlinx.android.synthetic.main.activity_main.*
+import kotlinx.android.synthetic.main.fragment_emergency.*
 import kotlinx.android.synthetic.main.fragment_emergency.view.*
 import java.util.jar.Manifest
 
@@ -19,7 +23,7 @@ class emergency : Fragment() {
     var women = 0
     var police = 0
     var ambulance = 0
-
+    private var flag = 0
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
@@ -27,6 +31,22 @@ class emergency : Fragment() {
         // Inflate the layout for this fragment
         val view: View = inflater!!.inflate(R.layout.fragment_emergency, container, false)
 
+        view.play.setOnClickListener { view ->
+            if (flag == 0) {
+                flag = 1
+                play.visibility = View.INVISIBLE
+                pause.visibility = View.VISIBLE
+
+            }
+        }
+        view.pause.setOnClickListener(){
+            if (flag==1)
+            {
+                flag=0
+                pause.visibility = View.INVISIBLE
+                play.visibility = View.VISIBLE
+            }
+        }
 
         view.fireHelpline.setOnClickListener { view ->
             fire=1
