@@ -13,7 +13,7 @@
 
 
     <ImageView
-        android:id="@+id/profileIconNav"
+        android:id="@+id/evoidIcon"
         android:layout_width="132dp"
         android:layout_height="106dp"
 
@@ -133,7 +133,7 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toEndOf="@+id/passwordMain"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/profileIconNav">
+        app:layout_constraintTop_toBottomOf="@+id/evoidIcon">
 
     </EditText>
 

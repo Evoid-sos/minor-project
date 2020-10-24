@@ -16,7 +16,7 @@ import com.google.firebase.auth.ktx.auth
 import com.google.firebase.ktx.Firebase
 import kotlinx.android.synthetic.main.activity_main2.*
 import kotlinx.android.synthetic.main.content_main.*
-import kotlinx.android.synthetic.main.nav_header_main.profileIconNav
+import kotlinx.android.synthetic.main.nav_header_main.*
 
 class MainActivity2 : AppCompatActivity(),NavigationView.OnNavigationItemSelectedListener{
     lateinit var tabLayout: TabLayout
@@ -31,11 +31,14 @@ class MainActivity2 : AppCompatActivity(),NavigationView.OnNavigationItemSelecte
         this.setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_PORTRAIT)
         drawerLayout = findViewById(R.id.drawer)
         val navView: NavigationView = findViewById(R.id.nav_view)
+
+
         val toggle = ActionBarDrawerToggle(this, drawerLayout, toolbar, R.string.navigation_drawer_open, R.string.navigation_drawer_close)
         drawerLayout.addDrawerListener(toggle)
         supportActionBar?.setDisplayHomeAsUpEnabled(true)
         supportActionBar?.setHomeButtonEnabled(true)
         toggle.syncState()
+        firestoreClass().getLoggedInUser(this)
         navView.setNavigationItemSelectedListener(this)
         tabLayout = findViewById(R.id.tabLayout)
         viewPager = findViewById(R.id.viewPager)

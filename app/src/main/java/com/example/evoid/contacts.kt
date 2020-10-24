@@ -130,19 +130,19 @@ class contacts : Fragment() {
     }
 
     private fun clearContact() {
-        contactIcon1.visibility = View.INVISIBLE
+
         deleteContact1.visibility = View.INVISIBLE
         contact1Contacts.visibility = View.INVISIBLE
-        contactIcon2.visibility = View.INVISIBLE
+
         deleteContact2.visibility = View.INVISIBLE
         contact2Contacts.visibility = View.INVISIBLE
-        contactIcon3.visibility = View.INVISIBLE
+
         deleteContact3.visibility = View.INVISIBLE
         contact3Contacts.visibility = View.INVISIBLE
-        contactIcon4.visibility = View.INVISIBLE
+
         deleteContact4.visibility = View.INVISIBLE
         contact4Contacts.visibility = View.INVISIBLE
-        contactIcon5.visibility = View.INVISIBLE
+
         deleteContact5.visibility = View.INVISIBLE
         contact5Contacts.visibility = View.INVISIBLE
         contact1Contacts.text=""
@@ -190,7 +190,7 @@ class contacts : Fragment() {
                     {
                         if (contact1Contacts.text.isEmpty())
                         {
-                            contactIcon1.visibility = View.VISIBLE
+
                             deleteContact1.visibility = View.VISIBLE
                             contact1Contacts.visibility = View.VISIBLE
                             contact1Contacts.setText(document.get("contactName").toString())
@@ -198,7 +198,7 @@ class contacts : Fragment() {
                         }
                         else if (contact2Contacts.text.isEmpty())
                         {
-                            contactIcon2.visibility = View.VISIBLE
+
                             deleteContact2.visibility = View.VISIBLE
                             contact2Contacts.visibility = View.VISIBLE
                             contact2Contacts.setText(document.get("contactName").toString())
@@ -206,7 +206,7 @@ class contacts : Fragment() {
                         }
                         else if (contact3Contacts.text.isEmpty())
                         {
-                            contactIcon3.visibility = View.VISIBLE
+
                             deleteContact3.visibility = View.VISIBLE
                             contact3Contacts.visibility = View.VISIBLE
                             contact3Contacts.setText(document.get("contactName").toString())
@@ -214,7 +214,7 @@ class contacts : Fragment() {
                         }
                         else if (contact4Contacts.text.isEmpty())
                         {
-                            contactIcon4.visibility = View.VISIBLE
+
                             deleteContact4.visibility = View.VISIBLE
                             contact4Contacts.visibility = View.VISIBLE
                             contact4Contacts.setText(document.get("contactName").toString())
@@ -222,7 +222,7 @@ class contacts : Fragment() {
                         }
                         else if (contact5Contacts.text.isEmpty())
                         {
-                            contactIcon5.visibility = View.VISIBLE
+
                             deleteContact5.visibility = View.VISIBLE
                             contact5Contacts.visibility = View.VISIBLE
                             contact5Contacts.setText(document.get("contactName").toString())
