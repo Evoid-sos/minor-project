@@ -21,10 +21,14 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
 
-        <activity android:name=".cybersecurity" />
-        <activity android:name=".faqs" />
-        <activity android:name=".guidelines" />
-        <activity android:name=".covidHelplines" />
+        <activity android:name=".cybersecurity"
+            android:theme="@style/AppTheme.NoActionBar"/>
+        <activity android:name=".faqs"
+            android:theme="@style/AppTheme.NoActionBar"/>
+        <activity android:name=".guidelines"
+            android:theme="@style/AppTheme.NoActionBar"/>
+        <activity android:name=".covidHelplines"
+            android:theme="@style/AppTheme.NoActionBar"/>
         <activity android:name=".MainActivity2"
             android:theme="@style/AppTheme.NoActionBar"/>
         <activity

@@ -11,10 +11,10 @@
         android:id="@+id/toolbar"
         android:layout_width="match_parent"
         android:layout_height="?attr/actionBarSize"
-        android:background="@color/colorPrimary"
-        app:title="EVOID"
+        android:background="?attr/colorPrimary"
         android:gravity="center"
         android:textAlignment="center"
+        app:title="EVOID"
         app:titleTextColor="#ffffff">
 
     </androidx.appcompat.widget.Toolbar>
@@ -23,10 +23,10 @@
         android:id="@+id/tabLayout"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:background="@color/colorPrimary"
+        android:layout_marginTop="56dp"
+        android:background="@color/common_google_signin_btn_text_light_disabled"
         app:tabSelectedTextColor="#ffffff"
-        app:tabTextColor="#DEB887"
-        android:layout_marginTop="56dp">
+        app:tabTextColor="#DEB887">
 
     </com.google.android.material.tabs.TabLayout>
 
