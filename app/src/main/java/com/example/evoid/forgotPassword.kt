@@ -37,7 +37,7 @@ class forgotPassword : AppCompatActivity() {
         }
 
         backToLoginForgotPassword.setOnClickListener {
-            val intent = Intent(this, MainActivity::class.java)
+            val intent = Intent(this, start_page::class.java)
             startActivity(intent)
             finish()
         }
@@ -59,7 +59,7 @@ class forgotPassword : AppCompatActivity() {
                 sentMail.text = "A recovery mail is sent to you, see it for more deatils."
                 val handler = Handler()
                 handler.postDelayed(
-                    {val intent = Intent(this, MainActivity::class.java)
+                    {val intent = Intent(this, start_page::class.java)
                     startActivity(intent)
                     finish()
                     },

@@ -65,7 +65,7 @@ class MainActivity2 : AppCompatActivity(),NavigationView.OnNavigationItemSelecte
     {
 
         auth.signOut()
-        val intent = Intent(this, MainActivity::class.java)
+        val intent = Intent(this, start_page::class.java)
         intent.putExtra("finish", true) // if you are checking for this in your other Activities
 
         intent.flags = Intent.FLAG_ACTIVITY_CLEAR_TOP or

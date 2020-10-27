@@ -20,17 +20,32 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
+        <activity android:name=".start_page"
+            android:noHistory="true"
+            android:screenOrientation="portrait"
+            android:theme="@style/AppTheme.NoActionBar"
+            android:windowSoftInputMode="adjustResize">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
 
-        <activity android:name=".cybersecurity"
-            android:theme="@style/AppTheme.NoActionBar"/>
-        <activity android:name=".faqs"
-            android:theme="@style/AppTheme.NoActionBar"/>
-        <activity android:name=".guidelines"
-            android:theme="@style/AppTheme.NoActionBar"/>
-        <activity android:name=".covidHelplines"
-            android:theme="@style/AppTheme.NoActionBar"/>
-        <activity android:name=".MainActivity2"
-            android:theme="@style/AppTheme.NoActionBar"/>
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+        <activity
+            android:name=".cybersecurity"
+            android:theme="@style/AppTheme.NoActionBar" />
+        <activity
+            android:name=".faqs"
+            android:theme="@style/AppTheme.NoActionBar" />
+        <activity
+            android:name=".guidelines"
+            android:theme="@style/AppTheme.NoActionBar" />
+        <activity
+            android:name=".covidHelplines"
+            android:theme="@style/AppTheme.NoActionBar" />
+        <activity
+            android:name=".MainActivity2"
+            android:theme="@style/AppTheme.NoActionBar" />
         <activity
             android:name=".registered"
             android:screenOrientation="portrait"
@@ -47,16 +62,8 @@
             android:theme="@style/NoActionBarTheme"
             android:windowSoftInputMode="adjustResize" />
         <activity
-            android:name=".MainActivity"
-            android:noHistory="true"
-            android:screenOrientation="portrait"
-            android:theme="@style/NoActionBarTheme"
-            android:windowSoftInputMode="adjustResize">
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
+            android:name=".MainActivity">
 
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
         </activity>
     </application>
 

@@ -57,7 +57,7 @@ class registered : AppCompatActivity() {
 
 
         backToLoginRegistered.setOnClickListener {
-            val intent = Intent(this, MainActivity::class.java)
+            val intent = Intent(this, start_page::class.java)
             startActivity(intent)
             finish()
         }
