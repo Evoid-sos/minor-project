@@ -6,19 +6,37 @@
     android:layout_height="match_parent"
     android:background="@drawable/login_bg3"
     tools:context=".cybersecurity">
+
+    <androidx.appcompat.widget.Toolbar
+        android:id="@+id/toolbar"
+        android:layout_width="match_parent"
+        android:layout_height="?attr/actionBarSize"
+        android:layout_marginBottom="6dp"
+        android:background="#ffffff"
+        android:gravity="center"
+        android:textAlignment="center"
+        app:layout_constraintBottom_toTopOf="@+id/reportLink"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:title="CYBERCRIME PROTECTION"
+        app:titleTextColor="#000000">
+
+    </androidx.appcompat.widget.Toolbar>
+
     <TextView
         android:id="@+id/reportLink"
-        android:layout_width="match_parent"
-        android:layout_height="65dp"
-        android:layout_marginTop="70dp"
-        android:layout_marginBottom="16dp"
+        android:layout_width="405dp"
+        android:layout_height="29dp"
+        android:layout_marginTop="6dp"
         android:text="@string/report"
         android:textAlignment="center"
         android:textColor="#ffffff"
         app:layout_constraintBottom_toTopOf="@+id/cybercrime"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toBottomOf="@+id/toolbar" />
 
     <ImageView
         android:id="@+id/cybercrime"

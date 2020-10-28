@@ -7,6 +7,21 @@
     android:background="@drawable/login_bg3"
     tools:context=".guidelines">
 
+    <androidx.appcompat.widget.Toolbar
+        android:id="@+id/toolbar"
+        android:layout_width="match_parent"
+        android:layout_height="?attr/actionBarSize"
+        android:background="#ffffff"
+        android:gravity="center"
+        android:textAlignment="center"
+        app:layout_constraintBottom_toTopOf="@+id/fire"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:title="GUIDELINES"
+        app:titleTextColor="#000000">
+
+    </androidx.appcompat.widget.Toolbar>
     <ImageView
         android:id="@+id/fire"
         android:layout_width="116dp"

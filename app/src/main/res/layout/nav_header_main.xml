@@ -4,7 +4,7 @@
     android:id="@+id/navBar"
     android:layout_width="match_parent"
     android:layout_height="@dimen/nav_header_height"
-    android:background="@color/design_default_color_on_secondary"
+    android:background="@color/colorAccent"
     android:gravity="bottom"
     android:orientation="vertical"
     android:paddingLeft="@dimen/activity_horizontal_margin"
@@ -28,6 +28,7 @@
         android:gravity="center_vertical"
         android:layout_width="match_parent"
         android:layout_height="30dp"
+        android:textColor="@color/black"
         android:text="Display User Name" />
 
 </LinearLayout>

@@ -7,6 +7,23 @@
     tools:context=".faqs"
     android:background="@drawable/login_bg3">
 
+    <androidx.appcompat.widget.Toolbar
+        android:id="@+id/toolbar"
+        android:layout_width="match_parent"
+        android:layout_height="?attr/actionBarSize"
+        android:layout_marginTop="50dp"
+        android:layout_marginBottom="58dp"
+        android:background="#ffffff"
+        android:gravity="center"
+        android:textAlignment="center"
+        app:layout_constraintBottom_toTopOf="@+id/textView8"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:title="FAQ"
+        app:titleTextColor="#000000">
+
+    </androidx.appcompat.widget.Toolbar>
     <LinearLayout
         android:id="@+id/linearLayout6"
         android:layout_width="341dp"

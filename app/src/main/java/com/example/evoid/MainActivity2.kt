@@ -7,6 +7,7 @@ import android.view.MenuItem
 import android.widget.Toast
 import androidx.appcompat.app.ActionBarDrawerToggle
 import androidx.appcompat.app.AppCompatActivity
+import androidx.core.app.ActivityCompat
 import androidx.core.view.GravityCompat
 import androidx.drawerlayout.widget.DrawerLayout
 import androidx.viewpager.widget.ViewPager
@@ -31,8 +32,6 @@ class MainActivity2 : AppCompatActivity(),NavigationView.OnNavigationItemSelecte
         this.setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_PORTRAIT)
         drawerLayout = findViewById(R.id.drawer)
         val navView: NavigationView = findViewById(R.id.nav_view)
-
-
         val toggle = ActionBarDrawerToggle(this, drawerLayout, toolbar, R.string.navigation_drawer_open, R.string.navigation_drawer_close)
         drawerLayout.addDrawerListener(toggle)
         supportActionBar?.setDisplayHomeAsUpEnabled(true)
