@@ -26,6 +26,7 @@ class start_page : AppCompatActivity() {
         window.decorView.systemUiVisibility = View.SYSTEM_UI_FLAG_LAYOUT_FULLSCREEN
         window.setSoftInputMode(WindowManager.LayoutParams.SOFT_INPUT_STATE_ALWAYS_HIDDEN);
         setContentView(R.layout.activity_start_page)
+        cardView.setBackgroundResource(R.drawable.cardcorners)
 
         if (auth.currentUser != null)
         {
