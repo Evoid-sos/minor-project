@@ -264,7 +264,8 @@ class contacts : Fragment() {
         val cursor = requireActivity().contentResolver.query(contactUri, projection , null,null,null)
         if (cursor!!.moveToNext())
         {
-            phoneNumber = cursor.getString(cursor.getColumnIndex(ContactsContract.CommonDataKinds.Phone.NUMBER)).takeLast(10).toLong()
+            phoneNumber = cursor.getString(cursor.getColumnIndex(ContactsContract.CommonDataKinds.Phone.NUMBER)).replace(" ","")
+                .takeLast(10).toLong()
         }
     }
 
