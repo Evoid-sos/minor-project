@@ -2,6 +2,7 @@ package com.example.evoid
 
 import android.content.Intent
 import android.content.pm.PackageManager
+import android.location.Location
 import android.net.Uri
 import android.os.Bundle
 import android.text.method.HideReturnsTransformationMethod
@@ -9,8 +10,12 @@ import android.text.method.PasswordTransformationMethod
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.constraintlayout.motion.widget.Debug.getLocation
 import androidx.core.app.ActivityCompat
+import androidx.core.content.ContextCompat
 import androidx.fragment.app.Fragment
+import com.google.android.gms.location.*
+import com.google.firebase.ktx.Firebase
 import kotlinx.android.synthetic.main.activity_main.*
 import kotlinx.android.synthetic.main.fragment_emergency.*
 import kotlinx.android.synthetic.main.fragment_emergency.view.*
@@ -18,7 +23,9 @@ import java.util.jar.Manifest
 
 
 class emergency : Fragment() {
+    private lateinit var fusedLocationClient: FusedLocationProviderClient
     val REQUEST_PHONE_CALL = 1
+    val REQUEST_LOCATION = 1
     var fire = 0
     var women = 0
     var police = 0
@@ -30,6 +37,7 @@ class emergency : Fragment() {
     ): View? {
         // Inflate the layout for this fragment
         val view: View = inflater!!.inflate(R.layout.fragment_emergency, container, false)
+        fusedLocationClient = LocationServices.getFusedLocationProviderClient(activity as MainActivity2)
 
         view.play.setOnClickListener { view ->
             if (flag == 0) {
@@ -65,9 +73,47 @@ class emergency : Fragment() {
             askPermission()
 
         }
+
+        view.emergencybutton.setOnClickListener {
+
+            askLocationPerm()
+
+        }
         // Return the fragment view/layout
         return view
     }
+
+    private fun askLocationPerm() {
+        if(ActivityCompat.checkSelfPermission(activity as MainActivity2,android.Manifest.permission.ACCESS_FINE_LOCATION)!= PackageManager.PERMISSION_GRANTED)
+        {
+            ActivityCompat.requestPermissions(activity as MainActivity2,
+                arrayOf(android.Manifest.permission.ACCESS_FINE_LOCATION),REQUEST_LOCATION)
+
+        }
+        else
+        {
+            getLocationCurrent()
+        }
+    }
+
+    private fun getLocationCurrent() {
+        val request = LocationRequest()
+        request.interval = 10000
+        request.fastestInterval = 5000
+        request.priority = LocationRequest.PRIORITY_HIGH_ACCURACY
+        val permission = ContextCompat.checkSelfPermission(activity as MainActivity2, android.Manifest.permission.ACCESS_FINE_LOCATION)
+        if (permission == PackageManager.PERMISSION_GRANTED) {
+            fusedLocationClient.requestLocationUpdates(request, object : LocationCallback() {
+                override fun onLocationResult(locationResult: LocationResult) {
+                    val location: Location? = locationResult.lastLocation
+                    if (location != null) {
+                        val loc = locationDetails(location.latitude.toString(),location.longitude.toString())
+                        firestoreClass().updateLocation(loc)
+                    }
+                }
+            }, null)
+
+    }}
 
     private fun askPermission() {
         if (ActivityCompat.checkSelfPermission(activity as MainActivity2, android.Manifest.permission.CALL_PHONE) != PackageManager.PERMISSION_GRANTED){
@@ -114,6 +160,10 @@ class emergency : Fragment() {
         if (requestCode == REQUEST_PHONE_CALL )
         {
             makePhoneCall()
+        }
+        if (requestCode == REQUEST_LOCATION)
+        {
+            getLocationCurrent()
         }
     }
 

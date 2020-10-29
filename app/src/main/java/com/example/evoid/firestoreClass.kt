@@ -2,6 +2,7 @@ package com.example.evoid
 
 import android.app.ActionBar
 import android.app.Activity
+import android.location.Location
 import android.media.session.MediaSessionManager
 import android.view.View
 import android.widget.ImageView
@@ -81,6 +82,15 @@ class firestoreClass {
             .document(getCurrentUserId())
             .collection(constants.ContactsDetails).document(phoneId)
             .set(contactInfo, SetOptions.merge())
+    }
+
+    fun updateLocation(location: locationDetails)
+    {
+        mFireStore.collection(constants.USERS)
+            .document(getCurrentUserId())
+            .collection(constants.locationDetails)
+            .document(getCurrentUserId())
+            .set(location, SetOptions.merge())
     }
 
 
