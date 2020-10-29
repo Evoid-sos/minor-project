@@ -17,10 +17,7 @@ class register : AppCompatActivity() {
     private lateinit var auth:FirebaseAuth
     override fun onCreate(savedInstanceState: Bundle?) {
         auth = Firebase.auth
-
-
         super.onCreate(savedInstanceState)
-
         window.decorView.systemUiVisibility = View.SYSTEM_UI_FLAG_LAYOUT_FULLSCREEN
         window.setSoftInputMode(WindowManager.LayoutParams.SOFT_INPUT_STATE_ALWAYS_HIDDEN)
         setContentView(R.layout.activity_register)
@@ -75,7 +72,7 @@ class register : AppCompatActivity() {
             if (task.isSuccessful) {
                 val currentUser = auth.currentUser
                 val user = com.example.evoid.User(currentUser!!.uid, firstName, lastName, mobile.toLong(), emailId)
-                firestoreClass().registerUser(this, user)
+                //firestoreClass().registerUser(this, user)
                 val intent = Intent(this, registered::class.java)
                 startActivity(intent)
                 finish()

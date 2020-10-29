@@ -56,7 +56,7 @@ class firestoreClass {
 
     }
 
-    fun registerUser(activity:register, userInfo:com.example.evoid.User)
+    fun registerUser(activity:RegisterUser, userInfo:com.example.evoid.User)
     {
         mFireStore.collection(constants.USERS)
             .document(getCurrentUserId())

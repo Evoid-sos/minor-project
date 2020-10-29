@@ -75,7 +75,7 @@ class start_page : AppCompatActivity() {
         }
 
         registerStart.setOnClickListener {
-            val intent = Intent(this, register::class.java)
+            val intent = Intent(this, RegisterUser::class.java)
             startActivity(intent)
 
         }
@@ -102,7 +102,8 @@ class start_page : AppCompatActivity() {
             passwordStart.setError("Password should not be empty")
             return false
         }
-        else return true
+        else
+            return true
 
     }
 
