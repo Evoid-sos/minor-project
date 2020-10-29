@@ -52,6 +52,7 @@
                 android:id="@+id/forgotPasswordStart"
                 android:layout_width="132dp"
                 android:layout_height="35dp"
+                android:layout_marginStart="5dp"
                 android:layout_marginTop="20dp"
                 android:layout_marginEnd="30dp"
                 android:layout_marginBottom="10dp"
@@ -62,6 +63,7 @@
                 android:visibility="visible"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toEndOf="@+id/loginStart"
                 app:layout_constraintTop_toBottomOf="@+id/passwordStart" />
 
             <ImageView
@@ -85,6 +87,7 @@
                 android:layout_height="35dp"
                 android:layout_marginStart="30dp"
                 android:layout_marginTop="20dp"
+                android:layout_marginEnd="5dp"
                 android:layout_marginBottom="10dp"
                 android:background="@drawable/loginrounded"
                 android:text="@string/login"
@@ -92,6 +95,7 @@
                 android:textSize="12dp"
                 android:visibility="visible"
                 app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toStartOf="@+id/forgotPasswordStart"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/passwordStart" />
 
