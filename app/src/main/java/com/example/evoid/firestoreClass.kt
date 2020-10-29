@@ -4,6 +4,7 @@ import android.app.ActionBar
 import android.app.Activity
 import android.location.Location
 import android.media.session.MediaSessionManager
+import android.telephony.SmsManager
 import android.view.View
 import android.widget.ImageView
 import android.widget.TextView
@@ -20,6 +21,8 @@ import com.google.firebase.firestore.auth.User
 import com.google.firebase.firestore.ktx.firestore
 import com.google.firebase.firestore.ktx.toObject
 import com.google.firebase.ktx.Firebase
+import java.util.ArrayList
+import java.util.logging.Handler
 
 class firestoreClass {
 
@@ -94,7 +97,26 @@ class firestoreClass {
     }
 
 
+    fun getContacts(activity: Activity){
+        mFireStore.collection(constants.USERS)
+            .document(getCurrentUserId())
+            .collection(constants.ContactsDetails)
+            .get()
+            .addOnSuccessListener { results ->
 
+                for (documents in results) {
+                    val currContact = documents.get("contactPhoneNumber").toString()
+                    val mySmsManager = SmsManager.getDefault()
+                    mySmsManager.sendTextMessage(
+                        currContact, null, constants.msg, null, null)
+                    val handle = android.os.Handler()
+                    handle.postDelayed({ print("")},500)
+                }
 
+            }
 
+    }
 }
+
+
+

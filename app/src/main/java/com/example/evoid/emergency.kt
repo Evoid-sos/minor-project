@@ -5,11 +5,14 @@ import android.content.pm.PackageManager
 import android.location.Location
 import android.net.Uri
 import android.os.Bundle
+import android.os.Handler
+import android.telephony.SmsManager
 import android.text.method.HideReturnsTransformationMethod
 import android.text.method.PasswordTransformationMethod
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Toast
 import androidx.constraintlayout.motion.widget.Debug.getLocation
 import androidx.core.app.ActivityCompat
 import androidx.core.content.ContextCompat
@@ -19,12 +22,15 @@ import com.google.firebase.ktx.Firebase
 import kotlinx.android.synthetic.main.activity_main.*
 import kotlinx.android.synthetic.main.fragment_emergency.*
 import kotlinx.android.synthetic.main.fragment_emergency.view.*
+import kotlinx.coroutines.delay
+import java.util.ArrayList
 import java.util.jar.Manifest
 
 
 class emergency : Fragment() {
     private lateinit var fusedLocationClient: FusedLocationProviderClient
     val REQUEST_PHONE_CALL = 1
+    val REQUEST_SEND_SMS = 100
     val REQUEST_LOCATION = 1
     var fire = 0
     var women = 0
@@ -77,10 +83,25 @@ class emergency : Fragment() {
         view.emergencybutton.setOnClickListener {
 
             askLocationPerm()
+            askSendSMSPerm()
 
         }
         // Return the fragment view/layout
         return view
+    }
+
+    private fun askSendSMSPerm() {
+        if(ActivityCompat.checkSelfPermission
+                (activity as MainActivity2,android.Manifest.permission.SEND_SMS)!= PackageManager.PERMISSION_GRANTED)
+        {
+            ActivityCompat.requestPermissions(activity as MainActivity2,
+                arrayOf(android.Manifest.permission.SEND_SMS),REQUEST_SEND_SMS)
+
+        }
+        else
+        {
+            sendSMSToContacts()
+        }
     }
 
     private fun askLocationPerm() {
@@ -114,6 +135,13 @@ class emergency : Fragment() {
             }, null)
 
     }}
+
+    private fun sendSMSToContacts() {
+        firestoreClass().getContacts(activity as MainActivity2)
+
+
+
+    }
 
     private fun askPermission() {
         if (ActivityCompat.checkSelfPermission(activity as MainActivity2, android.Manifest.permission.CALL_PHONE) != PackageManager.PERMISSION_GRANTED){
@@ -165,7 +193,13 @@ class emergency : Fragment() {
         {
             getLocationCurrent()
         }
+        if (requestCode == REQUEST_SEND_SMS)
+        {
+            sendSMSToContacts()
+        }
     }
+
+
 
 
 }
