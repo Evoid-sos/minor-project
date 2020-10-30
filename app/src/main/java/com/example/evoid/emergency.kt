@@ -16,6 +16,7 @@ import android.widget.Toast
 import androidx.constraintlayout.motion.widget.Debug.getLocation
 import androidx.core.app.ActivityCompat
 import androidx.core.content.ContextCompat
+import androidx.core.content.ContextCompat.checkSelfPermission
 import androidx.fragment.app.Fragment
 import com.google.android.gms.location.*
 import com.google.firebase.ktx.Firebase
@@ -31,7 +32,7 @@ class emergency : Fragment() {
     private lateinit var fusedLocationClient: FusedLocationProviderClient
     val REQUEST_PHONE_CALL = 1
     val REQUEST_SEND_SMS = 100
-    val REQUEST_LOCATION = 1
+    val REQUEST_LOCATION = 2
     var fire = 0
     var women = 0
     var police = 0
@@ -83,7 +84,8 @@ class emergency : Fragment() {
         view.emergencybutton.setOnClickListener {
 
             askLocationPerm()
-            askSendSMSPerm()
+
+
 
         }
         // Return the fragment view/layout
@@ -94,8 +96,7 @@ class emergency : Fragment() {
         if(ActivityCompat.checkSelfPermission
                 (activity as MainActivity2,android.Manifest.permission.SEND_SMS)!= PackageManager.PERMISSION_GRANTED)
         {
-            ActivityCompat.requestPermissions(activity as MainActivity2,
-                arrayOf(android.Manifest.permission.SEND_SMS),REQUEST_SEND_SMS)
+            requestPermissions(arrayOf(android.Manifest.permission.SEND_SMS),REQUEST_SEND_SMS)
 
         }
         else
@@ -107,8 +108,7 @@ class emergency : Fragment() {
     private fun askLocationPerm() {
         if(ActivityCompat.checkSelfPermission(activity as MainActivity2,android.Manifest.permission.ACCESS_FINE_LOCATION)!= PackageManager.PERMISSION_GRANTED)
         {
-            ActivityCompat.requestPermissions(activity as MainActivity2,
-                arrayOf(android.Manifest.permission.ACCESS_FINE_LOCATION),REQUEST_LOCATION)
+            requestPermissions(arrayOf(android.Manifest.permission.ACCESS_FINE_LOCATION),REQUEST_LOCATION)
 
         }
         else
@@ -122,7 +122,7 @@ class emergency : Fragment() {
         request.interval = 10000
         request.fastestInterval = 5000
         request.priority = LocationRequest.PRIORITY_HIGH_ACCURACY
-        val permission = ContextCompat.checkSelfPermission(activity as MainActivity2, android.Manifest.permission.ACCESS_FINE_LOCATION)
+        val permission = ActivityCompat.checkSelfPermission(activity as MainActivity2, android.Manifest.permission.ACCESS_FINE_LOCATION)
         if (permission == PackageManager.PERMISSION_GRANTED) {
             fusedLocationClient.requestLocationUpdates(request, object : LocationCallback() {
                 override fun onLocationResult(locationResult: LocationResult) {
@@ -134,20 +134,18 @@ class emergency : Fragment() {
                 }
             }, null)
 
-    }}
+    }
+        askSendSMSPerm()
+    }
 
     private fun sendSMSToContacts() {
         firestoreClass().getContacts(activity as MainActivity2)
-
-
-
     }
 
     private fun askPermission() {
         if (ActivityCompat.checkSelfPermission(activity as MainActivity2, android.Manifest.permission.CALL_PHONE) != PackageManager.PERMISSION_GRANTED){
 
-            ActivityCompat.requestPermissions(activity as MainActivity2,
-                arrayOf(android.Manifest.permission.CALL_PHONE),REQUEST_PHONE_CALL)
+            requestPermissions(arrayOf(android.Manifest.permission.CALL_PHONE),REQUEST_PHONE_CALL)
         }
         else
         {
@@ -160,7 +158,7 @@ class emergency : Fragment() {
         var phoneNumber:Long = 0
         if (fire ==1)
         {
-            phoneNumber = 9560983181
+            phoneNumber = 9760003923
         }
         else if (police ==1)
         {
@@ -187,15 +185,18 @@ class emergency : Fragment() {
     ) {
         if (requestCode == REQUEST_PHONE_CALL )
         {
-            makePhoneCall()
+           makePhoneCall()
+
         }
         if (requestCode == REQUEST_LOCATION)
         {
             getLocationCurrent()
+
         }
         if (requestCode == REQUEST_SEND_SMS)
         {
             sendSMSToContacts()
+
         }
     }
 

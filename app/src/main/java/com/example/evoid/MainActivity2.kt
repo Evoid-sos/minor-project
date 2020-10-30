@@ -4,6 +4,7 @@ import android.content.Intent
 import android.content.pm.ActivityInfo
 import android.os.Bundle
 import android.view.MenuItem
+import android.view.View
 import android.widget.Toast
 import androidx.appcompat.app.ActionBarDrawerToggle
 import androidx.appcompat.app.AppCompatActivity
@@ -56,6 +57,14 @@ class MainActivity2 : AppCompatActivity(),NavigationView.OnNavigationItemSelecte
             override fun onTabUnselected(tab: TabLayout.Tab) {}
             override fun onTabReselected(tab: TabLayout.Tab) {}
         })
+
+        val navigationView : NavigationView = this.findViewById(R.id.nav_view)
+        val headerView : View = navigationView.getHeaderView(0)
+        var image = headerView.findViewById<de.hdodenhof.circleimageview.CircleImageView>(R.id.profileIconNav)
+        image.setOnClickListener{
+            val intent = Intent(this, MyProfile::class.java)
+            startActivity(intent)
+        }
 
     }
 

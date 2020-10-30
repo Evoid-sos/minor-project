@@ -6,6 +6,7 @@ import android.location.Location
 import android.media.session.MediaSessionManager
 import android.telephony.SmsManager
 import android.view.View
+import android.widget.EditText
 import android.widget.ImageView
 import android.widget.TextView
 import android.widget.Toast
@@ -21,15 +22,13 @@ import com.google.firebase.firestore.auth.User
 import com.google.firebase.firestore.ktx.firestore
 import com.google.firebase.firestore.ktx.toObject
 import com.google.firebase.ktx.Firebase
+import de.hdodenhof.circleimageview.CircleImageView
 import java.util.ArrayList
 import java.util.logging.Handler
 
 class firestoreClass {
 
     private val mFireStore = FirebaseFirestore.getInstance()
-
-
-
     fun getLoggedInUser(activity:Activity) {
         val navigationView : NavigationView = activity.findViewById(R.id.nav_view)
         val headerView : View = navigationView.getHeaderView(0)
@@ -43,7 +42,6 @@ class firestoreClass {
                 updateNavBar(activity, loggedInUser, name, image)
             }
     }
-
 
     fun updateNavBar(activity: Activity, user:com.example.evoid.User, name: TextView , image:de.hdodenhof.circleimageview.CircleImageView)
     {
@@ -83,7 +81,8 @@ class firestoreClass {
     {
         mFireStore.collection(constants.USERS)
             .document(getCurrentUserId())
-            .collection(constants.ContactsDetails).document(phoneId)
+            .collection(constants.ContactsDetails)
+            .document(phoneId)
             .set(contactInfo, SetOptions.merge())
     }
 
@@ -113,9 +112,53 @@ class firestoreClass {
                     handle.postDelayed({ print("")},500)
                 }
 
+                Toast.makeText(activity, "Message sent", Toast.LENGTH_SHORT).show()
+
             }
 
     }
+
+    fun loadMyProfile(activity: Activity, img:CircleImageView, email: EditText, name:EditText, mobile:EditText)
+    {
+        var loggedInUser:com.example.evoid.User
+        mFireStore.collection(constants.USERS)
+            .document(getCurrentUserId())
+            .get().addOnSuccessListener { document ->
+                loggedInUser = document.toObject(com.example.evoid.User::class.java)!!
+                Glide
+                    .with(activity)
+                    .load(loggedInUser.image)
+                    .fitCenter()
+                    .placeholder(R.drawable.placeholder3)
+                    .into(img);
+                email.setText(loggedInUser.emailId)
+                name.setText(loggedInUser.firstName +" "+ loggedInUser.lastName)
+                mobile.setText(loggedInUser.phoneNumber.toString())
+            }
+
+    }
+
+    fun updateMyProfile(name:String, mobile: String)
+    {
+
+        var nameParts = name.split(" ")
+        mFireStore.collection(constants.USERS)
+            .document(getCurrentUserId())
+            .update(mapOf(
+                "firstName" to nameParts[0],
+                "lastName" to nameParts[1],
+                "phoneNumber" to mobile.toLong(),
+            ))
+    }
+
+    fun updateFirestoreImage(imgUrl:String)
+    {
+        mFireStore.collection(constants.USERS).document(getCurrentUserId()).update(mapOf(
+            "image" to imgUrl
+        ))
+    }
+
+
 }
 
 

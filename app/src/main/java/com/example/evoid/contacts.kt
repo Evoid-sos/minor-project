@@ -3,6 +3,7 @@ package com.example.evoid
 import android.app.Activity
 import android.content.ContentResolver
 import android.content.Intent
+import android.content.pm.PackageManager
 import android.net.Uri
 import android.os.Bundle
 import android.provider.ContactsContract
@@ -11,6 +12,11 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.Toast
+import androidx.core.app.ActivityCompat
+import androidx.core.app.ActivityCompat.requestPermissions
+import androidx.core.content.ContextCompat
+import androidx.core.content.ContextCompat.checkSelfPermission
+import androidx.core.content.PermissionChecker.checkSelfPermission
 import androidx.fragment.app.Fragment
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.auth.ktx.auth
@@ -51,12 +57,9 @@ class contacts : Fragment() {
         displayContact()
 
         view.addContactButton.setOnClickListener{view->
-            val intent = Intent(Intent.ACTION_PICK)
-            intent.type = ContactsContract.CommonDataKinds.Phone.CONTENT_TYPE
-            if (intent.resolveActivity(requireActivity().packageManager) != null)
-            {
-                startActivityForResult(intent, REQUEST_CONTACT)
-            }
+
+            askContactperm()
+
 
 
         }
@@ -83,6 +86,41 @@ class contacts : Fragment() {
 
         return view
 
+    }
+
+    private fun askContactperm() {
+        if(ActivityCompat.checkSelfPermission(activity as MainActivity2,
+                android.Manifest.permission.READ_CONTACTS) != PackageManager.PERMISSION_GRANTED)
+        {
+            requestPermissions(arrayOf(android.Manifest.permission.READ_CONTACTS),REQUEST_CONTACT)
+
+        }
+        else
+        {
+            getContact()
+        }
+    }
+    override fun onRequestPermissionsResult(
+        requestCode: Int,
+        permissions: Array<out String>,
+        grantResults: IntArray
+    ) {
+        super.onRequestPermissionsResult(requestCode, permissions, grantResults)
+        if (requestCode == REQUEST_CONTACT)
+        {if (grantResults[0] == PackageManager.PERMISSION_GRANTED)
+            {
+                getContact()
+            }}
+
+    }
+
+    private fun getContact() {
+        val intent = Intent(Intent.ACTION_PICK)
+        intent.type = ContactsContract.CommonDataKinds.Phone.CONTENT_TYPE
+        if (intent.resolveActivity(requireActivity().packageManager) != null)
+        {
+            startActivityForResult(intent, REQUEST_CONTACT)
+        }
     }
 
     private fun deleteContact() {
@@ -286,6 +324,7 @@ class contacts : Fragment() {
 
 
     }
+
 
 
 
