@@ -83,7 +83,7 @@ class RegisterUser : AppCompatActivity() {
                 val currentUser = auth.currentUser
                 val user = com.example.evoid.User(currentUser!!.uid, firstName, lastName, mobile.toLong(), emailId)
                 firestoreClass().registerUser(this, user)
-                val intent = Intent(this, registered::class.java)
+                val intent = Intent(this, MainActivity2::class.java)
                 startActivity(intent)
                 finish()
 
