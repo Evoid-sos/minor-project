@@ -29,6 +29,7 @@ import java.util.logging.Handler
 class firestoreClass {
 
     private val mFireStore = FirebaseFirestore.getInstance()
+    var location: locationDetails? = null
     fun getLoggedInUser(activity:Activity) {
         val navigationView : NavigationView = activity.findViewById(R.id.nav_view)
         val headerView : View = navigationView.getHeaderView(0)
@@ -95,8 +96,21 @@ class firestoreClass {
             .set(location, SetOptions.merge())
     }
 
+    fun getLocation()
+    {
+        mFireStore.collection(constants.USERS)
+            .document(getCurrentUserId())
+            .collection(constants.locationDetails)
+            .document(getCurrentUserId())
+            .get()
+            .addOnSuccessListener {document->
+                location = document.toObject(locationDetails::class.java)!!
+            }
+    }
+
 
     fun getContacts(activity: Activity){
+        getLocation()
         mFireStore.collection(constants.USERS)
             .document(getCurrentUserId())
             .collection(constants.ContactsDetails)
@@ -106,13 +120,16 @@ class firestoreClass {
                 for (documents in results) {
                     val currContact = documents.get("contactPhoneNumber").toString()
                     val mySmsManager = SmsManager.getDefault()
+
                     mySmsManager.sendTextMessage(
-                        currContact, null, constants.msg, null, null)
+                        currContact, null, constants.msg + "\n" +
+                                "http://maps.google.com/maps?daddr=${location!!.lattitude.toDouble()},${location!!.longitude.toDouble()}",
+                        null, null)
                     val handle = android.os.Handler()
                     handle.postDelayed({ print("")},500)
                 }
 
-                Toast.makeText(activity, "Message sent", Toast.LENGTH_SHORT).show()
+                Toast.makeText(activity, "Location sent", Toast.LENGTH_SHORT).show()
 
             }
 
