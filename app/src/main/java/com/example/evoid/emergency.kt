@@ -158,7 +158,7 @@ class emergency : Fragment() {
         var phoneNumber:Long = 0
         if (fire ==1)
         {
-            phoneNumber = 9760003923
+            phoneNumber = 9560983181
         }
         else if (police ==1)
         {
