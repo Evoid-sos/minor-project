@@ -3,33 +3,23 @@ package com.example.evoid
 import android.content.Intent
 import android.content.pm.PackageManager
 import android.location.Location
+import android.media.MediaPlayer
 import android.net.Uri
 import android.os.Bundle
-import android.os.Handler
-import android.telephony.SmsManager
-import android.text.method.HideReturnsTransformationMethod
-import android.text.method.PasswordTransformationMethod
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.Toast
-import androidx.constraintlayout.motion.widget.Debug.getLocation
-import androidx.core.app.ActivityCompat
-import androidx.core.content.ContextCompat
 import androidx.core.content.ContextCompat.checkSelfPermission
 import androidx.fragment.app.Fragment
 import com.google.android.gms.location.*
-import com.google.firebase.ktx.Firebase
-import kotlinx.android.synthetic.main.activity_main.*
 import kotlinx.android.synthetic.main.fragment_emergency.*
 import kotlinx.android.synthetic.main.fragment_emergency.view.*
-import kotlinx.coroutines.delay
-import java.util.ArrayList
-import java.util.jar.Manifest
 
 
 class emergency : Fragment() {
     private lateinit var fusedLocationClient: FusedLocationProviderClient
+    private var mPlayer: MediaPlayer? = null
+
     val REQUEST_PHONE_CALL = 1
     val REQUEST_SEND_SMS = 100
     val REQUEST_LOCATION = 2
@@ -45,13 +35,14 @@ class emergency : Fragment() {
         // Inflate the layout for this fragment
         val view: View = inflater!!.inflate(R.layout.fragment_emergency, container, false)
         fusedLocationClient = LocationServices.getFusedLocationProviderClient(activity as MainActivity2)
-
+        mPlayer = MediaPlayer.create(activity, R.raw.siren);
         view.play.setOnClickListener { view ->
             if (flag == 0) {
                 flag = 1
                 play.visibility = View.INVISIBLE
                 pause.visibility = View.VISIBLE
-
+                mPlayer?.start();
+                mPlayer?.isLooping=true;
             }
         }
         view.pause.setOnClickListener(){
@@ -60,6 +51,8 @@ class emergency : Fragment() {
                 flag=0
                 pause.visibility = View.INVISIBLE
                 play.visibility = View.VISIBLE
+                mPlayer?.pause();
+
             }
         }
 
@@ -93,10 +86,10 @@ class emergency : Fragment() {
     }
 
     private fun askSendSMSPerm() {
-        if(ActivityCompat.checkSelfPermission
-                (activity as MainActivity2,android.Manifest.permission.SEND_SMS)!= PackageManager.PERMISSION_GRANTED)
+        if(checkSelfPermission
+                (activity as MainActivity2, android.Manifest.permission.SEND_SMS) != PackageManager.PERMISSION_GRANTED)
         {
-            requestPermissions(arrayOf(android.Manifest.permission.SEND_SMS),REQUEST_SEND_SMS)
+            requestPermissions(arrayOf(android.Manifest.permission.SEND_SMS), REQUEST_SEND_SMS)
 
         }
         else
@@ -106,9 +99,15 @@ class emergency : Fragment() {
     }
 
     private fun askLocationPerm() {
-        if(ActivityCompat.checkSelfPermission(activity as MainActivity2,android.Manifest.permission.ACCESS_FINE_LOCATION)!= PackageManager.PERMISSION_GRANTED)
+        if(checkSelfPermission(
+                activity as MainActivity2,
+                android.Manifest.permission.ACCESS_FINE_LOCATION
+            ) != PackageManager.PERMISSION_GRANTED)
         {
-            requestPermissions(arrayOf(android.Manifest.permission.ACCESS_FINE_LOCATION),REQUEST_LOCATION)
+            requestPermissions(
+                arrayOf(android.Manifest.permission.ACCESS_FINE_LOCATION),
+                REQUEST_LOCATION
+            )
 
         }
         else
@@ -122,13 +121,19 @@ class emergency : Fragment() {
         request.interval = 10000
         request.fastestInterval = 5000
         request.priority = LocationRequest.PRIORITY_HIGH_ACCURACY
-        val permission = ActivityCompat.checkSelfPermission(activity as MainActivity2, android.Manifest.permission.ACCESS_FINE_LOCATION)
+        val permission = checkSelfPermission(
+            activity as MainActivity2,
+            android.Manifest.permission.ACCESS_FINE_LOCATION
+        )
         if (permission == PackageManager.PERMISSION_GRANTED) {
             fusedLocationClient.requestLocationUpdates(request, object : LocationCallback() {
                 override fun onLocationResult(locationResult: LocationResult) {
                     val location: Location? = locationResult.lastLocation
                     if (location != null) {
-                        val loc = locationDetails(location.latitude.toString(),location.longitude.toString())
+                        val loc = locationDetails(
+                            location.latitude.toString(),
+                            location.longitude.toString()
+                        )
                         firestoreClass().updateLocation(loc)
                     }
                 }
@@ -143,9 +148,9 @@ class emergency : Fragment() {
     }
 
     private fun askPermission() {
-        if (ActivityCompat.checkSelfPermission(activity as MainActivity2, android.Manifest.permission.CALL_PHONE) != PackageManager.PERMISSION_GRANTED){
+        if (checkSelfPermission(activity as MainActivity2, android.Manifest.permission.CALL_PHONE) != PackageManager.PERMISSION_GRANTED){
 
-            requestPermissions(arrayOf(android.Manifest.permission.CALL_PHONE),REQUEST_PHONE_CALL)
+            requestPermissions(arrayOf(android.Manifest.permission.CALL_PHONE), REQUEST_PHONE_CALL)
         }
         else
         {
