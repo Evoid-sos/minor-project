@@ -8,6 +8,8 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.os.Handler
 import android.provider.MediaStore
+import android.view.View
+import android.view.WindowManager
 import android.webkit.MimeTypeMap
 import android.widget.Toast
 import androidx.core.app.ActivityCompat
@@ -22,6 +24,8 @@ class MyProfile : AppCompatActivity() {
     private var selectedImage: Uri? = null
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+        window.decorView.systemUiVisibility = View.SYSTEM_UI_FLAG_LAYOUT_FULLSCREEN
+        window.setSoftInputMode(WindowManager.LayoutParams.SOFT_INPUT_STATE_ALWAYS_HIDDEN);
         setContentView(R.layout.activity_my_profile)
         cardViewMyProfile.setBackgroundResource(R.drawable.cardcorners)
         firestoreClass().loadMyProfile(this, changeImageMyProfile, emailIdMyProfile, nameMyProfile, mobileMyProfile)
