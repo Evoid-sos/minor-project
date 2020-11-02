@@ -9,6 +9,7 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.camera.core.Camera
 import androidx.core.content.ContextCompat.checkSelfPermission
 import androidx.fragment.app.Fragment
 import com.google.android.gms.location.*
@@ -22,6 +23,8 @@ class emergency : Fragment() {
 
     val REQUEST_PHONE_CALL = 1
     val REQUEST_SEND_SMS = 100
+    val REQUEST_CAMERA = 3
+    var camera: Camera? = null
     val REQUEST_LOCATION = 2
     var fire = 0
     var women = 0
