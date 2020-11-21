@@ -9,6 +9,7 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Toast
 import androidx.camera.core.Camera
 import androidx.core.content.ContextCompat.checkSelfPermission
 import androidx.fragment.app.Fragment
@@ -38,23 +39,23 @@ class emergency : Fragment() {
         // Inflate the layout for this fragment
         val view: View = inflater!!.inflate(R.layout.fragment_emergency, container, false)
         fusedLocationClient = LocationServices.getFusedLocationProviderClient(activity as MainActivity2)
-        mPlayer = MediaPlayer.create(activity, R.raw.siren);
-        view.play.setOnClickListener { view ->
+        mPlayer = MediaPlayer.create(activity, R.raw.alarm);
+        view.startAlarm.setOnClickListener {view ->
             if (flag == 0) {
                 flag = 1
-                play.visibility = View.INVISIBLE
-                pause.visibility = View.VISIBLE
-                mPlayer?.start();
-                mPlayer?.isLooping=true;
+                startAlarm.visibility = View.INVISIBLE
+                stopAlarm.visibility = View.VISIBLE
+                mPlayer?.start()
+                mPlayer?.isLooping=true
             }
         }
-        view.pause.setOnClickListener(){
+        view.stopAlarm.setOnClickListener { view ->
             if (flag==1)
             {
                 flag=0
-                pause.visibility = View.INVISIBLE
-                play.visibility = View.VISIBLE
-                mPlayer?.pause();
+                stopAlarm.visibility = View.INVISIBLE
+                startAlarm.visibility = View.VISIBLE
+                mPlayer?.pause()
 
             }
         }

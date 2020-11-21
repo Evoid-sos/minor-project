@@ -22,13 +22,11 @@ class register : AppCompatActivity() {
         window.setSoftInputMode(WindowManager.LayoutParams.SOFT_INPUT_STATE_ALWAYS_HIDDEN)
         setContentView(R.layout.activity_register)
 
-
         backToLoginRegister.setOnClickListener {
             val intent = Intent(this, start_page::class.java)
             startActivity(intent)
             finish()
         }
-
 
 
         registerNowRegister.setOnClickListener {

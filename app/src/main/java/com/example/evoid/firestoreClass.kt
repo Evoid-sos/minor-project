@@ -1,30 +1,18 @@
 package com.example.evoid
 
-import android.app.ActionBar
 import android.app.Activity
-import android.location.Location
-import android.media.session.MediaSessionManager
 import android.telephony.SmsManager
 import android.view.View
 import android.widget.EditText
-import android.widget.ImageView
 import android.widget.TextView
 import android.widget.Toast
-import androidx.core.graphics.drawable.toDrawable
-import androidx.drawerlayout.widget.DrawerLayout
 import com.bumptech.glide.Glide
 import com.google.android.material.navigation.NavigationView
-import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.auth.ktx.auth
 import com.google.firebase.firestore.FirebaseFirestore
 import com.google.firebase.firestore.SetOptions
-import com.google.firebase.firestore.auth.User
-import com.google.firebase.firestore.ktx.firestore
-import com.google.firebase.firestore.ktx.toObject
 import com.google.firebase.ktx.Firebase
 import de.hdodenhof.circleimageview.CircleImageView
-import java.util.ArrayList
-import java.util.logging.Handler
 
 class firestoreClass {
 
@@ -39,12 +27,12 @@ class firestoreClass {
         mFireStore.collection(constants.USERS)
             .document(getCurrentUserId())
             .get().addOnSuccessListener { document ->
-                val loggedInUser = document.toObject(com.example.evoid.User::class.java)!!
+                val loggedInUser = document.toObject(User::class.java)!!
                 updateNavBar(activity, loggedInUser, name, image)
             }
     }
 
-    fun updateNavBar(activity: Activity, user:com.example.evoid.User, name: TextView , image:de.hdodenhof.circleimageview.CircleImageView)
+    fun updateNavBar(activity: Activity, user:User, name: TextView , image:de.hdodenhof.circleimageview.CircleImageView)
     {
 
         Glide
@@ -52,13 +40,13 @@ class firestoreClass {
             .load(user.image)
             .fitCenter()
             .placeholder(R.drawable.cybercrime)
-            .into(image);
+            .into(image)
         name.text = user.firstName + " " + user.lastName
 
 
     }
 
-    fun registerUser(activity:RegisterUser, userInfo:com.example.evoid.User)
+    fun registerUser(activity:RegisterUser, userInfo:User)
     {
         mFireStore.collection(constants.USERS)
             .document(getCurrentUserId())
@@ -137,11 +125,11 @@ class firestoreClass {
 
     fun loadMyProfile(activity: Activity, img:CircleImageView, email: EditText, name:EditText, mobile:EditText)
     {
-        var loggedInUser:com.example.evoid.User
+        var loggedInUser:User
         mFireStore.collection(constants.USERS)
             .document(getCurrentUserId())
             .get().addOnSuccessListener { document ->
-                loggedInUser = document.toObject(com.example.evoid.User::class.java)!!
+                loggedInUser = document.toObject(User::class.java)!!
                 Glide
                     .with(activity)
                     .load(loggedInUser.image)

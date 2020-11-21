@@ -292,7 +292,7 @@ class contacts : Fragment() {
         if (cursor3!!.moveToNext())
         {
             phoneId = cursor3.getString(cursor3.getColumnIndex(ContactsContract.CommonDataKinds.StructuredName.CONTACT_ID))
-            Toast.makeText(requireContext(), "getting", Toast.LENGTH_SHORT).show()
+            Toast.makeText(requireContext(), "Adding", Toast.LENGTH_SHORT).show()
         }
 
     }

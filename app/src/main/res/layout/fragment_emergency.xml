@@ -110,28 +110,32 @@
         app:layout_constraintTop_toBottomOf="@+id/view3" />
 
     <ImageView
-        android:id="@+id/play"
-        android:layout_width="80dp"
-        android:layout_height="58dp"
-        android:layout_marginStart="288dp"
-        android:layout_marginEnd="43dp"
-        android:layout_marginBottom="79dp"
-        android:src="@android:drawable/ic_media_play"
+        android:id="@+id/startAlarm"
+        android:layout_width="match_parent"
+        android:layout_height="88dp"
+        android:layout_marginStart="29dp"
+        android:layout_marginTop="20dp"
+        android:layout_marginEnd="29dp"
+        android:layout_marginBottom="72dp"
+        android:src="@drawable/finalstartalarm"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent" />
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/view" />
 
     <ImageView
-        android:id="@+id/pause"
-        android:layout_width="81dp"
-        android:layout_height="60dp"
-        android:layout_marginStart="288dp"
-        android:layout_marginEnd="43dp"
-        android:layout_marginBottom="79dp"
+        android:id="@+id/stopAlarm"
+        android:layout_width="match_parent"
+        android:layout_height="88dp"
+        android:layout_marginStart="29dp"
+        android:layout_marginTop="20dp"
+        android:layout_marginEnd="29dp"
+        android:layout_marginBottom="72dp"
+        android:src="@drawable/finalstopalarm"
         android:visibility="invisible"
-        android:src="@android:drawable/ic_media_pause"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent" />
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/view" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
