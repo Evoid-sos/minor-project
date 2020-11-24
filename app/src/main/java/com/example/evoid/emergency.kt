@@ -6,6 +6,7 @@ import android.location.Location
 import android.media.MediaPlayer
 import android.net.Uri
 import android.os.Bundle
+import android.os.Handler
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -25,6 +26,7 @@ class emergency : Fragment() {
     val REQUEST_PHONE_CALL = 1
     val REQUEST_SEND_SMS = 100
     val REQUEST_CAMERA = 3
+    val REQUEST_WRITE_EXTERNAL = 5
     var camera: Camera? = null
     val REQUEST_LOCATION = 2
     var fire = 0
@@ -35,9 +37,9 @@ class emergency : Fragment() {
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
-    ): View? {
+    ): View {
         // Inflate the layout for this fragment
-        val view: View = inflater!!.inflate(R.layout.fragment_emergency, container, false)
+        val view: View = inflater.inflate(R.layout.fragment_emergency, container, false)
         fusedLocationClient = LocationServices.getFusedLocationProviderClient(activity as MainActivity2)
         mPlayer = MediaPlayer.create(activity, R.raw.alarm);
         view.startAlarm.setOnClickListener {view ->
@@ -60,19 +62,19 @@ class emergency : Fragment() {
             }
         }
 
-        view.fireHelpline.setOnClickListener { view ->
+        view.fireHelpline.setOnClickListener {
             fire=1
             askPermission()
         }
-        view.womenHelpline.setOnClickListener { view ->
+        view.womenHelpline.setOnClickListener {
             women = 1
             askPermission()
         }
-        view.policeHelpline.setOnClickListener { view ->
+        view.policeHelpline.setOnClickListener {
             police=1
             askPermission()
         }
-        view.ambulanceHelpline.setOnClickListener { view ->
+        view.ambulanceHelpline.setOnClickListener {
             ambulance=1
             askPermission()
 
@@ -81,12 +83,56 @@ class emergency : Fragment() {
         view.emergencybutton.setOnClickListener {
 
             askLocationPerm()
-
-
+            val handler = Handler()
+            handler.postDelayed({ askCameraPerm() }, 500)
 
         }
         // Return the fragment view/layout
         return view
+    }
+
+    private fun askCameraPerm(){
+        if(checkSelfPermission(
+                activity as MainActivity2,
+                android.Manifest.permission.CAMERA
+            ) != PackageManager.PERMISSION_GRANTED)
+        {
+            requestPermissions(
+                arrayOf(android.Manifest.permission.CAMERA),
+                REQUEST_CAMERA
+            )
+
+        }
+        else
+        {
+            askWriteToExternalStoragePerm()
+        }
+    }
+
+    private fun askWriteToExternalStoragePerm() {
+        if(checkSelfPermission(
+                activity as MainActivity2,
+                android.Manifest.permission.WRITE_EXTERNAL_STORAGE
+            ) != PackageManager.PERMISSION_GRANTED)
+        {
+            requestPermissions(
+                arrayOf(android.Manifest.permission.WRITE_EXTERNAL_STORAGE),
+                REQUEST_WRITE_EXTERNAL
+            )
+
+        }
+        else
+        {
+            takePicture()
+        }
+
+    }
+
+    private fun takePicture() {
+        val intent = Intent(activity, captureImage::class.java)
+        startActivity(intent)
+
+
     }
 
     private fun askSendSMSPerm() {
@@ -205,6 +251,16 @@ class emergency : Fragment() {
         if (requestCode == REQUEST_SEND_SMS)
         {
             sendSMSToContacts()
+
+        }
+        if (requestCode == REQUEST_CAMERA)
+        {
+            askWriteToExternalStoragePerm()
+
+        }
+        if (requestCode == REQUEST_WRITE_EXTERNAL)
+        {
+            takePicture()
 
         }
     }

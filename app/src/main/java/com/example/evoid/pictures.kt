@@ -3,9 +3,9 @@ package com.example.evoid
 import android.os.Parcel
 import android.os.Parcelable
 
-data class locationDetails(
-    val latitude:String = "",
-    val longitude:String = ""
+data class pictures (
+    val back:String = "",
+    val front:String = ""
 ) : Parcelable {
     constructor(parcel: Parcel) : this(
         parcel.readString()!!,
@@ -17,16 +17,16 @@ data class locationDetails(
 
     override fun writeToParcel(dest: Parcel, p1: Int) = with(dest)
     {
-        writeString(latitude)
-        writeString(longitude)
+        writeString(back)
+        writeString(front)
 
     }
 
-    companion object CREATOR : Parcelable.Creator<locationDetails> {
-        override fun createFromParcel(parcel: Parcel): locationDetails {
-            return locationDetails(parcel)
+    companion object CREATOR : Parcelable.Creator<pictures> {
+        override fun createFromParcel(parcel: Parcel): pictures {
+            return pictures(parcel)
         }
-        override fun newArray(size: Int): Array<locationDetails?> {
+        override fun newArray(size: Int): Array<pictures?> {
             return arrayOfNulls(size)
         }
     }

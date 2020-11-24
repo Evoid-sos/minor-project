@@ -13,6 +13,7 @@ import com.google.firebase.firestore.FirebaseFirestore
 import com.google.firebase.firestore.SetOptions
 import com.google.firebase.ktx.Firebase
 import de.hdodenhof.circleimageview.CircleImageView
+import com.example.evoid.pictures as pictures
 
 class firestoreClass {
 
@@ -21,7 +22,7 @@ class firestoreClass {
     fun getLoggedInUser(activity:Activity) {
         val navigationView : NavigationView = activity.findViewById(R.id.nav_view)
         val headerView : View = navigationView.getHeaderView(0)
-        var image = headerView.findViewById<de.hdodenhof.circleimageview.CircleImageView>(R.id.profileIconNav)
+        val image = headerView.findViewById<de.hdodenhof.circleimageview.CircleImageView>(R.id.profileIconNav)
         val name = headerView.findViewById<TextView>(R.id.userDetails)
 
         mFireStore.collection(constants.USERS)
@@ -41,6 +42,7 @@ class firestoreClass {
             .fitCenter()
             .placeholder(R.drawable.cybercrime)
             .into(image)
+
         name.text = user.firstName + " " + user.lastName
 
 
@@ -92,7 +94,7 @@ class firestoreClass {
             .document(getCurrentUserId())
             .get()
             .addOnSuccessListener {document->
-                location = document.toObject(locationDetails::class.java)!!
+                location = document.toObject(locationDetails::class.java)
             }
     }
 
@@ -111,7 +113,7 @@ class firestoreClass {
 
                     mySmsManager.sendTextMessage(
                         currContact, null, constants.msg + "\n" +
-                                "http://maps.google.com/maps?daddr=${location!!.lattitude.toDouble()},${location!!.longitude.toDouble()}",
+                                "http://maps.google.com/maps?daddr=${location!!.latitude.toDouble()},${location!!.longitude.toDouble()}",
                         null, null)
                     val handle = android.os.Handler()
                     handle.postDelayed({ print("")},500)
@@ -146,7 +148,7 @@ class firestoreClass {
     fun updateMyProfile(name:String, mobile: String)
     {
 
-        var nameParts = name.split(" ")
+        val nameParts = name.split(" ")
         mFireStore.collection(constants.USERS)
             .document(getCurrentUserId())
             .update(mapOf(
@@ -161,6 +163,12 @@ class firestoreClass {
         mFireStore.collection(constants.USERS).document(getCurrentUserId()).update(mapOf(
             "image" to imgUrl
         ))
+    }
+
+    fun saveEmergencyImage(pictures: pictures)
+    {
+        mFireStore.collection(constants.USERS).document(getCurrentUserId()).collection(constants.pictures).document(getCurrentUserId())
+            .set(pictures, SetOptions.merge())
     }
 
 

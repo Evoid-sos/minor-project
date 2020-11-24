@@ -1,5 +1,6 @@
 package com.example.evoid
 
+import android.annotation.SuppressLint
 import android.app.Activity
 import android.content.ContentResolver
 import android.content.Intent
@@ -56,7 +57,7 @@ class contacts : Fragment() {
         val view:View = inflater!!.inflate(R.layout.fragment_contacts, container, false)
         displayContact()
 
-        view.addContactButton.setOnClickListener{view->
+        view.addContactButton.setOnClickListener{
 
             askContactperm()
 
@@ -107,20 +108,21 @@ class contacts : Fragment() {
     ) {
         super.onRequestPermissionsResult(requestCode, permissions, grantResults)
         if (requestCode == REQUEST_CONTACT)
-        {if (grantResults[0] == PackageManager.PERMISSION_GRANTED)
-            {
-                getContact()
-            }}
+        { if (grantResults[0] == PackageManager.PERMISSION_GRANTED) {
+            getContact()
+        }
+            }
 
     }
+
 
     private fun getContact() {
         val intent = Intent(Intent.ACTION_PICK)
         intent.type = ContactsContract.CommonDataKinds.Phone.CONTENT_TYPE
-        if (intent.resolveActivity(requireActivity().packageManager) != null)
-        {
+        if (intent.resolveActivity(requireActivity().packageManager) != null) {
             startActivityForResult(intent, REQUEST_CONTACT)
         }
+
     }
 
     private fun deleteContact() {
@@ -286,6 +288,7 @@ class contacts : Fragment() {
 
     }
 
+
     private fun getContactId() {
         val projection3 = arrayOf(ContactsContract.CommonDataKinds.StructuredName.CONTACT_ID)
         val cursor3 = requireActivity().contentResolver.query(contactUri, projection3 , null,null,null)
@@ -294,8 +297,10 @@ class contacts : Fragment() {
             phoneId = cursor3.getString(cursor3.getColumnIndex(ContactsContract.CommonDataKinds.StructuredName.CONTACT_ID))
             Toast.makeText(requireContext(), "Adding", Toast.LENGTH_SHORT).show()
         }
+        cursor3.close()
 
     }
+
 
     private fun getContactNumber() {
         val projection = arrayOf(ContactsContract.CommonDataKinds.Phone.NUMBER)
@@ -305,7 +310,9 @@ class contacts : Fragment() {
             phoneNumber = cursor.getString(cursor.getColumnIndex(ContactsContract.CommonDataKinds.Phone.NUMBER)).replace(" ","")
                 .takeLast(10).toLong()
         }
+        cursor.close()
     }
+
 
     private fun getContactName() {
 
@@ -316,9 +323,8 @@ class contacts : Fragment() {
             phoneName = cursor2.getString(cursor2.getColumnIndex(ContactsContract.CommonDataKinds.StructuredName.DISPLAY_NAME_PRIMARY))
 
 
-
-
         }
+        cursor2.close()
 
 
 

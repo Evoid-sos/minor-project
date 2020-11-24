@@ -63,7 +63,7 @@ class MyProfile : AppCompatActivity() {
     }
 
     private fun pickImage() {
-        var galleryIntent = Intent(Intent.ACTION_PICK,
+        val galleryIntent = Intent(Intent.ACTION_PICK,
             MediaStore.Images.Media.EXTERNAL_CONTENT_URI)
         startActivityForResult(galleryIntent, PICK_IMAGE_REQUEST)
     }
