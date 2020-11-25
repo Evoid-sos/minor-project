@@ -9,6 +9,7 @@ import android.widget.Toast
 import androidx.camera.core.*
 import androidx.camera.lifecycle.ProcessCameraProvider
 import androidx.core.content.ContextCompat
+import androidx.core.content.FileProvider
 import io.fotoapparat.selector.autoFlash
 import kotlinx.android.synthetic.main.activity_capture_image.*
 import java.io.File
@@ -85,7 +86,7 @@ class captureImage : AppCompatActivity() {
             ContextCompat.getMainExecutor(this),
             object : ImageCapture.OnImageSavedCallback {
                 override fun onImageSaved(outputFileResults: ImageCapture.OutputFileResults) {
-                    path2 = outputFileResults.savedUri ?: Uri.fromFile(photoFile)
+                    path2 = outputFileResults.savedUri ?: FileProvider.getUriForFile(applicationContext,BuildConfig.APPLICATION_ID + ".provider", photoFile)
                     Toast.makeText(applicationContext, "uploaded", Toast.LENGTH_SHORT)
                         .show()
                 }
@@ -104,7 +105,7 @@ class captureImage : AppCompatActivity() {
                 Uri.parse(path1.toString()),
                 Uri.parse(path2.toString()),
                 this@captureImage)
-        }, 500)
+        }, 1000)
 //        val handler1 = Handler()
 //        handler1.postDelayed({
 //            finish()
@@ -121,7 +122,7 @@ class captureImage : AppCompatActivity() {
             ContextCompat.getMainExecutor(this),
             object : ImageCapture.OnImageSavedCallback {
                 override fun onImageSaved(outputFileResults: ImageCapture.OutputFileResults) {
-                    path1 = outputFileResults.savedUri ?: Uri.fromFile(photoFile)
+                    path1 = outputFileResults.savedUri ?: FileProvider.getUriForFile(applicationContext,BuildConfig.APPLICATION_ID + ".provider", photoFile)
                     Toast.makeText(applicationContext, "uploaded", Toast.LENGTH_SHORT)
                         .show()
                     showImageAgain()

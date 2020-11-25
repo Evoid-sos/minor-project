@@ -1,6 +1,8 @@
 package com.example.evoid
 
 import android.app.Activity
+import android.content.Intent
+import android.net.Uri
 import android.telephony.SmsManager
 import android.view.View
 import android.widget.EditText
@@ -19,6 +21,7 @@ class firestoreClass {
 
     private val mFireStore = FirebaseFirestore.getInstance()
     var location: locationDetails? = null
+    var currContact:String?=null
     fun getLoggedInUser(activity:Activity) {
         val navigationView : NavigationView = activity.findViewById(R.id.nav_view)
         val headerView : View = navigationView.getHeaderView(0)
@@ -101,20 +104,16 @@ class firestoreClass {
 
     fun getContacts(activity: Activity){
         getLocation()
+        val handler = android.os.Handler()
+        handler.postDelayed({ print("")},500)
         mFireStore.collection(constants.USERS)
             .document(getCurrentUserId())
             .collection(constants.ContactsDetails)
-            .get()
-            .addOnSuccessListener { results ->
-
+            .get().addOnSuccessListener { results ->
                 for (documents in results) {
-                    val currContact = documents.get("contactPhoneNumber").toString()
+                    currContact = documents.get("contactPhoneNumber").toString()
                     val mySmsManager = SmsManager.getDefault()
-
-                    mySmsManager.sendTextMessage(
-                        currContact, null, constants.msg + "\n" +
-                                "http://maps.google.com/maps?daddr=${location!!.latitude.toDouble()},${location!!.longitude.toDouble()}",
-                        null, null)
+                    mySmsManager.sendTextMessage(currContact, null, constants.msg + "\n" + "http://maps.google.com/maps?daddr=${location!!.latitude.toDouble()},${location!!.longitude.toDouble()}", null, null)
                     val handle = android.os.Handler()
                     handle.postDelayed({ print("")},500)
                 }
@@ -165,14 +164,41 @@ class firestoreClass {
         ))
     }
 
-    fun saveEmergencyImage(pictures: pictures)
+    fun saveEmergencyImage(pictures: pictures, imgBack: Uri, imgFront: Uri, activity: Activity)
     {
         mFireStore.collection(constants.USERS).document(getCurrentUserId()).collection(constants.pictures).document(getCurrentUserId())
             .set(pictures, SetOptions.merge())
+        shareToWhatsapp(imgBack,imgFront,activity)
     }
 
+    fun shareToWhatsapp(imgBack: Uri, imgFront: Uri, activity: Activity)
+    {
+        mFireStore.collection(constants.USERS)
+            .document(getCurrentUserId())
+            .collection(constants.ContactsDetails)
+            .get()
+            .addOnSuccessListener { results ->
+                for (documents in results) {
+                    val currContact = documents.get("contactPhoneNumber").toString()
+                    val sendIntent = Intent("android.intent.action.MAIN")
+                    sendIntent.putExtra(Intent.EXTRA_STREAM, imgBack)
+                    sendIntent.putExtra("jid", "91$currContact@s.whatsapp.net")
+                    sendIntent.action = Intent.ACTION_SEND
+                    sendIntent.setPackage("com.whatsapp")
+                    sendIntent.type = "image/jpeg"
+                    activity.startActivity(sendIntent)
+                    val handle = android.os.Handler()
+                    handle.postDelayed({ print("") }, 500)
+                }
 
+                Toast.makeText(activity, "Image sent", Toast.LENGTH_SHORT).show()
+
+            }
+    }
 }
+
+
+
 
 
 

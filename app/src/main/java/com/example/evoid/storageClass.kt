@@ -4,7 +4,6 @@ import android.app.Activity
 import android.net.Uri
 import android.os.Handler
 import android.webkit.MimeTypeMap
-import android.widget.Toast
 import com.google.firebase.storage.FirebaseStorage
 import com.google.firebase.storage.StorageReference
 
@@ -44,9 +43,7 @@ class storageClass {
             .putFile(imgBack)
             .addOnSuccessListener { snap ->
                 snap.metadata!!.reference!!.downloadUrl.addOnSuccessListener { uri ->
-                    uriBack = uri.toString()
-
-
+                    uriBack = uri.toString()}
                     sref1
                         .putFile(imgFront)
                         .addOnSuccessListener { snap ->
@@ -55,17 +52,15 @@ class storageClass {
                                 val handler = Handler()
                                 handler.postDelayed(
                                     {
-                                        Toast.makeText(activity, "$uriBack", Toast.LENGTH_SHORT)
-                                            .show()
+                                        //Toast.makeText(activity, "$uriBack", Toast.LENGTH_SHORT).show()
                                         val picture = pictures(uriBack, uriFront)
-                                        firestoreClass().saveEmergencyImage(picture)
-                                    }, 500
-                                )
+                                        firestoreClass().saveEmergencyImage(picture,imgBack,imgFront,activity)
+                                    }, 500)
+
                             }
 
-                        }
-
                 }
+
 
             }
 

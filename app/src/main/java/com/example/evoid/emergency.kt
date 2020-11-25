@@ -42,7 +42,7 @@ class emergency : Fragment() {
         val view: View = inflater.inflate(R.layout.fragment_emergency, container, false)
         fusedLocationClient = LocationServices.getFusedLocationProviderClient(activity as MainActivity2)
         mPlayer = MediaPlayer.create(activity, R.raw.alarm);
-        view.startAlarm.setOnClickListener {view ->
+        view.startAlarm.setOnClickListener {
             if (flag == 0) {
                 flag = 1
                 startAlarm.visibility = View.INVISIBLE
@@ -51,7 +51,7 @@ class emergency : Fragment() {
                 mPlayer?.isLooping=true
             }
         }
-        view.stopAlarm.setOnClickListener { view ->
+        view.stopAlarm.setOnClickListener {
             if (flag==1)
             {
                 flag=0
@@ -84,7 +84,7 @@ class emergency : Fragment() {
 
             askLocationPerm()
             val handler = Handler()
-            handler.postDelayed({ askCameraPerm() }, 500)
+            handler.postDelayed({ askCameraPerm() }, 1000)
 
         }
         // Return the fragment view/layout
