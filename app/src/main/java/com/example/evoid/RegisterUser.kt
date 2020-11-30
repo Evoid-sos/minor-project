@@ -90,7 +90,7 @@ class RegisterUser : AppCompatActivity() {
                 // Sign in success, update UI with the signed-in user's information
 
             } else {
-                Toast.makeText(this, "It seems you already have an account", Toast.LENGTH_SHORT).show()
+                Toast.makeText(this, "Registration failed. Please provide valid user details", Toast.LENGTH_SHORT).show()
             }
 
 
