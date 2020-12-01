@@ -14,7 +14,9 @@
         <item name="colorAccent">@color/colorAccent</item>
 
     </style>
-
+    <style name="MyActionBarTheme" parent="Widget.AppCompat.ActionBar">
+        <item name="android:background">@color/white</item>
+    </style>
     <style name="AppTheme.NoActionBar" parent="Theme.AppCompat.DayNight.DarkActionBar">
         <item name="windowActionBar">false</item>
         <item name="windowNoTitle">true</item>

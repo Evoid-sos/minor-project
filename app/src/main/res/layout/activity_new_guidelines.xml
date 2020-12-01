@@ -1,0 +1,160 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/login_bg3"
+    tools:context=".newGuidelines">
+
+    <ImageView
+        android:id="@+id/imageView4"
+        android:layout_width="40dp"
+        android:layout_height="50dp"
+        android:layout_marginEnd="100dp"
+        app:layout_constraintBottom_toBottomOf="@+id/medicalGuide"
+        app:layout_constraintEnd_toEndOf="@+id/medicalGuide"
+        app:layout_constraintStart_toStartOf="@+id/medicalGuide"
+        app:layout_constraintTop_toTopOf="@+id/medicalGuide"
+        app:srcCompat="@drawable/medical" />
+
+    <ImageView
+        android:id="@+id/imageView5"
+        android:layout_width="40dp"
+        android:layout_height="50dp"
+        android:layout_marginEnd="97dp"
+        app:layout_constraintBottom_toBottomOf="@+id/accidentGuide"
+        app:layout_constraintEnd_toEndOf="@+id/accidentGuide"
+        app:layout_constraintStart_toStartOf="@+id/accidentGuide"
+        app:layout_constraintTop_toTopOf="@+id/accidentGuide"
+        app:srcCompat="@drawable/accident" />
+
+    <ImageView
+        android:id="@+id/imageView3"
+        android:layout_width="40dp"
+        android:layout_height="50dp"
+        android:layout_marginEnd="100dp"
+        app:layout_constraintBottom_toBottomOf="@+id/fireGuide"
+        app:layout_constraintEnd_toEndOf="@+id/fireGuide"
+        app:layout_constraintStart_toStartOf="@+id/fireGuide"
+        app:layout_constraintTop_toTopOf="@+id/fireGuide"
+        app:srcCompat="@drawable/firelogo" />
+
+    <Button
+        android:id="@+id/medicalGuide"
+        android:layout_width="151dp"
+        android:layout_height="88dp"
+        android:layout_marginStart="10dp"
+        android:layout_marginTop="70dp"
+        android:layout_marginEnd="46dp"
+        android:layout_marginBottom="10dp"
+        android:textSize="13dp"
+        android:background="@drawable/guidelinesbuttons"
+        android:text="Medical \n Emergency"
+        android:textColor="@color/white"
+        app:layout_constraintBottom_toTopOf="@+id/crimeGuide"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/fireGuide"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <Button
+        android:id="@+id/accidentGuide"
+        android:layout_width="151dp"
+        android:layout_height="88dp"
+        android:layout_marginStart="46dp"
+        android:layout_marginEnd="14dp"
+        android:layout_marginBottom="326dp"
+        android:background="@drawable/guidelinesbuttons"
+        android:text="Accident"
+        android:textSize="11dp"
+        android:textAlignment="gravity"
+        android:textColor="@color/white"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toStartOf="@+id/crimeGuide"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/fireGuide" />
+
+    <Button
+        android:id="@+id/fireGuide"
+        android:layout_width="151dp"
+        android:layout_height="88dp"
+        android:layout_marginStart="46dp"
+        android:layout_marginTop="70dp"
+        android:layout_marginEnd="10dp"
+        android:layout_marginBottom="10dp"
+
+        android:background="@drawable/guidelinesbuttons"
+        android:text="FIRE"
+        android:textColor="@color/white"
+        app:layout_constraintBottom_toTopOf="@+id/accidentGuide"
+        app:layout_constraintEnd_toStartOf="@+id/medicalGuide"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <Button
+        android:id="@+id/crimeGuide"
+        android:layout_width="151dp"
+        android:layout_height="88dp"
+        android:layout_marginStart="10dp"
+        android:layout_marginEnd="46dp"
+        android:layout_marginBottom="326dp"
+        android:background="@drawable/guidelinesbuttons"
+        android:text="Crime"
+        android:textColor="@color/white"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/accidentGuide"
+        app:layout_constraintTop_toBottomOf="@+id/medicalGuide" />
+
+    <androidx.core.widget.NestedScrollView
+        android:id="@+id/nestedScrollView"
+        android:layout_width="327dp"
+        android:layout_height="263dp"
+        android:layout_marginStart="43dp"
+        android:layout_marginEnd="46dp"
+        android:layout_marginBottom="16dp"
+        android:fillViewport="true"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <TextView
+                android:id="@+id/guideText"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text=""
+                android:textColor="#ffffff" />
+
+        </LinearLayout>
+    </androidx.core.widget.NestedScrollView>
+
+    <ImageView
+        android:id="@+id/imageView6"
+        android:layout_width="40dp"
+        android:layout_height="50dp"
+        android:layout_marginEnd="95dp"
+        app:layout_constraintBottom_toBottomOf="@+id/crimeGuide"
+        app:layout_constraintEnd_toEndOf="@+id/crimeGuide"
+        app:layout_constraintStart_toStartOf="@+id/crimeGuide"
+        app:layout_constraintTop_toTopOf="@+id/crimeGuide"
+        app:srcCompat="@drawable/crime" />
+
+    <TextView
+        android:id="@+id/textView5"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="139dp"
+        android:layout_marginTop="20dp"
+        android:layout_marginEnd="139dp"
+        android:text="TAP TO VIEW GUIDELINES"
+        android:textColor="@color/white"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>
