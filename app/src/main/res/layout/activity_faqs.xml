@@ -7,34 +7,16 @@
     tools:context=".faqs"
     android:background="@drawable/login_bg3">
 
-    <androidx.appcompat.widget.Toolbar
-        android:id="@+id/toolbar"
-        android:layout_width="match_parent"
-        android:layout_height="?attr/actionBarSize"
-        android:layout_marginTop="50dp"
-        android:layout_marginBottom="58dp"
-        android:background="#ffffff"
-        android:gravity="center"
-        android:textAlignment="center"
-        app:layout_constraintBottom_toTopOf="@+id/textView8"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:title="FAQ"
-        app:titleTextColor="#000000">
-
-    </androidx.appcompat.widget.Toolbar>
     <LinearLayout
         android:id="@+id/linearLayout6"
-        android:layout_width="341dp"
-        android:layout_height="514dp"
+        android:layout_width="319dp"
+        android:layout_height="515dp"
         android:layout_marginStart="34dp"
         android:layout_marginEnd="34dp"
         android:orientation="vertical"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView8">
+        app:layout_constraintStart_toStartOf="parent">
 
         <ScrollView
             android:layout_width="match_parent"
@@ -50,25 +32,9 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:text=" "
-                    android:textAlignment="center"
                     android:textColor="#ffffff" />
             </LinearLayout>
         </ScrollView>
     </LinearLayout>
 
-    <TextView
-        android:id="@+id/textView8"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="100dp"
-        android:layout_marginBottom="50dp"
-        android:text="FAQ"
-        android:textAlignment="center"
-        android:textColor="#ffffff"
-        android:textSize="20dp"
-        app:layout_constraintBottom_toTopOf="@+id/linearLayout6"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
 </androidx.constraintlayout.widget.ConstraintLayout>

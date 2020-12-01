@@ -76,14 +76,12 @@
         </activity>
         <activity
             android:name=".cybersecurity"
-            android:theme="@style/AppTheme.NoActionBar" />
+             />
         <activity
-            android:name=".faqs"
-            android:theme="@style/AppTheme.NoActionBar" />
+            android:name=".faqs" />
 
         <activity
-            android:name=".covidHelplines"
-            android:theme="@style/AppTheme.NoActionBar" />
+            android:name=".covidHelplines"/>
         <activity
             android:name=".MainActivity2"
             android:theme="@style/AppTheme.NoActionBar" />

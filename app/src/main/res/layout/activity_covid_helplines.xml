@@ -7,24 +7,6 @@
     android:background="@drawable/login_bg3"
     tools:context=".covidHelplines">
 
-    <androidx.appcompat.widget.Toolbar
-        android:id="@+id/toolbar"
-        android:layout_width="match_parent"
-        android:layout_height="?attr/actionBarSize"
-        android:layout_marginTop="50dp"
-        android:layout_marginBottom="114dp"
-        android:background="#ffffff"
-        android:gravity="center"
-        android:textAlignment="center"
-        app:layout_constraintBottom_toTopOf="@+id/textView2"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:title="COVID-19 GUIDELINES"
-        app:titleTextColor="#000000">
-
-    </androidx.appcompat.widget.Toolbar>
-
     <Spinner
         android:id="@+id/spinner1"
         android:layout_width="match_parent"
