@@ -173,18 +173,24 @@ class contacts : Fragment() {
 
         deleteContact1.visibility = View.INVISIBLE
         contact1Contacts.visibility = View.INVISIBLE
+        callContact1.visibility=View.INVISIBLE
 
         deleteContact2.visibility = View.INVISIBLE
         contact2Contacts.visibility = View.INVISIBLE
+        callContact2.visibility=View.INVISIBLE
 
         deleteContact3.visibility = View.INVISIBLE
         contact3Contacts.visibility = View.INVISIBLE
+        callContact3.visibility=View.INVISIBLE
 
         deleteContact4.visibility = View.INVISIBLE
         contact4Contacts.visibility = View.INVISIBLE
+        callContact4.visibility=View.INVISIBLE
 
         deleteContact5.visibility = View.INVISIBLE
         contact5Contacts.visibility = View.INVISIBLE
+        callContact5.visibility=View.INVISIBLE
+
         contact1Contacts.text=""
         contact2Contacts.text =""
         contact3Contacts.text=""
@@ -232,40 +238,45 @@ class contacts : Fragment() {
                         {
 
                             deleteContact1.visibility = View.VISIBLE
+                            callContact1.visibility=View.VISIBLE
                             contact1Contacts.visibility = View.VISIBLE
-                            contact1Contacts.setText(document.get("contactName").toString())
+                            contact1Contacts.text = document.get("contactName").toString()
                             docId1 = document.get("contactId").toString()
                         }
                         else if (contact2Contacts.text.isEmpty())
                         {
 
                             deleteContact2.visibility = View.VISIBLE
+                            callContact2.visibility=View.VISIBLE
                             contact2Contacts.visibility = View.VISIBLE
-                            contact2Contacts.setText(document.get("contactName").toString())
+                            contact2Contacts.text = document.get("contactName").toString()
                             docId2 = document.get("contactId").toString()
                         }
                         else if (contact3Contacts.text.isEmpty())
                         {
 
                             deleteContact3.visibility = View.VISIBLE
+                            callContact3.visibility=View.VISIBLE
                             contact3Contacts.visibility = View.VISIBLE
-                            contact3Contacts.setText(document.get("contactName").toString())
+                            contact3Contacts.text = document.get("contactName").toString()
                             docId3 = document.get("contactId").toString()
                         }
                         else if (contact4Contacts.text.isEmpty())
                         {
 
                             deleteContact4.visibility = View.VISIBLE
+                            callContact4.visibility=View.VISIBLE
                             contact4Contacts.visibility = View.VISIBLE
-                            contact4Contacts.setText(document.get("contactName").toString())
+                            contact4Contacts.text = document.get("contactName").toString()
                             docId4 = document.get("contactId").toString()
                         }
                         else if (contact5Contacts.text.isEmpty())
                         {
 
                             deleteContact5.visibility = View.VISIBLE
+                            callContact5.visibility=View.VISIBLE
                             contact5Contacts.visibility = View.VISIBLE
-                            contact5Contacts.setText(document.get("contactName").toString())
+                            contact5Contacts.text = document.get("contactName").toString()
                             docId5 = document.get("contactId").toString()
                         }
                     }

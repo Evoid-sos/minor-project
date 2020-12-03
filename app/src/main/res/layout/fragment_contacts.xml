@@ -13,13 +13,13 @@
     <TextView
         android:id="@+id/contact1Contacts"
         android:layout_width="280dp"
-        android:layout_height="36dp"
+        android:layout_height="40dp"
         android:layout_marginStart="123dp"
-        android:layout_marginTop="170dp"
+        android:layout_marginTop="150dp"
         android:layout_marginEnd="123dp"
         android:layout_marginBottom="9dp"
         android:background="@color/cardview_dark_background"
-        android:gravity="center"
+        android:gravity="center|left"
         android:textColor="@color/design_default_color_on_primary"
         android:visibility="invisible"
         app:layout_constraintBottom_toTopOf="@+id/contact2Contacts"
@@ -30,13 +30,13 @@
     <TextView
         android:id="@+id/contact2Contacts"
         android:layout_width="280dp"
-        android:layout_height="36dp"
+        android:layout_height="40dp"
         android:layout_marginStart="123dp"
         android:layout_marginTop="24dp"
         android:layout_marginEnd="123dp"
         android:layout_marginBottom="9dp"
         android:background="@color/cardview_dark_background"
-        android:gravity="center"
+        android:gravity="center|left"
         android:textColor="@color/design_default_color_on_primary"
         android:visibility="invisible"
         app:layout_constraintBottom_toTopOf="@+id/contact3Contacts"
@@ -47,13 +47,13 @@
     <TextView
         android:id="@+id/contact3Contacts"
         android:layout_width="280dp"
-        android:layout_height="36dp"
+        android:layout_height="40dp"
         android:layout_marginStart="123dp"
         android:layout_marginTop="24dp"
         android:layout_marginEnd="123dp"
         android:layout_marginBottom="9dp"
         android:background="@color/cardview_dark_background"
-        android:gravity="center"
+        android:gravity="center|left"
         android:textColor="@color/design_default_color_on_primary"
         android:visibility="invisible"
         app:layout_constraintBottom_toTopOf="@+id/contact4Contacts"
@@ -64,13 +64,13 @@
     <TextView
         android:id="@+id/contact4Contacts"
         android:layout_width="280dp"
-        android:layout_height="36dp"
+        android:layout_height="40dp"
         android:layout_marginStart="123dp"
         android:layout_marginTop="24dp"
         android:layout_marginEnd="123dp"
         android:layout_marginBottom="9dp"
         android:background="@color/cardview_dark_background"
-        android:gravity="center"
+        android:gravity="center|left"
         android:textColor="@color/design_default_color_on_primary"
         android:visibility="invisible"
         app:layout_constraintBottom_toTopOf="@+id/contact5Contacts"
@@ -81,12 +81,12 @@
     <TextView
         android:id="@+id/contact5Contacts"
         android:layout_width="280dp"
-        android:layout_height="36dp"
+        android:layout_height="40dp"
         android:layout_marginStart="123dp"
         android:layout_marginTop="24dp"
         android:layout_marginEnd="123dp"
         android:background="@color/cardview_dark_background"
-        android:gravity="center"
+        android:gravity="center|left"
         android:textColor="@color/design_default_color_on_primary"
         android:visibility="invisible"
         app:layout_constraintBottom_toTopOf="@+id/addContactButton"
@@ -157,5 +157,63 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/contact5Contacts" />
+
+    <ImageView
+        android:id="@+id/callContact1"
+        android:layout_width="31dp"
+        android:layout_height="31dp"
+        android:layout_marginEnd="50dp"
+        android:src="@drawable/callbutton"
+        android:visibility="invisible"
+        app:layout_constraintBottom_toBottomOf="@+id/contact1Contacts"
+        app:layout_constraintEnd_toEndOf="@+id/contact1Contacts"
+        app:layout_constraintTop_toTopOf="@+id/contact1Contacts" />
+
+    <ImageView
+        android:id="@+id/callContact2"
+        android:layout_width="31dp"
+        android:layout_height="31dp"
+        android:layout_marginEnd="50dp"
+        android:src="@drawable/callbutton"
+        android:visibility="invisible"
+        app:layout_constraintBottom_toBottomOf="@+id/contact2Contacts"
+        app:layout_constraintEnd_toEndOf="@+id/contact2Contacts"
+        app:layout_constraintTop_toTopOf="@+id/contact2Contacts" />
+
+    <ImageView
+        android:id="@+id/callContact3"
+        android:layout_width="31dp"
+        android:layout_height="31dp"
+        android:layout_marginEnd="50dp"
+        android:src="@drawable/callbutton"
+        android:visibility="invisible"
+        app:layout_constraintBottom_toBottomOf="@+id/contact3Contacts"
+        app:layout_constraintEnd_toEndOf="@+id/contact3Contacts"
+        app:layout_constraintTop_toTopOf="@+id/contact3Contacts" />
+
+    <ImageView
+        android:id="@+id/callContact4"
+        android:layout_width="31dp"
+        android:layout_height="31dp"
+        android:layout_marginEnd="50dp"
+        android:src="@drawable/callbutton"
+        android:visibility="invisible"
+        app:layout_constraintBottom_toBottomOf="@+id/contact4Contacts"
+        app:layout_constraintEnd_toEndOf="@+id/contact4Contacts"
+        app:layout_constraintTop_toTopOf="@+id/contact4Contacts" />
+
+    <ImageView
+        android:id="@+id/callContact5"
+        android:layout_width="31dp"
+        android:layout_height="31dp"
+        android:layout_marginEnd="50dp"
+        android:src="@drawable/callbutton"
+        android:visibility="invisible"
+        app:layout_constraintBottom_toBottomOf="@+id/contact5Contacts"
+        app:layout_constraintEnd_toEndOf="@+id/contact5Contacts"
+        app:layout_constraintTop_toTopOf="@+id/contact5Contacts" />
+
+
+
 
 </androidx.constraintlayout.widget.ConstraintLayout>

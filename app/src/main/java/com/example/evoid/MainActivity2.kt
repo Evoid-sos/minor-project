@@ -30,7 +30,7 @@ class MainActivity2 : AppCompatActivity(),NavigationView.OnNavigationItemSelecte
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main2)
-        this.setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_PORTRAIT)
+        this.requestedOrientation = ActivityInfo.SCREEN_ORIENTATION_PORTRAIT
         drawerLayout = findViewById(R.id.drawer)
         val navView: NavigationView = findViewById(R.id.nav_view)
         val toggle = ActionBarDrawerToggle(this, drawerLayout, toolbar, R.string.navigation_drawer_open, R.string.navigation_drawer_close)
@@ -44,7 +44,7 @@ class MainActivity2 : AppCompatActivity(),NavigationView.OnNavigationItemSelecte
         viewPager = findViewById(R.id.viewPager)
         setSupportActionBar(toolbar)
         tabLayout.addTab(tabLayout.newTab().setText("EMERGENCY"))
-        tabLayout.addTab(tabLayout.newTab().setText("ADD CONTACTS"))
+        tabLayout.addTab(tabLayout.newTab().setText("EMERGENCY CONTACTS"))
         tabLayout.tabGravity = TabLayout.GRAVITY_FILL
         val adapter = MyAdapter(this, supportFragmentManager,
             tabLayout.tabCount)
