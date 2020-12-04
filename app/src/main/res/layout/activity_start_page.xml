@@ -164,12 +164,4 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/cardView" />
 
-    <Switch
-        android:id="@+id/switch1"
-        android:layout_width="173dp"
-        android:layout_height="48dp"
-        android:text="Switch"
-        tools:layout_editor_absoluteX="93dp"
-        tools:layout_editor_absoluteY="125dp" />
-
 </androidx.constraintlayout.widget.ConstraintLayout>
