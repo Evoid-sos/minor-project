@@ -31,7 +31,7 @@
         android:layout_gravity="left|center_horizontal|center_vertical"
         android:textAllCaps="true"
         android:gravity="center_vertical"
-        android:text="User"
+        android:text="@string/user_name"
         android:textColor="@color/black"
         android:textSize="15dp" />
 

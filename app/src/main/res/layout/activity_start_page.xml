@@ -57,7 +57,7 @@
                 android:layout_marginEnd="30dp"
                 android:layout_marginBottom="10dp"
                 android:background="@drawable/loginrounded"
-                android:text="forgot password ?"
+                android:text="@string/forgot_password_start"
                 android:textColor="#ff4500"
                 android:textSize="10dp"
                 android:visibility="visible"
@@ -116,7 +116,6 @@
                 android:id="@+id/emailIdStart"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-
                 android:layout_marginStart="30dp"
                 android:layout_marginTop="10dp"
                 android:layout_marginEnd="30dp"
@@ -158,11 +157,19 @@
         android:layout_marginTop="10dp"
         android:layout_marginEnd="20dp"
         android:background="@drawable/button_rounded_corners"
-        android:text="Register"
+        android:text="@string/register_start"
         android:textColor="#ffffff"
         android:textSize="20sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/cardView" />
+
+    <Switch
+        android:id="@+id/switch1"
+        android:layout_width="173dp"
+        android:layout_height="48dp"
+        android:text="Switch"
+        tools:layout_editor_absoluteX="93dp"
+        tools:layout_editor_absoluteY="125dp" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -60,7 +60,7 @@
                 android:id="@+id/showGuidelines"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text=" "
+                android:text="@string/cyberscrime_scroll"
                 android:textColor="#ffffff" />
         </ScrollView>
 
@@ -73,7 +73,7 @@
         android:layout_marginStart="85dp"
         android:layout_marginTop="12dp"
         android:layout_marginEnd="86dp"
-        android:text="TAP THE IMAGE TO VIEW GUIDELINES"
+        android:text="@string/tap_the_image_to_view_guidelines"
         android:textColor="@color/white"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"

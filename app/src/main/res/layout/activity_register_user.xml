@@ -151,7 +151,7 @@
         android:layout_marginTop="10dp"
         android:layout_marginEnd="20dp"
         android:background="@drawable/button_rounded_corners"
-        android:text="Register"
+        android:text="@string/register_user"
         android:textColor="#ffffff"
         android:textSize="20sp"
         app:layout_constraintEnd_toEndOf="parent"

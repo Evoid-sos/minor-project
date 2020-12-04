@@ -18,7 +18,6 @@ import kotlinx.android.synthetic.main.activity_start_page.*
 class start_page : AppCompatActivity() {
     private lateinit var auth: FirebaseAuth
 
-
     override fun onCreate(savedInstanceState: Bundle?) {
         auth = Firebase.auth
         var b = 0
