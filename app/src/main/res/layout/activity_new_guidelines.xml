@@ -12,18 +12,28 @@
         android:id="@+id/imageView4"
         android:layout_width="40dp"
         android:layout_height="50dp"
-        android:layout_marginEnd="100dp"
+        android:layout_marginBottom="40dp"
         app:layout_constraintBottom_toBottomOf="@+id/medicalGuide"
         app:layout_constraintEnd_toEndOf="@+id/medicalGuide"
         app:layout_constraintStart_toStartOf="@+id/medicalGuide"
         app:layout_constraintTop_toTopOf="@+id/medicalGuide"
         app:srcCompat="@drawable/medical" />
+    <ImageView
+        android:id="@+id/imageView6"
+        android:layout_width="40dp"
+        android:layout_height="50dp"
+        android:layout_marginBottom="40dp"
+        app:layout_constraintBottom_toBottomOf="@+id/crimeGuide"
+        app:layout_constraintEnd_toEndOf="@+id/crimeGuide"
+        app:layout_constraintStart_toStartOf="@+id/crimeGuide"
+        app:layout_constraintTop_toTopOf="@+id/crimeGuide"
+        app:srcCompat="@drawable/crime" />
 
     <ImageView
         android:id="@+id/imageView5"
-        android:layout_width="40dp"
-        android:layout_height="50dp"
-        android:layout_marginEnd="97dp"
+        android:layout_width="60dp"
+        android:layout_height="60dp"
+        android:layout_marginBottom="40dp"
         app:layout_constraintBottom_toBottomOf="@+id/accidentGuide"
         app:layout_constraintEnd_toEndOf="@+id/accidentGuide"
         app:layout_constraintStart_toStartOf="@+id/accidentGuide"
@@ -34,7 +44,7 @@
         android:id="@+id/imageView3"
         android:layout_width="40dp"
         android:layout_height="50dp"
-        android:layout_marginEnd="100dp"
+        android:layout_marginBottom="40dp"
         app:layout_constraintBottom_toBottomOf="@+id/fireGuide"
         app:layout_constraintEnd_toEndOf="@+id/fireGuide"
         app:layout_constraintStart_toStartOf="@+id/fireGuide"
@@ -49,7 +59,6 @@
         android:layout_marginTop="70dp"
         android:layout_marginEnd="46dp"
         android:layout_marginBottom="10dp"
-        android:textSize="13dp"
         android:background="@drawable/guidelinesbuttons"
         android:text="@string/medical_n_emergency"
         android:textColor="@color/white"
@@ -67,7 +76,6 @@
         android:layout_marginBottom="326dp"
         android:background="@drawable/guidelinesbuttons"
         android:text="@string/accident"
-        android:textSize="11dp"
         android:textAlignment="gravity"
         android:textColor="@color/white"
         app:layout_constraintBottom_toBottomOf="parent"
@@ -83,7 +91,7 @@
         android:layout_marginTop="70dp"
         android:layout_marginEnd="10dp"
         android:layout_marginBottom="10dp"
-
+        android:textAlignment="gravity"
         android:background="@drawable/guidelinesbuttons"
         android:text="@string/fire"
         android:textColor="@color/white"
@@ -129,21 +137,14 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:text=""
+                android:justificationMode="inter_word"
+                android:textSize="17dp"
                 android:textColor="#ffffff" />
 
         </LinearLayout>
     </androidx.core.widget.NestedScrollView>
 
-    <ImageView
-        android:id="@+id/imageView6"
-        android:layout_width="40dp"
-        android:layout_height="50dp"
-        android:layout_marginEnd="95dp"
-        app:layout_constraintBottom_toBottomOf="@+id/crimeGuide"
-        app:layout_constraintEnd_toEndOf="@+id/crimeGuide"
-        app:layout_constraintStart_toStartOf="@+id/crimeGuide"
-        app:layout_constraintTop_toTopOf="@+id/crimeGuide"
-        app:srcCompat="@drawable/crime" />
+
 
     <TextView
         android:id="@+id/textView5"
