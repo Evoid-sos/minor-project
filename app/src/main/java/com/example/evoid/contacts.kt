@@ -1,5 +1,6 @@
 package com.example.evoid
 
+import android.Manifest
 import android.annotation.SuppressLint
 import android.app.Activity
 import android.content.ContentResolver
@@ -33,6 +34,7 @@ import kotlin.reflect.typeOf
 
 class contacts : Fragment() {
     val REQUEST_CONTACT = 1
+    var callNumber: Long=0
     lateinit var contactUri: Uri
     var phoneNumber:Long = 0
     var phoneId:String = ""
@@ -43,6 +45,8 @@ class contacts : Fragment() {
     var docId3 = ""
     var docId4 = ""
     var docId5 = ""
+
+
     private lateinit var auth : FirebaseAuth
 
     private val mFireStore = FirebaseFirestore.getInstance()
@@ -215,6 +219,12 @@ class contacts : Fragment() {
         }
 
     }
+    private fun callContacts()
+    {
+        val intent = Intent(Intent.ACTION_CALL)
+        intent.data = Uri.parse("tel:$callNumber")
+        startActivity(intent)
+    }
 
     private fun displayContact() {
 
@@ -242,6 +252,11 @@ class contacts : Fragment() {
                             contact1Contacts.visibility = View.VISIBLE
                             contact1Contacts.text = document.get("contactName").toString()
                             docId1 = document.get("contactId").toString()
+                            callNumber= document.get("contactPhoneNumber") as Long
+                            callContact1.setOnClickListener()
+                            {
+                                callContacts()
+                            }
                         }
                         else if (contact2Contacts.text.isEmpty())
                         {
@@ -251,6 +266,11 @@ class contacts : Fragment() {
                             contact2Contacts.visibility = View.VISIBLE
                             contact2Contacts.text = document.get("contactName").toString()
                             docId2 = document.get("contactId").toString()
+                            callNumber= document.get("contactPhoneNumber") as Long
+                            callContact2.setOnClickListener()
+                            {
+                                callContacts()
+                            }
                         }
                         else if (contact3Contacts.text.isEmpty())
                         {
@@ -260,6 +280,11 @@ class contacts : Fragment() {
                             contact3Contacts.visibility = View.VISIBLE
                             contact3Contacts.text = document.get("contactName").toString()
                             docId3 = document.get("contactId").toString()
+                            callNumber= document.get("contactPhoneNumber") as Long
+                            callContact3.setOnClickListener()
+                            {
+                                callContacts()
+                            }
                         }
                         else if (contact4Contacts.text.isEmpty())
                         {
@@ -269,6 +294,11 @@ class contacts : Fragment() {
                             contact4Contacts.visibility = View.VISIBLE
                             contact4Contacts.text = document.get("contactName").toString()
                             docId4 = document.get("contactId").toString()
+                            callNumber= document.get("contactPhoneNumber") as Long
+                            callContact4.setOnClickListener()
+                            {
+                                callContacts()
+                            }
                         }
                         else if (contact5Contacts.text.isEmpty())
                         {
@@ -278,23 +308,21 @@ class contacts : Fragment() {
                             contact5Contacts.visibility = View.VISIBLE
                             contact5Contacts.text = document.get("contactName").toString()
                             docId5 = document.get("contactId").toString()
+                            callNumber= document.get("contactPhoneNumber") as Long
+                            callContact5.setOnClickListener()
+                            {
+                                callContacts()
+                            }
                         }
                     }
 
                 }
-
-
-
-
-
-
-
             }
 
     }
 
     private fun addContact() {
-        val contactInfo = com.example.evoid.ContactsDetails(phoneId,phoneName,phoneNumber)
+        val contactInfo = ContactsDetails(phoneId,phoneName,phoneNumber)
         firestoreClass().addContact(contactInfo, phoneId)
 
     }
@@ -337,13 +365,9 @@ class contacts : Fragment() {
         }
         cursor2.close()
 
-
-
-
     }
 
 
-
-
-
 }
+
+
