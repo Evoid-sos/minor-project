@@ -7,4 +7,5 @@ object constants{
     const val locationDetails:String = "location"
     const val pictures:String = "pictures"
     const val msg:String = "EMEREGENCY! \nMy Current Location: "
+    const val msg1:String = "Please open the link to see the images "
 }

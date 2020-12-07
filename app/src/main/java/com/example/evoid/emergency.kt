@@ -132,7 +132,6 @@ class emergency : Fragment() {
         val intent = Intent(activity, captureImage::class.java)
         startActivity(intent)
 
-
     }
 
     private fun askSendSMSPerm() {
@@ -144,7 +143,7 @@ class emergency : Fragment() {
         }
         else
         {
-            sendSMSToContacts()
+            print("")
         }
     }
 
@@ -193,9 +192,9 @@ class emergency : Fragment() {
         askSendSMSPerm()
     }
 
-    private fun sendSMSToContacts() {
-        firestoreClass().getContacts(activity as MainActivity2)
-    }
+//    private fun sendSMSToContacts() {
+//        firestoreClass().getContacts(activity as MainActivity2)
+//    }
 
     private fun askPermission() {
         if (checkSelfPermission(activity as MainActivity2, android.Manifest.permission.CALL_PHONE) != PackageManager.PERMISSION_GRANTED){
@@ -250,7 +249,7 @@ class emergency : Fragment() {
         }
         if (requestCode == REQUEST_SEND_SMS)
         {
-            sendSMSToContacts()
+            print("")
 
         }
         if (requestCode == REQUEST_CAMERA)

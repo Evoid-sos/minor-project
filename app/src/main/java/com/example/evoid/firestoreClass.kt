@@ -9,20 +9,22 @@ import android.widget.EditText
 import android.widget.TextView
 import android.widget.Toast
 import com.bumptech.glide.Glide
+import com.example.evoid.pictures
 import com.google.android.material.navigation.NavigationView
 import com.google.firebase.auth.ktx.auth
 import com.google.firebase.firestore.FirebaseFirestore
 import com.google.firebase.firestore.SetOptions
 import com.google.firebase.ktx.Firebase
 import de.hdodenhof.circleimageview.CircleImageView
-import com.example.evoid.pictures as pictures
 
 class firestoreClass {
 
     private val mFireStore = FirebaseFirestore.getInstance()
     var location: locationDetails? = null
+    var images:pictures?=null
     var currContact:String?=null
-    fun getLoggedInUser(activity:Activity) {
+    var currContact1:String?=null
+    fun getLoggedInUser(activity: Activity) {
         val navigationView : NavigationView = activity.findViewById(R.id.nav_view)
         val headerView : View = navigationView.getHeaderView(0)
         val image = headerView.findViewById<de.hdodenhof.circleimageview.CircleImageView>(R.id.profileIconNav)
@@ -36,7 +38,12 @@ class firestoreClass {
             }
     }
 
-    fun updateNavBar(activity: Activity, user:User, name: TextView , image:de.hdodenhof.circleimageview.CircleImageView)
+    fun updateNavBar(
+        activity: Activity,
+        user: User,
+        name: TextView,
+        image: de.hdodenhof.circleimageview.CircleImageView
+    )
     {
 
         Glide
@@ -51,7 +58,7 @@ class firestoreClass {
 
     }
 
-    fun registerUser(activity:RegisterUser, userInfo:User)
+    fun registerUser(activity: RegisterUser, userInfo: User)
     {
         mFireStore.collection(constants.USERS)
             .document(getCurrentUserId())
@@ -71,7 +78,7 @@ class firestoreClass {
 
     }
 
-    fun addContact(contactInfo:ContactsDetails, phoneId:String)
+    fun addContact(contactInfo: ContactsDetails, phoneId: String)
     {
         mFireStore.collection(constants.USERS)
             .document(getCurrentUserId())
@@ -96,26 +103,49 @@ class firestoreClass {
             .collection(constants.locationDetails)
             .document(getCurrentUserId())
             .get()
-            .addOnSuccessListener {document->
+            .addOnSuccessListener { document->
                 location = document.toObject(locationDetails::class.java)
             }
     }
 
 
-    fun getContacts(activity: Activity){
+    fun getContacts(activity: Activity, pictures: pictures){
+        val imgBack = pictures.back
+        var imgFront = pictures.front
         getLocation()
         val handler = android.os.Handler()
-        handler.postDelayed({ print("")},500)
+        handler.postDelayed({ print("") }, 500)
         mFireStore.collection(constants.USERS)
             .document(getCurrentUserId())
             .collection(constants.ContactsDetails)
             .get().addOnSuccessListener { results ->
                 for (documents in results) {
+                    val handle = android.os.Handler()
+                    handle.postDelayed({ print("") }, 1500)
                     currContact = documents.get("contactPhoneNumber").toString()
                     val mySmsManager = SmsManager.getDefault()
-                    mySmsManager.sendTextMessage(currContact, null, constants.msg + "\n" + "http://maps.google.com/maps?daddr=${location!!.latitude.toDouble()},${location!!.longitude.toDouble()}", null, null)
-                    val handle = android.os.Handler()
-                    handle.postDelayed({ print("")},500)
+                    val parts: ArrayList<String> = mySmsManager.divideMessage(imgBack)
+                    val parts1: ArrayList<String> = mySmsManager.divideMessage(imgFront)
+                    mySmsManager.sendTextMessage(currContact,
+                        null,
+                        constants.msg + "\n" + "http://maps.google.com/maps?daddr=${location!!.latitude.toDouble()},${location!!.longitude.toDouble()}",
+                        null,
+                        null)
+                    mySmsManager.sendTextMessage(currContact,
+                        null,
+                        constants.msg1 ,
+                        null,
+                        null)
+                    mySmsManager.sendMultipartTextMessage(currContact,
+                        null,
+                        parts,
+                        null,
+                        null)
+                    mySmsManager.sendMultipartTextMessage(currContact,
+                        null,
+                         parts1,
+                        null,
+                        null)
                 }
 
                 Toast.makeText(activity, "Location sent", Toast.LENGTH_SHORT).show()
@@ -124,7 +154,13 @@ class firestoreClass {
 
     }
 
-    fun loadMyProfile(activity: Activity, img:CircleImageView, email: EditText, name:EditText, mobile:EditText)
+    fun loadMyProfile(
+        activity: Activity,
+        img: CircleImageView,
+        email: EditText,
+        name: EditText,
+        mobile: EditText
+    )
     {
         var loggedInUser:User
         mFireStore.collection(constants.USERS)
@@ -138,13 +174,13 @@ class firestoreClass {
                     .placeholder(R.drawable.placeholder3)
                     .into(img);
                 email.setText(loggedInUser.emailId)
-                name.setText(loggedInUser.firstName +" "+ loggedInUser.lastName)
+                name.setText(loggedInUser.firstName + " " + loggedInUser.lastName)
                 mobile.setText(loggedInUser.phoneNumber.toString())
             }
 
     }
 
-    fun updateMyProfile(name:String, mobile: String)
+    fun updateMyProfile(name: String, mobile: String)
     {
 
         val nameParts = name.split(" ")
@@ -157,7 +193,7 @@ class firestoreClass {
             ))
     }
 
-    fun updateFirestoreImage(imgUrl:String)
+    fun updateFirestoreImage(imgUrl: String)
     {
         mFireStore.collection(constants.USERS).document(getCurrentUserId()).update(mapOf(
             "image" to imgUrl
@@ -166,9 +202,38 @@ class firestoreClass {
 
     fun saveEmergencyImage(pictures: pictures, imgBack: Uri, imgFront: Uri, activity: Activity)
     {
-        mFireStore.collection(constants.USERS).document(getCurrentUserId()).collection(constants.pictures).document(getCurrentUserId())
+        mFireStore.collection(constants.USERS).document(getCurrentUserId()).collection(constants.pictures).document(
+            getCurrentUserId())
             .set(pictures, SetOptions.merge())
-        shareToWhatsapp(imgBack,imgFront,activity)
+        getContacts(activity, pictures)
+        //sendPicturesLink(pictures,activity)
+        //shareToWhatsapp(imgBack,imgFront,activity)
+    }
+
+    private fun sendPicturesLink(pictures: pictures, activity: Activity) {
+
+//        val handler = android.os.Handler()
+//        handler.postDelayed({ print("")},500)
+        mFireStore.collection(constants.USERS)
+            .document(getCurrentUserId())
+            .collection(constants.ContactsDetails)
+            .get().addOnSuccessListener { results ->
+                for (documents in results) {
+                    currContact1 = documents.get("contactPhoneNumber").toString()
+                    val mySmsManager1 = SmsManager.getDefault()
+                    mySmsManager1.sendTextMessage(currContact1,
+                        null,
+                        constants.msg1 + "\n" + pictures.back + "\n\n" + pictures.front,
+                        null,
+                        null)
+                    val handle = android.os.Handler()
+                    handle.postDelayed({ print("") }, 500)
+                }
+
+//                Toast.makeText(acti, "Pictures sent", Toast.LENGTH_SHORT).show()
+
+            }
+
     }
 
     fun shareToWhatsapp(imgBack: Uri, imgFront: Uri, activity: Activity)
