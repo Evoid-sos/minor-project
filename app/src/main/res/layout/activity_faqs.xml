@@ -13,10 +13,12 @@
         android:layout_height="515dp"
         android:layout_marginStart="34dp"
         android:layout_marginEnd="34dp"
+        android:gravity="center_vertical"
         android:orientation="vertical"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent">
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
 
         <ScrollView
             android:layout_width="match_parent"

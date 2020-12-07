@@ -38,6 +38,9 @@
     <style name="DrawerIcon" parent="Widget.AppCompat.DrawerArrowToggle">
         <item name="color">#ffffff</item>
     </style>
+    <style name="actionBlack" parent="Theme.AppCompat.DayNight.DarkActionBar">
+        <item name="android:statusBarColor">@color/black</item>
+    </style>
 
 
 </resources>

@@ -46,22 +46,29 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
         <activity android:name=".newGuidelines"
+            android:theme="@style/actionBlack"
             />
 
         <activity
             android:name=".captureImage"
             android:screenOrientation="portrait"
             android:theme="@style/AppTheme.NoActionBar"
-            android:windowSoftInputMode="adjustResize"></activity>
+            android:windowSoftInputMode="adjustResize">
+
+        </activity>
         <activity
             android:name=".MyProfile"
             android:theme="@style/AppTheme.NoActionBar"
-            android:windowSoftInputMode="adjustResize"></activity>
+            android:windowSoftInputMode="adjustResize">
+
+        </activity>
         <activity
             android:name=".RegisterUser"
             android:screenOrientation="portrait"
             android:theme="@style/AppTheme.NoActionBar"
-            android:windowSoftInputMode="adjustResize"></activity>
+            android:windowSoftInputMode="adjustResize">
+
+        </activity>
         <activity
             android:name=".start_page"
             android:noHistory="true"
@@ -76,12 +83,17 @@
         </activity>
         <activity
             android:name=".cybersecurity"
+            android:theme="@style/actionBlack"
              />
         <activity
-            android:name=".faqs" />
+            android:name=".faqs"
+            android:theme="@style/actionBlack"
+            />
 
         <activity
-            android:name=".covidHelplines"/>
+            android:name=".covidHelplines"
+            android:theme="@style/actionBlack"
+            />
         <activity
             android:name=".MainActivity2"
             android:theme="@style/AppTheme.NoActionBar" />

@@ -50,7 +50,7 @@ class firestoreClass {
             .with(activity)
             .load(user.image)
             .fitCenter()
-            .placeholder(R.drawable.cybercrime)
+            .placeholder(R.drawable.logo1)
             .into(image)
 
         name.text = user.firstName + " " + user.lastName
