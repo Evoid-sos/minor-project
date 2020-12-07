@@ -143,7 +143,7 @@ class emergency : Fragment() {
         }
         else
         {
-            print("")
+            sendSMSToContacts()
         }
     }
 
@@ -192,9 +192,9 @@ class emergency : Fragment() {
         askSendSMSPerm()
     }
 
-//    private fun sendSMSToContacts() {
-//        firestoreClass().getContacts(activity as MainActivity2)
-//    }
+    private fun sendSMSToContacts() {
+        firestoreClass().getContacts(activity as MainActivity2)
+    }
 
     private fun askPermission() {
         if (checkSelfPermission(activity as MainActivity2, android.Manifest.permission.CALL_PHONE) != PackageManager.PERMISSION_GRANTED){
@@ -249,7 +249,7 @@ class emergency : Fragment() {
         }
         if (requestCode == REQUEST_SEND_SMS)
         {
-            print("")
+            sendSMSToContacts()
 
         }
         if (requestCode == REQUEST_CAMERA)

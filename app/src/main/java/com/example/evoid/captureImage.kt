@@ -107,10 +107,10 @@ class captureImage : AppCompatActivity() {
                 Uri.parse(path2.toString()),
                 this@captureImage)
         }, 1000)
-//        val handler1 = Handler()
-//        handler1.postDelayed({
-//            finish()
-//        }, 500)
+        val handler1 = Handler()
+        handler1.postDelayed({
+            finish()
+        }, 5500)
 
     }
 

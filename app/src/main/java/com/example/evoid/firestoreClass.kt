@@ -109,9 +109,7 @@ class firestoreClass {
     }
 
 
-    fun getContacts(activity: Activity, pictures: pictures){
-        val imgBack = pictures.back
-        var imgFront = pictures.front
+    fun getContacts(activity: Activity){
         getLocation()
         val handler = android.os.Handler()
         handler.postDelayed({ print("") }, 500)
@@ -121,29 +119,17 @@ class firestoreClass {
             .get().addOnSuccessListener { results ->
                 for (documents in results) {
                     val handle = android.os.Handler()
-                    handle.postDelayed({ print("") }, 1500)
+                    handle.postDelayed({ print("") }, 500)
                     currContact = documents.get("contactPhoneNumber").toString()
                     val mySmsManager = SmsManager.getDefault()
-                    val parts: ArrayList<String> = mySmsManager.divideMessage(imgBack)
-                    val parts1: ArrayList<String> = mySmsManager.divideMessage(imgFront)
+//                    mySmsManager.sendTextMessage(currContact,
+//                        null,
+//                        constants.msg + "\n" + "http://maps.google.com/maps?daddr=${location!!.latitude.toDouble()},${location!!.longitude.toDouble()}",
+//                        null,
+//                        null)
                     mySmsManager.sendTextMessage(currContact,
                         null,
-                        constants.msg + "\n" + "http://maps.google.com/maps?daddr=${location!!.latitude.toDouble()},${location!!.longitude.toDouble()}",
-                        null,
-                        null)
-                    mySmsManager.sendTextMessage(currContact,
-                        null,
-                        constants.msg1 ,
-                        null,
-                        null)
-                    mySmsManager.sendMultipartTextMessage(currContact,
-                        null,
-                        parts,
-                        null,
-                        null)
-                    mySmsManager.sendMultipartTextMessage(currContact,
-                        null,
-                         parts1,
+                        "hi",
                         null,
                         null)
                 }
@@ -205,34 +191,47 @@ class firestoreClass {
         mFireStore.collection(constants.USERS).document(getCurrentUserId()).collection(constants.pictures).document(
             getCurrentUserId())
             .set(pictures, SetOptions.merge())
-        getContacts(activity, pictures)
-        //sendPicturesLink(pictures,activity)
+        sendPicturesLink(pictures,activity)
         //shareToWhatsapp(imgBack,imgFront,activity)
     }
 
     private fun sendPicturesLink(pictures: pictures, activity: Activity) {
-
-//        val handler = android.os.Handler()
-//        handler.postDelayed({ print("")},500)
+        val imgBack = pictures.back
+        var imgFront = pictures.front
+        val handler = android.os.Handler()
+        handler.postDelayed({ print("") }, 500)
         mFireStore.collection(constants.USERS)
             .document(getCurrentUserId())
             .collection(constants.ContactsDetails)
             .get().addOnSuccessListener { results ->
                 for (documents in results) {
-                    currContact1 = documents.get("contactPhoneNumber").toString()
-                    val mySmsManager1 = SmsManager.getDefault()
-                    mySmsManager1.sendTextMessage(currContact1,
+                    val handle = android.os.Handler()
+                    handle.postDelayed({ print("") }, 1500)
+                    currContact = documents.get("contactPhoneNumber").toString()
+                    val mySmsManager = SmsManager.getDefault()
+                    val parts: ArrayList<String> = mySmsManager.divideMessage(imgBack)
+                    val parts1: ArrayList<String> = mySmsManager.divideMessage(imgFront)
+                    mySmsManager.sendTextMessage(currContact,
                         null,
-                        constants.msg1 + "\n" + pictures.back + "\n\n" + pictures.front,
+                        constants.msg1 ,
                         null,
                         null)
-                    val handle = android.os.Handler()
-                    handle.postDelayed({ print("") }, 500)
+                    mySmsManager.sendMultipartTextMessage(currContact,
+                        null,
+                        parts,
+                        null,
+                        null)
+                    mySmsManager.sendMultipartTextMessage(currContact,
+                        null,
+                        parts1,
+                        null,
+                        null)
                 }
 
-//                Toast.makeText(acti, "Pictures sent", Toast.LENGTH_SHORT).show()
+                Toast.makeText(activity, "Pictures sent", Toast.LENGTH_SHORT).show()
 
             }
+
 
     }
 
