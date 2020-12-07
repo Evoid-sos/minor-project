@@ -122,16 +122,12 @@ class firestoreClass {
                     handle.postDelayed({ print("") }, 500)
                     currContact = documents.get("contactPhoneNumber").toString()
                     val mySmsManager = SmsManager.getDefault()
-//                    mySmsManager.sendTextMessage(currContact,
-//                        null,
-//                        constants.msg + "\n" + "http://maps.google.com/maps?daddr=${location!!.latitude.toDouble()},${location!!.longitude.toDouble()}",
-//                        null,
-//                        null)
                     mySmsManager.sendTextMessage(currContact,
                         null,
-                        "hi",
+                        constants.msg + "\n" + "http://maps.google.com/maps?daddr=${location!!.latitude.toDouble()},${location!!.longitude.toDouble()}",
                         null,
                         null)
+
                 }
 
                 Toast.makeText(activity, "Location sent", Toast.LENGTH_SHORT).show()
