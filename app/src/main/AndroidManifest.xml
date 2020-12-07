@@ -93,7 +93,7 @@
         <activity
             android:name=".forgotPassword"
             android:screenOrientation="portrait"
-            android:theme="@style/NoActionBarTheme"
+            android:theme="@style/AppTheme.NoActionBar"
             android:windowSoftInputMode="adjustResize" />
         <activity
             android:name=".register"

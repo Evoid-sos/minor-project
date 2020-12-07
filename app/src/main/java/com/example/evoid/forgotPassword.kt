@@ -13,6 +13,7 @@ import com.google.firebase.auth.ktx.auth
 import com.google.firebase.ktx.Firebase
 import kotlinx.android.synthetic.main.activity_forgot_password.*
 import kotlinx.android.synthetic.main.activity_main.*
+import kotlinx.android.synthetic.main.activity_register_user.*
 import java.util.*
 import kotlin.concurrent.schedule
 import kotlin.concurrent.timerTask
@@ -24,11 +25,12 @@ class forgotPassword : AppCompatActivity() {
         window.decorView.systemUiVisibility = View.SYSTEM_UI_FLAG_LAYOUT_FULLSCREEN
         window.setSoftInputMode(WindowManager.LayoutParams.SOFT_INPUT_STATE_ALWAYS_HIDDEN)
         setContentView(R.layout.activity_forgot_password)
+        cardViewForgotPassword.setBackgroundResource(R.drawable.cardcorners)
         auth = Firebase.auth
 
 
-        resetForgotPassword.setOnClickListener {
-            val emailId = username.text.toString()
+        sendMail.setOnClickListener {
+            val emailId = emailIdForgotPassword.text.toString()
             if (validateForm(emailId))
             {
                 resetPassword(emailId,auth)
@@ -36,17 +38,12 @@ class forgotPassword : AppCompatActivity() {
             }
         }
 
-        backToLoginForgotPassword.setOnClickListener {
-            val intent = Intent(this, start_page::class.java)
-            startActivity(intent)
-            finish()
-        }
     }
 
     private fun validateForm(emailId: String): Boolean {
         if (emailId.isEmpty())
         {
-            sentMail.text = "*Please enter your Email Id*"
+            emailIdForgotPassword.setError("It should not be empty")
             return false
         }
         else return true
@@ -56,7 +53,7 @@ class forgotPassword : AppCompatActivity() {
     private fun resetPassword(emailId: String, auth: FirebaseAuth) {
         auth.sendPasswordResetEmail(emailId).addOnCompleteListener(this) { task ->
             if (task.isSuccessful) {
-                sentMail.text = "A recovery mail is sent to you, see it for more deatils."
+                Toast.makeText(this, "A recovery mail is sent to you, see it for more deatils", Toast.LENGTH_SHORT).show()
                 val handler = Handler()
                 handler.postDelayed(
                     {val intent = Intent(this, start_page::class.java)
@@ -67,7 +64,7 @@ class forgotPassword : AppCompatActivity() {
 
 
             } else {
-                sentMail.text = "Kindly check your Email Id"
+                Toast.makeText(this, "Kindly check your Email Id", Toast.LENGTH_SHORT).show()
 
 
         }
@@ -77,5 +74,11 @@ class forgotPassword : AppCompatActivity() {
         }
 
 
+    }
+
+    override fun onBackPressed() {
+        val intent = Intent(this, start_page::class.java)
+        startActivity(intent)
+        finish()
     }
 }
