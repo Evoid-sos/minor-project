@@ -12,6 +12,7 @@ import com.google.firebase.auth.FirebaseAuthWeakPasswordException
 import com.google.firebase.auth.ktx.auth
 import com.google.firebase.ktx.Firebase
 import kotlinx.android.synthetic.main.activity_register_user.*
+import java.util.regex.Matcher
 import java.util.regex.Pattern
 
 class RegisterUser : AppCompatActivity() {
@@ -43,11 +44,22 @@ class RegisterUser : AppCompatActivity() {
 
         }
     }
-    private fun isValidMobile(phone: String): Boolean {
-        return if (!Pattern.matches("[a-zA-Z]+", phone)) {
-            phone.length == 10
-        } else false
+    private fun isValid(s: String): Boolean {
+        return s.length == 10
     }
+
+    private fun isLetters(string: String):Boolean{
+        for (c in string) {
+            if (c !in 'A'..'Z' && c !in 'a'..'z') {
+                print("i")
+                return true
+            }
+
+        }
+        return false
+    }
+
+
 
 
     private fun validateForm(
@@ -83,14 +95,16 @@ class RegisterUser : AppCompatActivity() {
             passwordRegisterUser.error = "Password should not be empty"
             return false
         }
-        if(isValidMobile(mobile))
+        if(!isValid(mobile))
         { phoneNumberRegisterUser.error = "Please enter a valid phone number"
             return false
         }
-
+        if(!isLetters(mobile))
+        { phoneNumberRegisterUser.error = "Please enter a valid phone number"
+            return false
+        }
         else
             return true
-
     }
 
 
