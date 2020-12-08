@@ -2,6 +2,7 @@ package com.example.evoid
 
 import android.app.Activity
 import android.content.Intent
+import android.content.pm.ActivityInfo
 import android.content.pm.PackageManager
 import android.net.Uri
 import androidx.appcompat.app.AppCompatActivity
@@ -27,6 +28,7 @@ class MyProfile : AppCompatActivity() {
         window.decorView.systemUiVisibility = View.SYSTEM_UI_FLAG_LAYOUT_FULLSCREEN
         window.setSoftInputMode(WindowManager.LayoutParams.SOFT_INPUT_STATE_ALWAYS_HIDDEN);
         setContentView(R.layout.activity_my_profile)
+        this.requestedOrientation = ActivityInfo.SCREEN_ORIENTATION_PORTRAIT
         cardViewMyProfile.setBackgroundResource(R.drawable.cardcorners)
         firestoreClass().loadMyProfile(this, changeImageMyProfile, emailIdMyProfile, nameMyProfile, mobileMyProfile)
 

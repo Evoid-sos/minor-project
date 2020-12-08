@@ -1,5 +1,6 @@
 package com.example.evoid
 
+import android.content.pm.ActivityInfo
 import android.os.Bundle
 import android.text.Html
 import android.view.View
@@ -13,6 +14,7 @@ class covidHelplines : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_covid_helplines)
+        this.requestedOrientation = ActivityInfo.SCREEN_ORIENTATION_PORTRAIT
         supportActionBar?.setDisplayHomeAsUpEnabled(true)
         supportActionBar!!.title = Html.fromHtml("<font color='#fffffff'>GUIDELINES </font>")
         val states = resources.getStringArray(R.array.States)

@@ -1,5 +1,6 @@
 package com.example.evoid
 
+import android.content.pm.ActivityInfo
 import android.os.Bundle
 import android.text.Html
 import androidx.appcompat.app.AppCompatActivity
@@ -10,6 +11,7 @@ class newGuidelines : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_new_guidelines)
+        this.requestedOrientation = ActivityInfo.SCREEN_ORIENTATION_PORTRAIT
         supportActionBar?.setDisplayHomeAsUpEnabled(true);
         supportActionBar!!.title = Html.fromHtml("<font color='#fffffff'>GUIDELINES </font>")
         fireGuide.setOnClickListener()

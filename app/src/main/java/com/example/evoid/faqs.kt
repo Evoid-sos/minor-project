@@ -1,5 +1,6 @@
 package com.example.evoid
 
+import android.content.pm.ActivityInfo
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.text.Html
@@ -11,6 +12,7 @@ class faqs : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_faqs)
+        this.requestedOrientation = ActivityInfo.SCREEN_ORIENTATION_PORTRAIT
         supportActionBar?.setDisplayHomeAsUpEnabled(true)
         supportActionBar!!.title = Html.fromHtml("<font color='#fffffff'> <small>FREQUENTLY ASKED QUESTIONS </font></small>")
         val one="<b><i>Q: How Does This App Work?</i></b> <br> A:This App Provides You With Features To Contact Emergency Service With Just A Tap. If Panic Button Is Pressed, Your Emergency Contacts Will Receive An Alert With Your Location. Please Note That Your Location Is Being Stored To Our Database While This App Is Active To Provide Accurate Results. You Can Also View Guidelines To Protect Yourself In Case Of Emergency.<br><br>" +

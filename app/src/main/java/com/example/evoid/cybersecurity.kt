@@ -1,5 +1,6 @@
 package com.example.evoid
 
+import android.content.pm.ActivityInfo
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.text.Html
@@ -15,6 +16,7 @@ class cybersecurity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_cybersecurity)
+        this.requestedOrientation = ActivityInfo.SCREEN_ORIENTATION_PORTRAIT
         supportActionBar?.setDisplayHomeAsUpEnabled(true)
         supportActionBar!!.title = Html.fromHtml("<font color='#fffffff'><small>CYBER CRIME PROTECTION GUIDELINES </font></small>")
         reportLink.movementMethod= LinkMovementMethod.getInstance()
