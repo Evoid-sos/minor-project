@@ -1,15 +1,25 @@
 package com.example.evoid
 
+import android.app.AlertDialog
+import android.content.Context
+import android.content.Context.*
+import android.content.DialogInterface
 import android.content.Intent
 import android.content.pm.PackageManager
+import android.hardware.camera2.CameraAccessException
+import android.hardware.camera2.CameraManager
 import android.location.Location
 import android.media.MediaPlayer
 import android.net.Uri
+import android.os.Build
 import android.os.Bundle
 import android.os.Handler
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Toast
+import androidx.annotation.RequiresApi
 import androidx.camera.core.Camera
 import androidx.core.content.ContextCompat.checkSelfPermission
 import androidx.fragment.app.Fragment
@@ -34,7 +44,10 @@ class emergency : Fragment() {
     var ambulance = 0
     private var flag = 0
     private var flashflag =0
+    var flashLightStatus: Boolean = false
 
+
+    @RequiresApi(Build.VERSION_CODES.M)
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?,
@@ -42,6 +55,7 @@ class emergency : Fragment() {
         // Inflate the layout for this fragment
         val view: View = inflater.inflate(R.layout.fragment_emergency, container, false)
         fusedLocationClient = LocationServices.getFusedLocationProviderClient(activity as MainActivity2)
+
         mPlayer = MediaPlayer.create(activity, R.raw.alarm);
         view.startAlarm.setOnClickListener {
             if (flag == 0) {
@@ -69,6 +83,7 @@ class emergency : Fragment() {
                 flashflag=1
                 startFlash.visibility=View.INVISIBLE
                 stopFlash.visibility=View.VISIBLE
+                askFlashPerm()
             }
         }
         view.stopFlash.setOnClickListener()
@@ -78,6 +93,7 @@ class emergency : Fragment() {
                 flashflag=0
                 stopFlash.visibility = View.INVISIBLE
                 startFlash.visibility = View.VISIBLE
+                askFlashPerm()
             }
         }
 
@@ -108,6 +124,52 @@ class emergency : Fragment() {
         }
         // Return the fragment view/layout
         return view
+    }
+    private fun showNoFlashError() {
+        Log.e("Alert","No Flash")
+    }
+
+    @RequiresApi(Build.VERSION_CODES.M)
+    private fun askFlashPerm(){
+        if(checkSelfPermission(
+                activity as MainActivity2,
+                android.Manifest.permission.CAMERA
+            ) != PackageManager.PERMISSION_GRANTED)
+        {
+            requestPermissions(
+                arrayOf(android.Manifest.permission.CAMERA),
+                REQUEST_CAMERA
+            )
+
+        }
+        else
+        {
+            openFlashLight()
+        }
+    }
+    @RequiresApi(Build.VERSION_CODES.M)
+    private fun openFlashLight() {
+        val cameraManager = activity?.getSystemService(Context.CAMERA_SERVICE) as CameraManager?
+        val cameraId = cameraManager?.cameraIdList?.get(0)
+        if (!flashLightStatus) {
+            try {
+                if (cameraId != null) {
+                    cameraManager.setTorchMode(cameraId, true)
+                }
+                flashLightStatus = true
+
+            } catch (e: CameraAccessException) {
+            }
+        } else {
+            try {
+                if (cameraId != null) {
+                    cameraManager.setTorchMode(cameraId, false)
+                }
+                flashLightStatus = false
+            } catch (e: CameraAccessException) {
+            }
+        }
+
     }
 
 

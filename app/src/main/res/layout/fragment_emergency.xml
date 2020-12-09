@@ -112,7 +112,7 @@
     <ImageView
         android:id="@+id/startAlarm"
         android:layout_width="175dp"
-        android:layout_height="70dp"
+        android:layout_height="55dp"
         android:layout_marginStart="26dp"
         android:layout_marginTop="58dp"
         android:layout_marginEnd="200dp"
@@ -126,7 +126,7 @@
     <ImageView
         android:id="@+id/stopAlarm"
         android:layout_width="175dp"
-        android:layout_height="70dp"
+        android:layout_height="55dp"
         android:layout_marginStart="26dp"
         android:layout_marginTop="58dp"
         android:layout_marginEnd="200dp"
@@ -141,7 +141,7 @@
     <ImageView
         android:id="@+id/startFlash"
         android:layout_width="175dp"
-        android:layout_height="70dp"
+        android:layout_height="55dp"
         android:layout_marginStart="4dp"
         android:layout_marginTop="58dp"
         android:layout_marginEnd="26dp"
@@ -158,7 +158,7 @@
     <ImageView
         android:id="@+id/stopFlash"
         android:layout_width="175dp"
-        android:layout_height="70dp"
+        android:layout_height="55dp"
         android:layout_marginStart="4dp"
         android:layout_marginTop="58dp"
         android:layout_marginEnd="26dp"
