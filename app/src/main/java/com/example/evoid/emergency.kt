@@ -2,8 +2,6 @@ package com.example.evoid
 
 import android.app.AlertDialog
 import android.content.Context
-import android.content.Context.*
-import android.content.DialogInterface
 import android.content.Intent
 import android.content.pm.PackageManager
 import android.hardware.camera2.CameraAccessException
@@ -14,6 +12,7 @@ import android.net.Uri
 import android.os.Build
 import android.os.Bundle
 import android.os.Handler
+import android.preference.PreferenceManager
 import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
@@ -55,7 +54,28 @@ class emergency : Fragment() {
         // Inflate the layout for this fragment
         val view: View = inflater.inflate(R.layout.fragment_emergency, container, false)
         fusedLocationClient = LocationServices.getFusedLocationProviderClient(activity as MainActivity2)
+        val sharedPreferences = PreferenceManager.getDefaultSharedPreferences(activity)
+        if (sharedPreferences.getBoolean("IS_FIRST_TIME", true)) {
+            val builder = AlertDialog.Builder(activity)
+            //set title for alert dialog
+            builder.setTitle("WELCOME")
+            //set message for alert dialog
+            builder.setMessage(R.string.dialogMessage)
 
+            //performing positive action
+            builder.setPositiveButton("OK"){ _, _ ->
+                Toast.makeText(activity,"Please swipe right to add emergency contacts",Toast.LENGTH_LONG).show()
+            }
+            // Create the AlertDialog
+            val alertDialog: AlertDialog = builder.create()
+            // Set other dialog properties
+            alertDialog.setCancelable(false)
+            alertDialog.show()
+            //show your dialog here
+            //...
+            //change the value of your sharedPreferences
+            sharedPreferences.edit().putBoolean("IS_FIRST_TIME", false).apply()
+        }
         mPlayer = MediaPlayer.create(activity, R.raw.alarm);
         view.startAlarm.setOnClickListener {
             if (flag == 0) {
@@ -126,7 +146,7 @@ class emergency : Fragment() {
         return view
     }
     private fun showNoFlashError() {
-        Log.e("Alert","No Flash")
+        Log.e("Alert", "No Flash")
     }
 
     @RequiresApi(Build.VERSION_CODES.M)
