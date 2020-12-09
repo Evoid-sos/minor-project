@@ -10,7 +10,6 @@ import android.os.Handler
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.Toast
 import androidx.camera.core.Camera
 import androidx.core.content.ContextCompat.checkSelfPermission
 import androidx.fragment.app.Fragment
@@ -34,9 +33,11 @@ class emergency : Fragment() {
     var police = 0
     var ambulance = 0
     private var flag = 0
+    private var flashflag =0
+
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
-        savedInstanceState: Bundle?
+        savedInstanceState: Bundle?,
     ): View {
         // Inflate the layout for this fragment
         val view: View = inflater.inflate(R.layout.fragment_emergency, container, false)
@@ -59,6 +60,24 @@ class emergency : Fragment() {
                 startAlarm.visibility = View.VISIBLE
                 mPlayer?.pause()
 
+            }
+        }
+        view.startFlash.setOnClickListener()
+        {
+            if(flashflag==0)
+            {
+                flashflag=1
+                startFlash.visibility=View.INVISIBLE
+                stopFlash.visibility=View.VISIBLE
+            }
+        }
+        view.stopFlash.setOnClickListener()
+        {
+            if (flashflag==1)
+            {
+                flashflag=0
+                stopFlash.visibility = View.INVISIBLE
+                startFlash.visibility = View.VISIBLE
             }
         }
 
@@ -90,6 +109,7 @@ class emergency : Fragment() {
         // Return the fragment view/layout
         return view
     }
+
 
     private fun askCameraPerm(){
         if(checkSelfPermission(
@@ -235,7 +255,7 @@ class emergency : Fragment() {
     override fun onRequestPermissionsResult(
         requestCode: Int,
         permissions: Array<out String>,
-        grantResults: IntArray
+        grantResults: IntArray,
     ) {
         if (requestCode == REQUEST_PHONE_CALL )
         {

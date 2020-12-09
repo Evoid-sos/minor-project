@@ -18,6 +18,7 @@
     <style name="AppTheme.NoActionBar" parent="Theme.AppCompat.DayNight.DarkActionBar">
         <item name="windowActionBar">false</item>
         <item name="windowNoTitle">true</item>
+        <item name="drawerArrowStyle">@style/DrawerIcon</item>
     </style>
 
     <style name="AppTheme.AppBarOverlay" parent="ThemeOverlay.AppCompat.Dark.ActionBar" >
@@ -36,7 +37,7 @@
         <item name="android:dropDownListViewStyle">@style/MatchSpinnerStyle</item>
     </style>
     <style name="DrawerIcon" parent="Widget.AppCompat.DrawerArrowToggle">
-        <item name="color">#ffffff</item>
+        <item name="color">@color/white</item>
     </style>
     <style name="actionBlack" parent="Theme.AppCompat.DayNight.DarkActionBar">
         <item name="android:statusBarColor">@color/black</item>

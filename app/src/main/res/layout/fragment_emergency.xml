@@ -111,12 +111,12 @@
 
     <ImageView
         android:id="@+id/startAlarm"
-        android:layout_width="match_parent"
-        android:layout_height="88dp"
-        android:layout_marginStart="29dp"
-        android:layout_marginTop="20dp"
-        android:layout_marginEnd="29dp"
-        android:layout_marginBottom="72dp"
+        android:layout_width="175dp"
+        android:layout_height="70dp"
+        android:layout_marginStart="26dp"
+        android:layout_marginTop="58dp"
+        android:layout_marginEnd="200dp"
+        android:layout_marginBottom="101dp"
         android:src="@drawable/finalstartalarm"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
@@ -125,17 +125,51 @@
 
     <ImageView
         android:id="@+id/stopAlarm"
-        android:layout_width="match_parent"
-        android:layout_height="88dp"
-        android:layout_marginStart="29dp"
-        android:layout_marginTop="20dp"
-        android:layout_marginEnd="29dp"
-        android:layout_marginBottom="72dp"
+        android:layout_width="175dp"
+        android:layout_height="70dp"
+        android:layout_marginStart="26dp"
+        android:layout_marginTop="58dp"
+        android:layout_marginEnd="200dp"
+        android:layout_marginBottom="101dp"
         android:src="@drawable/finalstopalarm"
         android:visibility="invisible"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/view" />
+
+    <ImageView
+        android:id="@+id/startFlash"
+        android:layout_width="175dp"
+        android:layout_height="70dp"
+        android:layout_marginStart="4dp"
+        android:layout_marginTop="58dp"
+        android:layout_marginEnd="26dp"
+        android:layout_marginBottom="101dp"
+        android:src="@drawable/flashon"
+        android:visibility="visible"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/startAlarm"
+        app:layout_constraintTop_toBottomOf="@+id/view">
+
+    </ImageView>
+
+    <ImageView
+        android:id="@+id/stopFlash"
+        android:layout_width="175dp"
+        android:layout_height="70dp"
+        android:layout_marginStart="4dp"
+        android:layout_marginTop="58dp"
+        android:layout_marginEnd="26dp"
+        android:layout_marginBottom="101dp"
+        android:src="@drawable/flashoff"
+        android:visibility="invisible"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/startAlarm"
+        app:layout_constraintTop_toBottomOf="@+id/view">
+
+    </ImageView>
 
 </androidx.constraintlayout.widget.ConstraintLayout>
