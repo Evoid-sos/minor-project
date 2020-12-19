@@ -284,6 +284,7 @@ class emergency : Fragment() {
                         val loc = locationDetails(
                             location.latitude.toString(),
                             location.longitude.toString()
+
                         )
                         firestoreClass().updateLocation(loc)
                     }

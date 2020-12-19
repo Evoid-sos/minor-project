@@ -138,7 +138,7 @@ class RegisterUser : AppCompatActivity() {
                             Toast.LENGTH_SHORT).show()
                         passwordRegisterUser.requestFocus()
                     } catch (e: FirebaseAuthException) {
-                        Toast.makeText(this, "Please enter a valid Email ID", Toast.LENGTH_SHORT).show()
+                        Toast.makeText(this, "User already registered or Incorrect Email Id entered ", Toast.LENGTH_SHORT).show()
                         emailIdRegisterUser.requestFocus()
                     }
 
