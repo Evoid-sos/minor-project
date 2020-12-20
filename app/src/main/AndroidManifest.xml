@@ -5,10 +5,10 @@
 
     <queries>
         <intent>
-            <action android:name="android.intent.action.PICK"></action>
+            <action android:name="android.intent.action.PICK" />
         </intent>
 
-        <package android:name="com.google.android.contacts"></package>
+        <package android:name="com.google.android.contacts" />
     </queries>
 
     <uses-permission
