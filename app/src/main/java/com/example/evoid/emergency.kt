@@ -53,7 +53,7 @@ class emergency : Fragment() {
         // Inflate the layout for this fragment
         val view: View = inflater.inflate(R.layout.fragment_emergency, container, false)
         fusedLocationClient = LocationServices.getFusedLocationProviderClient(activity as MainActivity2)
-        /*val sharedPreferences = PreferenceManager.getDefaultSharedPreferences(activity)
+        val sharedPreferences = PreferenceManager.getDefaultSharedPreferences(activity)
         if (sharedPreferences.getBoolean("IS_FIRST_TIME", true)) {
             val builder = AlertDialog.Builder(activity)
             //set title for alert dialog
@@ -74,7 +74,7 @@ class emergency : Fragment() {
             //...
             //change the value of your sharedPreferences
             sharedPreferences.edit().putBoolean("IS_FIRST_TIME", false).apply()
-        }*/
+        }
         mPlayer = MediaPlayer.create(activity, R.raw.alarm);
         view.startAlarm.setOnClickListener {
             if (flag == 0) {
