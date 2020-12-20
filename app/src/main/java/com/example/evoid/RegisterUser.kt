@@ -6,9 +6,7 @@ import android.view.View
 import android.view.WindowManager
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
-import com.google.firebase.auth.FirebaseAuth
-import com.google.firebase.auth.FirebaseAuthException
-import com.google.firebase.auth.FirebaseAuthWeakPasswordException
+import com.google.firebase.auth.*
 import com.google.firebase.auth.ktx.auth
 import com.google.firebase.ktx.Firebase
 import kotlinx.android.synthetic.main.activity_register_user.*
@@ -137,8 +135,14 @@ class RegisterUser : AppCompatActivity() {
                             "Password should have more than 6 characters",
                             Toast.LENGTH_SHORT).show()
                         passwordRegisterUser.requestFocus()
-                    } catch (e: FirebaseAuthException) {
-                        Toast.makeText(this, "User already registered or Incorrect Email Id entered ", Toast.LENGTH_SHORT).show()
+//                    } catch (e: FirebaseAuthException) {
+//                        Toast.makeText(this, "User already registered or Incorrect Email Id entered ", Toast.LENGTH_SHORT).show()
+//                        emailIdRegisterUser.requestFocus()
+                    } catch (e: FirebaseAuthUserCollisionException){
+                        Toast.makeText(this, "User already registered", Toast.LENGTH_SHORT).show()
+                        emailIdRegisterUser.requestFocus()
+                    } catch (e: FirebaseAuthInvalidCredentialsException){
+                        Toast.makeText(this, "Invalid email", Toast.LENGTH_SHORT).show()
                         emailIdRegisterUser.requestFocus()
                     }
 

@@ -74,8 +74,6 @@ class firestoreClass {
     {
         val uid = Firebase.auth.currentUser!!.uid
         return uid
-
-
     }
 
     fun addContact(contactInfo: ContactsDetails, phoneId: String)
