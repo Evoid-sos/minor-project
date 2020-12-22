@@ -102,9 +102,9 @@ class emergency : Fragment() {
                 flashflag=1
                 startFlash.visibility=View.INVISIBLE
                 stopFlash.visibility=View.VISIBLE
-               /* if (android.os.Build.VERSION.SDK_INT >= android.os.Build.VERSION_CODES.M) {
-                    askFlashPerm()
-                }*/
+                if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
+                    openFlashLight()
+                }
             }
         }
         view.stopFlash.setOnClickListener()
@@ -114,9 +114,9 @@ class emergency : Fragment() {
                 flashflag=0
                 stopFlash.visibility = View.INVISIBLE
                 startFlash.visibility = View.VISIBLE
-                /*if (android.os.Build.VERSION.SDK_INT >= android.os.Build.VERSION_CODES.M) {
-                    askFlashPerm()
-                }*/
+                if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
+                    openFlashLight()
+                }
             }
         }
 
@@ -148,11 +148,11 @@ class emergency : Fragment() {
         // Return the fragment view/layout
         return view
     }
-    /*private fun showNoFlashError() {
+    private fun showNoFlashError() {
         Log.e("Alert", "No Flash")
     }
 
-    @RequiresApi(Build.VERSION_CODES.M)
+    /*@RequiresApi(Build.VERSION_CODES.M)
     private fun askFlashPerm(){
         if(checkSelfPermission(
                 activity as MainActivity2,
@@ -169,7 +169,7 @@ class emergency : Fragment() {
         {
             openFlashLight()
         }
-    }
+    }*/
     @RequiresApi(Build.VERSION_CODES.M)
     private fun openFlashLight() {
         val cameraManager = activity?.getSystemService(Context.CAMERA_SERVICE) as CameraManager?
@@ -193,7 +193,7 @@ class emergency : Fragment() {
             }
         }
 
-    }*/
+    }
 
 
     private fun askCameraPerm(){
