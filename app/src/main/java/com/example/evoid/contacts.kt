@@ -95,9 +95,9 @@ class contacts : Fragment() {
 
     private fun askContactperm() {
         if(ActivityCompat.checkSelfPermission(activity as MainActivity2,
-                android.Manifest.permission.READ_CONTACTS) != PackageManager.PERMISSION_GRANTED)
+                Manifest.permission.READ_CONTACTS) != PackageManager.PERMISSION_GRANTED)
         {
-            requestPermissions(arrayOf(android.Manifest.permission.READ_CONTACTS),REQUEST_CONTACT)
+            requestPermissions(arrayOf(Manifest.permission.READ_CONTACTS),REQUEST_CONTACT)
 
         }
         else

@@ -25,7 +25,9 @@
     <uses-permission android:name="android.permission.SEND_SMS" />
     <uses-permission android:name="android.permission.READ_SMS" />
     <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+
     <uses-feature android:name="android.hardware.camera" />
+
     <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
     <uses-permission
         android:name="android.permission.WRITE_EXTERNAL_STORAGE"
@@ -46,30 +48,24 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".newGuidelines"
-            android:theme="@style/actionBlack"
-            />
 
+        <activity
+            android:name=".newGuidelines"
+            android:theme="@style/actionBlack" />
         <activity
             android:name=".captureImage"
             android:screenOrientation="portrait"
             android:theme="@style/AppTheme.NoActionBar"
-            android:windowSoftInputMode="adjustResize">
-
-        </activity>
+            android:windowSoftInputMode="adjustResize"></activity>
         <activity
             android:name=".MyProfile"
             android:theme="@style/AppTheme.NoActionBar"
-            android:windowSoftInputMode="adjustResize">
-
-        </activity>
+            android:windowSoftInputMode="adjustResize"></activity>
         <activity
             android:name=".RegisterUser"
             android:screenOrientation="portrait"
             android:theme="@style/AppTheme.NoActionBar"
-            android:windowSoftInputMode="adjustResize">
-
-        </activity>
+            android:windowSoftInputMode="adjustResize"></activity>
         <activity
             android:name=".start_page"
             android:noHistory="true"
@@ -84,21 +80,16 @@
         </activity>
         <activity
             android:name=".cybersecurity"
-            android:theme="@style/actionBlack"
-             />
+            android:theme="@style/actionBlack" />
         <activity
             android:name=".faqs"
-            android:theme="@style/actionBlack"
-            />
-
+            android:theme="@style/actionBlack" />
         <activity
             android:name=".covidHelplines"
-            android:theme="@style/actionBlack"
-            />
+            android:theme="@style/actionBlack" />
         <activity
             android:name=".MainActivity2"
-            android:theme="@style/AppTheme.NoActionBar"
-            />
+            android:theme="@style/AppTheme.NoActionBar" />
         <activity
             android:name=".registered"
             android:screenOrientation="portrait"
@@ -116,7 +107,6 @@
             android:windowSoftInputMode="adjustResize" />
         <activity android:name=".MainActivity" />
 
-
         <provider
             android:name="androidx.core.content.FileProvider"
             android:authorities="${applicationId}.provider"
@@ -124,8 +114,7 @@
             android:grantUriPermissions="true">
             <meta-data
                 android:name="android.support.FILE_PROVIDER_PATHS"
-                android:resource="@xml/provider_path">
-            </meta-data>
+                android:resource="@xml/provider_path"></meta-data>
         </provider>
     </application>
 

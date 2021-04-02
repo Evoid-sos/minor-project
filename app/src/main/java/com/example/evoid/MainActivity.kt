@@ -7,8 +7,6 @@ import android.text.method.PasswordTransformationMethod
 import android.util.Log
 import android.view.View
 import android.view.WindowManager
-import android.widget.CheckBox
-import android.widget.ImageView
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import com.google.firebase.auth.FirebaseAuth
@@ -38,8 +36,8 @@ class MainActivity : AppCompatActivity() {
         showHideMain.setOnClickListener() {
             if (b == 0)
             {
-                passwordMain.transformationMethod = HideReturnsTransformationMethod.getInstance();
-                b = 1;
+                passwordMain.transformationMethod = HideReturnsTransformationMethod.getInstance()
+                b = 1
                 showHideMain.visibility = View.INVISIBLE
                 showHide2Main.visibility = View.VISIBLE
 
@@ -50,7 +48,7 @@ class MainActivity : AppCompatActivity() {
         showHide2Main.setOnClickListener(){
             if (b==1)
             {
-                passwordMain.transformationMethod = PasswordTransformationMethod.getInstance();
+                passwordMain.transformationMethod = PasswordTransformationMethod.getInstance()
                 b=0
                 showHide2Main.visibility = View.INVISIBLE
                 showHideMain.visibility = View.VISIBLE

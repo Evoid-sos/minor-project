@@ -12,6 +12,7 @@ import android.net.Uri
 import android.os.Build
 import android.os.Bundle
 import android.os.Handler
+import android.os.Looper
 import android.preference.PreferenceManager
 import android.util.Log
 import android.view.LayoutInflater
@@ -75,7 +76,7 @@ class emergency : Fragment() {
             //change the value of your sharedPreferences
             sharedPreferences.edit().putBoolean("IS_FIRST_TIME", false).apply()
         }
-        mPlayer = MediaPlayer.create(activity, R.raw.alarm);
+        mPlayer = MediaPlayer.create(activity, R.raw.alarm)
         view.startAlarm.setOnClickListener {
             if (flag == 0) {
                 flag = 1
@@ -139,18 +140,16 @@ class emergency : Fragment() {
         }
 
         view.emergencybutton.setOnClickListener {
-
             askLocationPerm()
-            val handler = Handler()
-            handler.postDelayed({ askCameraPerm() }, 1000)
+            Handler(Looper.getMainLooper()).postDelayed({ askCameraPerm() }, 1000)
 
         }
         // Return the fragment view/layout
         return view
     }
-    private fun showNoFlashError() {
+    /*private fun showNoFlashError() {
         Log.e("Alert", "No Flash")
-    }
+    }*/
 
     /*@RequiresApi(Build.VERSION_CODES.M)
     private fun askFlashPerm(){
@@ -316,21 +315,19 @@ class emergency : Fragment() {
 
     private fun makePhoneCall() {
         var phoneNumber:Long = 0
-        if (fire ==1)
-        {
-            phoneNumber = 9560983181
-        }
-        else if (police ==1)
-        {
-            phoneNumber = 9560983181
-        }
-        else if (women ==1)
-        {
-            phoneNumber = 9560983181
-        }
-        else if (ambulance ==1)
-        {
-            phoneNumber = 9560983181
+        when {
+            fire ==1 -> {
+                phoneNumber = 9560983181
+            }
+            police ==1 -> {
+                phoneNumber = 9560983181
+            }
+            women ==1 -> {
+                phoneNumber = 9560983181
+            }
+            ambulance ==1 -> {
+                phoneNumber = 9560983181
+            }
         }
 
         val intent = Intent(Intent.ACTION_CALL)

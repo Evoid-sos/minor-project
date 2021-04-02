@@ -38,14 +38,7 @@ class newGuidelines : AppCompatActivity() {
                    mTTS.speak(toSpeak,TextToSpeech.QUEUE_FLUSH,null)
            }
             stopSpeak.setOnClickListener {
-                if (mTTS.isSpeaking)
-                {
-                    mTTS.stop()
-                }
-                else
-                {
-                    Toast.makeText(this,"Not Speaking",Toast.LENGTH_SHORT).show()
-                }
+                stopAudio()
             }
         }
         fireGuide.setOnClickListener()
@@ -86,6 +79,17 @@ class newGuidelines : AppCompatActivity() {
         super.onPause()
     }
 
+    private fun stopAudio()
+    {
+        if (mTTS.isSpeaking)
+        {
+            mTTS.stop()
+        }
+        else
+        {
+            Toast.makeText(this,"Not Speaking",Toast.LENGTH_SHORT).show()
+        }
+    }
     override fun onSupportNavigateUp(): Boolean {
         onBackPressed()
         return true
