@@ -3,6 +3,7 @@
 ]   <item android:title="@string/guidelines" android:id="@+id/guidelines"></item>
     <item android:title="@string/covid_19_helplines" android:id="@+id/covid"></item>
     <item android:title="@string/cyber_crime_protection_guideline" android:id="@+id/cybercrime"></item>
+    <item android:title="@string/medicalinfo" android:id="@+id/medicalInfo"></item>
     <item android:title="@string/help" android:id="@+id/help"></item>
     <item android:title="@string/logout_menu" android:id="@+id/logout"></item>
 </menu>

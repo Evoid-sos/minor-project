@@ -97,6 +97,7 @@ class MainActivity2 : AppCompatActivity(),NavigationView.OnNavigationItemSelecte
             R.id.guidelines -> startActivity(Intent(this, newGuidelines::class.java))
             R.id.covid -> startActivity(Intent(this, covidHelplines::class.java))
             R.id.cybercrime -> startActivity(Intent(this, cybersecurity::class.java))
+            R.id.medicalInfo -> startActivity(Intent(this, medicalInformation::class.java))
             R.id.help -> startActivity(Intent(this, faqs::class.java))
             R.id.logout -> signOut()
             else -> Toast.makeText(

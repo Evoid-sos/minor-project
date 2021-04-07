@@ -18,7 +18,7 @@
     <string name="_976">976*******</string>
     <string name="eshika_agarwal">Eshika Agarwal</string>
     <string name="registered">REGISTERED</string>
-    <string name="name">Name :</string>
+    <string name="name">Name</string>
     <string name="email_id_registered">Email Id :</string>
     <string name="agarwaleshi_gmail_com">agarwaleshi@gmail.com</string>
     <string name="registered_on">Registered on :</string>
@@ -38,6 +38,13 @@
     <string name="help">Help</string>
     <string name="selected_item">Selected item:</string>
     <string name="logout">logout</string>
+    <string name="address">Address</string>
+    <string name="bloodType">Blood Type</string>
+    <string name="allergies">Allergies</string>
+    <string name="medications">Medications</string>
+    <string name="medicalNotes">Medical Notes</string>
+    <string name="organDonor">Organ Donor</string>
+    <string name="medicalinfo">My Medical Information</string>
 
 
     <string-array name="States">

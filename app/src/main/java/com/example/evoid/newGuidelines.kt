@@ -20,6 +20,8 @@ class newGuidelines : AppCompatActivity() {
         this.requestedOrientation = ActivityInfo.SCREEN_ORIENTATION_PORTRAIT
         supportActionBar?.setDisplayHomeAsUpEnabled(true);
         supportActionBar!!.title = Html.fromHtml("<font color='#fffffff'>GUIDELINES </font>")
+
+
         fun TxtToSpeech()
         {
             mTTS= TextToSpeech(applicationContext, TextToSpeech.OnInitListener { status ->
@@ -41,6 +43,9 @@ class newGuidelines : AppCompatActivity() {
                 stopAudio()
             }
         }
+
+        TxtToSpeech()
+
         fireGuide.setOnClickListener()
         {
             guideText.text =resources.getString(R.string.fire_guidelines_details)

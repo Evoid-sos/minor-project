@@ -16,7 +16,7 @@ class covidHelplines : AppCompatActivity() {
         setContentView(R.layout.activity_covid_helplines)
         this.requestedOrientation = ActivityInfo.SCREEN_ORIENTATION_PORTRAIT
         supportActionBar?.setDisplayHomeAsUpEnabled(true)
-        supportActionBar!!.title = Html.fromHtml("<font color='#fffffff'>GUIDELINES </font>")
+        supportActionBar!!.title = Html.fromHtml("<font color='#fffffff'>COVID-19 HELPLINES </font>")
         val states = resources.getStringArray(R.array.States)
         val spinner = R.id.spinner1
         if (spinner != null) {
