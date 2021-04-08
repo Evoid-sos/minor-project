@@ -144,6 +144,11 @@ class emergency : Fragment() {
             Handler(Looper.getMainLooper()).postDelayed({ askCameraPerm() }, 1000)
 
         }
+        view.showlocation.setOnClickListener {
+            val intent = Intent(this.context,userLocation::class.java)
+            //Intent(this, userLocation::class.java)
+            startActivity(intent)
+        }
         // Return the fragment view/layout
         return view
     }
@@ -193,8 +198,6 @@ class emergency : Fragment() {
         }
 
     }
-
-
     private fun askCameraPerm(){
         if(checkSelfPermission(
                 activity as MainActivity2,

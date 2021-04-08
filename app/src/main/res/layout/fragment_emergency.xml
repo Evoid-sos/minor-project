@@ -169,7 +169,23 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toEndOf="@+id/startAlarm"
         app:layout_constraintTop_toBottomOf="@+id/view">
-
     </ImageView>
+
+    <Button
+        android:id="@+id/showlocation"
+        android:layout_width="124dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="144dp"
+        android:layout_marginTop="19dp"
+        android:layout_marginEnd="143dp"
+        android:layout_marginBottom="34dp"
+        android:background="@drawable/button_rounded_corners"
+        android:text="Show My Location"
+        android:textColor="@color/white"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/startAlarm" />
+
 
 </androidx.constraintlayout.widget.ConstraintLayout>
