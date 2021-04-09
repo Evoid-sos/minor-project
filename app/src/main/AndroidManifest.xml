@@ -76,7 +76,8 @@
 
         <activity
             android:name=".userLocation"
-            android:label="@string/title_activity_user_location"></activity>
+            android:label="@string/title_activity_user_location"
+            android:theme="@style/actionBlack" />
         <activity
             android:name=".medicalInformation"
             android:theme="@style/actionBlack" />

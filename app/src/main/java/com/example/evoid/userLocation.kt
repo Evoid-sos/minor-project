@@ -1,13 +1,14 @@
 package com.example.evoid
 
+import android.content.pm.ActivityInfo
 import android.content.pm.PackageManager
 import android.location.Location
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.text.Html
+import androidx.appcompat.app.AppCompatActivity
 import androidx.core.app.ActivityCompat
 import com.google.android.gms.location.FusedLocationProviderClient
 import com.google.android.gms.location.LocationServices
-
 import com.google.android.gms.maps.CameraUpdateFactory
 import com.google.android.gms.maps.GoogleMap
 import com.google.android.gms.maps.OnMapReadyCallback
@@ -26,6 +27,9 @@ class userLocation : AppCompatActivity(), OnMapReadyCallback,GoogleMap.OnMarkerC
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_user_location)
+        this.requestedOrientation = ActivityInfo.SCREEN_ORIENTATION_PORTRAIT
+        supportActionBar?.setDisplayHomeAsUpEnabled(true);
+        supportActionBar!!.title = Html.fromHtml("<font color='#fffffff'>CURRENT LOCATION </font>")
         // Obtain the SupportMapFragment and get notified when the map is ready to be used.
         val mapFragment = supportFragmentManager
             .findFragmentById(R.id.map) as SupportMapFragment
@@ -41,7 +45,8 @@ class userLocation : AppCompatActivity(), OnMapReadyCallback,GoogleMap.OnMarkerC
         if (ActivityCompat.checkSelfPermission(this,
                 android.Manifest.permission.ACCESS_FINE_LOCATION) != PackageManager.PERMISSION_GRANTED)
                 { ActivityCompat.requestPermissions(this,
-                arrayOf(android.Manifest.permission.ACCESS_FINE_LOCATION), LOCATION_PERMISSION_REQUEST_CODE)
+                    arrayOf(android.Manifest.permission.ACCESS_FINE_LOCATION),
+                    LOCATION_PERMISSION_REQUEST_CODE)
             return
         }
         else
@@ -73,6 +78,8 @@ class userLocation : AppCompatActivity(), OnMapReadyCallback,GoogleMap.OnMarkerC
     }
 
     override fun onMarkerClick(p0: Marker?) = false
-
-
+    override fun onNavigateUp(): Boolean {
+        finish()
+        return true
+    }
 }
