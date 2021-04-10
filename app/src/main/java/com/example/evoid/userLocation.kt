@@ -38,7 +38,7 @@ class userLocation : AppCompatActivity(), OnMapReadyCallback,GoogleMap.OnMarkerC
 
     }
     companion object {
-        private const val LOCATION_PERMISSION_REQUEST_CODE = 1
+        const val LOCATION_PERMISSION_REQUEST_CODE = 1
     }
     private fun setUpMap()
     {
