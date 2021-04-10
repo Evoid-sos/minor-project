@@ -1,53 +1,60 @@
 package com.example.evoid
 
 import android.os.AsyncTask
-import android.util.Log
 import com.google.android.gms.maps.CameraUpdateFactory
 import com.google.android.gms.maps.GoogleMap
 import com.google.android.gms.maps.model.BitmapDescriptorFactory
 import com.google.android.gms.maps.model.LatLng
 import com.google.android.gms.maps.model.MarkerOptions
+import java.io.IOException
 
+class GetNearbyPlacesData:AsyncTask<Any,String,String>(){
 
-class GetNearbyPlacesData : AsyncTask<Any?, String?, String?>() {
-    var googlePlacesData: String? = null
-    var mMap: GoogleMap? = null
-    var url: String? = null
-    protected override fun doInBackground(vararg params: Any?): String? {
-        try {
-            mMap = params[0] as GoogleMap
-            url = params[1] as String
-            val downloadUrl = DownloadUrl()
-            googlePlacesData = downloadUrl.readUrl(url)
-        } catch (e: Exception) {
-            Log.d("GooglePlacesReadTask", e.toString())
+    var googlePlacesData:String? = null
+    var mMap:GoogleMap? = null
+    var url:String? = null
+
+    override fun doInBackground(vararg objects:Any): String {
+        mMap = objects[0] as GoogleMap
+        url = objects[1] as String
+
+        var downloadURL = DownloadURL()
+        try{
+            googlePlacesData = downloadURL.readUrl(url!!)
         }
-        return googlePlacesData
+        catch (e:IOException){
+            e.printStackTrace()
+        }
+
+        return googlePlacesData!!
     }
 
-    override fun onPostExecute(result: String?) {
-        var nearbyPlacesList: List<HashMap<String, String>>? = null
-        val dataParser = DataParser()
-        nearbyPlacesList = dataParser.parse(result)
-        ShowNearbyPlaces(nearbyPlacesList)
+    override fun onPostExecute(result: String) {
+        var nearbyPlaceList: List<HashMap<String,String>>
+        var parser = DataParser()
+        nearbyPlaceList = parser.parse(result)
+        showNearbyPlaces(nearbyPlaceList)
     }
 
-    private fun ShowNearbyPlaces(nearbyPlacesList: List<HashMap<String, String>>?) {
-        for (i in nearbyPlacesList!!.indices) {
-            val markerOptions = MarkerOptions()
-            val googlePlace = nearbyPlacesList[i]
-            val lat = googlePlace["lat"]!!.toDouble()
-            val lng = googlePlace["lng"]!!.toDouble()
-            val placeName = googlePlace["place_name"]
-            val vicinity = googlePlace["vicinity"]
-            val latLng = LatLng(lat, lng)
+    private fun showNearbyPlaces(nearbyPlaceList: List<HashMap<String,String>>){
+
+        for (i in 0 until nearbyPlaceList.size){
+            var markerOptions = MarkerOptions()
+            var googlePlace = nearbyPlaceList.get(i)
+
+            var placeName = googlePlace.get("place_name")
+            var vicinity = googlePlace.get("vicinity")
+            var lat = java.lang.Double.parseDouble(googlePlace.get("lat"))
+            var lng = java.lang.Double.parseDouble(googlePlace.get("lng"))
+
+            var latLng = LatLng(lat,lng)
             markerOptions.position(latLng)
-            markerOptions.title("$placeName : $vicinity")
-            mMap!!.addMarker(markerOptions)
+            markerOptions.title(placeName + " : " + vicinity)
             markerOptions.icon(BitmapDescriptorFactory.defaultMarker(BitmapDescriptorFactory.HUE_RED))
-            //move map camera
+
+            mMap!!.addMarker(markerOptions)
             mMap!!.moveCamera(CameraUpdateFactory.newLatLng(latLng))
-            mMap!!.animateCamera(CameraUpdateFactory.zoomTo(11f))
+            mMap!!.animateCamera(CameraUpdateFactory.zoomTo(10f))
         }
     }
 }
