@@ -94,7 +94,7 @@ class MainActivity2 : AppCompatActivity(),NavigationView.OnNavigationItemSelecte
     override fun onNavigationItemSelected(item: MenuItem): Boolean {
         when(item.itemId)
         {
-            R.id.nearhelp -> startActivity(Intent(this, helpnearme::class.java))
+            R.id.nearhelp -> startActivity(Intent(this, HelpLocation::class.java))
             R.id.guidelines -> startActivity(Intent(this, newGuidelines::class.java))
             R.id.covid -> startActivity(Intent(this, covidHelplines::class.java))
             R.id.cybercrime -> startActivity(Intent(this, cybersecurity::class.java))
