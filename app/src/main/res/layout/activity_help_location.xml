@@ -20,7 +20,7 @@
         tools:context="GetNearbyPlaces.HelpLocation" />
 
     <ImageView
-        android:id="@+id/imageView7"
+        android:id="@+id/policeHelp"
         android:layout_width="106dp"
         android:layout_height="102dp"
         android:layout_marginStart="100dp"
@@ -29,12 +29,14 @@
         android:layout_marginBottom="242dp"
         android:src="@drawable/policehelp"
         map:layout_constraintBottom_toTopOf="@+id/map"
-        map:layout_constraintEnd_toStartOf="@+id/imageView8"
+        map:layout_constraintEnd_toStartOf="@+id/hospitalHelp"
         map:layout_constraintStart_toStartOf="parent"
-        map:layout_constraintTop_toTopOf="parent" />
+        map:layout_constraintTop_toTopOf="parent"
+        android:onClick="onClick"
+        />
 
     <ImageView
-        android:id="@+id/imageView8"
+        android:id="@+id/hospitalHelp"
         android:layout_width="106dp"
         android:layout_height="102dp"
         android:layout_marginStart="20dp"
@@ -43,12 +45,14 @@
         android:layout_marginBottom="242dp"
         map:layout_constraintBottom_toTopOf="@+id/map"
         map:layout_constraintEnd_toEndOf="parent"
-        map:layout_constraintStart_toEndOf="@+id/imageView7"
+        map:layout_constraintStart_toEndOf="@+id/policeHelp"
         map:layout_constraintTop_toTopOf="parent"
-        map:srcCompat="@drawable/hospital" />
+        map:srcCompat="@drawable/hospital"
+        android:onClick="onClick"
+        />
 
     <ImageView
-        android:id="@+id/imageView9"
+        android:id="@+id/fireHelp"
         android:layout_width="106dp"
         android:layout_height="102dp"
         android:layout_marginStart="100dp"
@@ -56,13 +60,15 @@
         android:layout_marginEnd="20dp"
         android:layout_marginBottom="109dp"
         map:layout_constraintBottom_toTopOf="@+id/map"
-        map:layout_constraintEnd_toStartOf="@+id/imageView10"
+        map:layout_constraintEnd_toStartOf="@+id/oldageHelp"
         map:layout_constraintStart_toStartOf="parent"
-        map:layout_constraintTop_toBottomOf="@+id/imageView7"
-        map:srcCompat="@drawable/firehelp" />
+        map:layout_constraintTop_toBottomOf="@+id/policeHelp"
+        map:srcCompat="@drawable/firehelp"
+        android:onClick="onClick"
+        />
 
     <ImageView
-        android:id="@+id/imageView10"
+        android:id="@+id/oldageHelp"
         android:layout_width="106dp"
         android:layout_height="102dp"
         android:layout_marginStart="20dp"
@@ -71,8 +77,10 @@
         android:layout_marginBottom="109dp"
         map:layout_constraintBottom_toTopOf="@+id/map"
         map:layout_constraintEnd_toEndOf="parent"
-        map:layout_constraintStart_toEndOf="@+id/imageView9"
-        map:layout_constraintTop_toBottomOf="@+id/imageView8"
-        map:srcCompat="@drawable/oldagehelp" />
+        map:layout_constraintStart_toEndOf="@+id/fireHelp"
+        map:layout_constraintTop_toBottomOf="@+id/hospitalHelp"
+        map:srcCompat="@drawable/oldagehelp"
+        android:onClick="onClick"
+        />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
