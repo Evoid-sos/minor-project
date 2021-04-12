@@ -4,74 +4,65 @@ import android.util.Log
 import org.json.JSONArray
 import org.json.JSONException
 import org.json.JSONObject
-import java.io.IOException
+import java.util.*
 
 class DataParser {
-
-    private fun getPlace(googlePlaceJson:JSONObject):HashMap<String,String>{
-
-        var googlePlacesMap = HashMap<String,String>()
+    private fun getPlace(googlePlaceJson: JSONObject): HashMap<String, String> {
+        val googlePlaceMap = HashMap<String, String>()
         var placeName = "--NA--"
         var vicinity = "--NA--"
         var latitude = ""
         var longitude = ""
         var reference = ""
-
+        Log.d("DataParser", "jsonobject =$googlePlaceJson")
         try {
-            if(!googlePlaceJson.isNull("name")) {
+            if (!googlePlaceJson.isNull("name")) {
                 placeName = googlePlaceJson.getString("name")
             }
-            if(!googlePlaceJson.isNull("vicinity")) {
+            if (!googlePlaceJson.isNull("vicinity")) {
                 vicinity = googlePlaceJson.getString("vicinity")
             }
-            latitude = googlePlaceJson.getJSONObject("geometry").getJSONObject("location").getString("lat")
-            longitude = googlePlaceJson.getJSONObject("geometry").getJSONObject("location").getString("lng")
+            latitude =
+                googlePlaceJson.getJSONObject("geometry").getJSONObject("location").getString("lat")
+            longitude =
+                googlePlaceJson.getJSONObject("geometry").getJSONObject("location").getString("lng")
             reference = googlePlaceJson.getString("reference")
-
-            googlePlacesMap.put("place_name", placeName)
-            googlePlacesMap.put("vicinity", vicinity)
-            googlePlacesMap.put("lat", latitude)
-            googlePlacesMap.put("lng", longitude)
-            googlePlacesMap.put("reference", reference)
-        }
-        catch (e: IOException){
+            googlePlaceMap["place_name"] = placeName
+            googlePlaceMap["vicinity"] = vicinity
+            googlePlaceMap["lat"] = latitude
+            googlePlaceMap["lng"] = longitude
+            googlePlaceMap["reference"] = reference
+        } catch (e: JSONException) {
             e.printStackTrace()
         }
-
-        return googlePlacesMap
+        return googlePlaceMap
     }
 
-    private fun getPlaces(jsonArray: JSONArray):List<HashMap<String,String>>{
-
-        var count:Int = jsonArray.length()
-        var placesList = ArrayList<HashMap<String,String>>()
-        var placeMap: HashMap<String,String>
-
-        for (i in 0 until count){
+    private fun getPlaces(jsonArray: JSONArray?): List<HashMap<String, String>?> {
+        val count = jsonArray!!.length()
+        val placelist: MutableList<HashMap<String, String>?> = ArrayList()
+        var placeMap: HashMap<String, String>? = null
+        for (i in 0 until count) {
             try {
-                placeMap = getPlace(jsonArray.get(i) as JSONObject)
-                placesList.add(placeMap)
-            }
-            catch (e:JSONException){
+                placeMap = getPlace(jsonArray[i] as JSONObject)
+                placelist.add(placeMap)
+            } catch (e: JSONException) {
                 e.printStackTrace()
             }
         }
-        return placesList
+        return placelist
     }
 
-    fun parse(jsonData: String):List<HashMap<String,String>>{
-
-        var jsonArray:JSONArray? = null
-        var jsonObject:JSONObject?
-
-        try{
+    fun parse(jsonData: String?): List<HashMap<String, String>?> {
+        var jsonArray: JSONArray? = null
+        val jsonObject: JSONObject
+        Log.d("json data", jsonData!!)
+        try {
             jsonObject = JSONObject(jsonData)
             jsonArray = jsonObject.getJSONArray("results")
-        }
-        catch (e:JSONException) {
+        } catch (e: JSONException) {
             e.printStackTrace()
         }
-
-        return getPlaces(jsonArray!!)
+        return getPlaces(jsonArray)
     }
 }
