@@ -172,5 +172,6 @@
     <string name="dialogMessage">Thank you for downloading our app.\nPlease go through the help menu to understand how the app works.</string>
     <string name="title_activity_user_location">Map</string>
     <string name="title_activity_help_location">Map</string>
+    <string name="access_token">MAPBOX_DOWNLOADS_TOKEN</string>
 
 </resources>

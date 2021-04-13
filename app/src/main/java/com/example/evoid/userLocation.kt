@@ -70,7 +70,6 @@ class userLocation : AppCompatActivity(), OnMapReadyCallback,GoogleMap.OnMarkerC
     }
     override fun onMapReady(googleMap: GoogleMap) {
         map = googleMap
-
         map.uiSettings.isZoomControlsEnabled = true
         map.setOnMarkerClickListener(this)
 
@@ -80,6 +79,10 @@ class userLocation : AppCompatActivity(), OnMapReadyCallback,GoogleMap.OnMarkerC
     override fun onMarkerClick(p0: Marker?) = false
     override fun onNavigateUp(): Boolean {
         finish()
+        return true
+    }
+    override fun onSupportNavigateUp(): Boolean {
+        onBackPressed()
         return true
     }
 }
