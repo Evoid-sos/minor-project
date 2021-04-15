@@ -68,6 +68,16 @@ class firestoreClass {
             }
     }
 
+    fun registerUserViaGoogle(activity: start_page, userInfo: User)
+    {
+        mFireStore.collection(constants.USERS)
+            .document(getCurrentUserId())
+            .set(userInfo, SetOptions.merge())
+            .addOnSuccessListener {
+                //Toast.makeText(activity, "registered", Toast.LENGTH_SHORT).show()
+            }
+    }
+
 
 
     fun getCurrentUserId():String
