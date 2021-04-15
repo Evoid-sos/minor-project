@@ -45,6 +45,7 @@ class MainActivity2 : AppCompatActivity(),NavigationView.OnNavigationItemSelecte
         setSupportActionBar(toolbar)
         tabLayout.addTab(tabLayout.newTab().setText("EMERGENCY"))
         tabLayout.addTab(tabLayout.newTab().setText("EMERGENCY CONTACTS"))
+        tabLayout.addTab(tabLayout.newTab().setText("MENTAL HEALTH AWARENESS"))
         tabLayout.tabGravity = TabLayout.GRAVITY_FILL
         val adapter = MyAdapter(this, supportFragmentManager,
             tabLayout.tabCount)

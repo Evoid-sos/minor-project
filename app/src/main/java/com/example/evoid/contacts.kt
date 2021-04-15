@@ -54,11 +54,11 @@ class contacts : Fragment() {
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
-    ): View? {
+    ): View {
         // Inflate the layout for this fragment
 
         auth = Firebase.auth
-        val view:View = inflater!!.inflate(R.layout.fragment_contacts, container, false)
+        val view:View = inflater.inflate(R.layout.fragment_contacts, container, false)
         displayContact()
 
         view.addContactButton.setOnClickListener{

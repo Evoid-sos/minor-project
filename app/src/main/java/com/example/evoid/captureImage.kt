@@ -1,24 +1,22 @@
 package com.example.evoid
 
-import android.content.Intent
 import android.content.pm.ActivityInfo
 import android.net.Uri
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.os.Handler
+import android.os.Looper
 import android.widget.Toast
+import androidx.appcompat.app.AppCompatActivity
 import androidx.camera.core.*
 import androidx.camera.lifecycle.ProcessCameraProvider
 import androidx.core.content.ContextCompat
 import androidx.core.content.FileProvider
-import io.fotoapparat.BuildConfig
-import io.fotoapparat.selector.autoFlash
 import kotlinx.android.synthetic.main.activity_capture_image.*
 import java.io.File
 
 class captureImage : AppCompatActivity() {
 
-    var camera:androidx.camera.core.Camera?=null
+    var camera:Camera?=null
     var preview:Preview?=null
     var imageCapture:ImageCapture?=null
     lateinit var path1:Uri
@@ -31,7 +29,7 @@ class captureImage : AppCompatActivity() {
         this.requestedOrientation = ActivityInfo.SCREEN_ORIENTATION_PORTRAIT
         val cameraProviderFuture = ProcessCameraProvider.getInstance(this)
         cameraProviderFuture.addListener(
-            Runnable {
+            {
                 val cameraProvider = cameraProviderFuture.get()
                 val flashMode = ImageCapture.FLASH_MODE_AUTO
                 preview = Preview.Builder().build()
@@ -59,7 +57,7 @@ class captureImage : AppCompatActivity() {
     {
         val cameraProviderFuture = ProcessCameraProvider.getInstance(this)
         cameraProviderFuture.addListener(
-            Runnable {
+            {
                 val cameraProvider = cameraProviderFuture.get()
                 val flashMode = ImageCapture.FLASH_MODE_AUTO
                 preview = Preview.Builder().build()
@@ -89,7 +87,7 @@ class captureImage : AppCompatActivity() {
             ContextCompat.getMainExecutor(this),
             object : ImageCapture.OnImageSavedCallback {
                 override fun onImageSaved(outputFileResults: ImageCapture.OutputFileResults) {
-                    path2 = outputFileResults.savedUri ?: FileProvider.getUriForFile(applicationContext,com.example.evoid.BuildConfig.APPLICATION_ID + ".provider", photoFile)
+                    path2 = outputFileResults.savedUri ?: FileProvider.getUriForFile(applicationContext,BuildConfig.APPLICATION_ID + ".provider", photoFile)
                     Toast.makeText(applicationContext, "uploaded", Toast.LENGTH_SHORT)
                         .show()
                 }
@@ -102,15 +100,13 @@ class captureImage : AppCompatActivity() {
 
 
         )
-        val handler = Handler()
-        handler.postDelayed({
+        Handler(Looper.getMainLooper()).postDelayed({
             storageClass().insertEmergency(
                 Uri.parse(path1.toString()),
                 Uri.parse(path2.toString()),
                 this@captureImage)
         }, 1000)
-        val handler1 = Handler()
-        handler1.postDelayed({
+        Handler(Looper.getMainLooper()).postDelayed({
             finish()
         }, 5500)
 
@@ -125,7 +121,7 @@ class captureImage : AppCompatActivity() {
             ContextCompat.getMainExecutor(this),
             object : ImageCapture.OnImageSavedCallback {
                 override fun onImageSaved(outputFileResults: ImageCapture.OutputFileResults) {
-                    path1 = outputFileResults.savedUri ?: FileProvider.getUriForFile(applicationContext,com.example.evoid.BuildConfig.APPLICATION_ID + ".provider", photoFile)
+                    path1 = outputFileResults.savedUri ?: FileProvider.getUriForFile(applicationContext,BuildConfig.APPLICATION_ID + ".provider", photoFile)
                     Toast.makeText(applicationContext, "uploaded", Toast.LENGTH_SHORT)
                         .show()
                     showImageAgain()

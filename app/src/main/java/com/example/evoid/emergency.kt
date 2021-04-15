@@ -14,7 +14,6 @@ import android.os.Bundle
 import android.os.Handler
 import android.os.Looper
 import android.preference.PreferenceManager
-import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -146,7 +145,6 @@ class emergency : Fragment() {
         }
         view.showlocation.setOnClickListener {
             val intent = Intent(this.context,userLocation::class.java)
-            //Intent(this, userLocation::class.java)
             startActivity(intent)
         }
         // Return the fragment view/layout
@@ -346,7 +344,6 @@ class emergency : Fragment() {
         if (requestCode == REQUEST_PHONE_CALL )
         {
            makePhoneCall()
-
         }
         if (requestCode == REQUEST_LOCATION)
         {

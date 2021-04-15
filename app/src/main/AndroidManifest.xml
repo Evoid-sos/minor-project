@@ -60,9 +60,10 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".nearbyHelp"
-            android:theme="@style/actionBlack"
-        />
+        <activity android:name=".mentalHealthAwareness"></activity>
+        <activity
+            android:name=".nearbyHelp"
+            android:theme="@style/actionBlack" />
         <!--
              The API key for Google Maps-based APIs is defined as a string resource.
              (See the file "res/values/google_maps_api.xml").

@@ -18,6 +18,9 @@ internal class MyAdapter(
             1 -> {
                 contacts()
             }
+            2 -> {
+                 mentalHealthAwareness()
+            }
             else -> getItem(position)
         }
     }

@@ -92,6 +92,12 @@
         <a href="https://cybercrime.gov.in/">"https://cybercrime.gov.in/"</a>
     </string>
 
+    <string name="moreHelp"><a href="https://www.thelivelovelaughfoundation.org/find-help/helplines">FIND MORE HELP</a></string>
+
+    <string name="mentalWellbeing">
+    5 STEPS TO MENTAL WELLBEING: \n\n
+    </string>
+
     <string name="cyber_security_guidelines_details">
                     Make the passwords more complicated by combining letters, numbers, special
                         characters (minimum 10 characters in total) and change them on a regular
@@ -172,5 +178,6 @@
     <string name="dialogMessage">Thank you for downloading our app.\nPlease go through the help menu to understand how the app works.</string>
     <string name="title_activity_user_location">Map</string>
     <string name="title_activity_help_location">Map</string>
+    <string name="hello_blank_fragment">Hello blank fragment</string>
 
 </resources>
