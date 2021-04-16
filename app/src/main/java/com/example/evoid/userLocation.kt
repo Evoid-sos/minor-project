@@ -42,8 +42,6 @@ class userLocation : AppCompatActivity(), OnMapReadyCallback,GoogleMap.OnMarkerC
 
     }
 
-
-
     private fun setUpMap()
     {
         if (ActivityCompat.checkSelfPermission(this,
@@ -70,7 +68,7 @@ class userLocation : AppCompatActivity(), OnMapReadyCallback,GoogleMap.OnMarkerC
                 lastLocation = location
                 val currentLatLng = LatLng(location.latitude, location.longitude)
                 placeMarkerOnMap(currentLatLng)
-                map.animateCamera(CameraUpdateFactory.newLatLngZoom(currentLatLng, 17.0f))
+                map.animateCamera(CameraUpdateFactory.newLatLngZoom(currentLatLng, 18f))
             }
         }
     }
