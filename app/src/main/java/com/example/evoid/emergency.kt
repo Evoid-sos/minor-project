@@ -1,5 +1,6 @@
 package com.example.evoid
 
+import android.annotation.SuppressLint
 import android.app.AlertDialog
 import android.content.Context
 import android.content.Intent
@@ -269,6 +270,7 @@ class emergency : Fragment() {
             getLocationCurrent()
         }
     }
+
 
     private fun getLocationCurrent() {
         val request = LocationRequest()
