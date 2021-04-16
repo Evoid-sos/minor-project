@@ -28,7 +28,7 @@ class userLocation : AppCompatActivity(), OnMapReadyCallback,GoogleMap.OnMarkerC
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_user_location)
         this.requestedOrientation = ActivityInfo.SCREEN_ORIENTATION_PORTRAIT
-        supportActionBar?.setDisplayHomeAsUpEnabled(true);
+        supportActionBar?.setDisplayHomeAsUpEnabled(true)
         supportActionBar!!.title = Html.fromHtml("<font color='#fffffff'>CURRENT LOCATION </font>")
         // Obtain the SupportMapFragment and get notified when the map is ready to be used.
         val mapFragment = supportFragmentManager
