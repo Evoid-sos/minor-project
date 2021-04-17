@@ -87,7 +87,6 @@
         <item>Uttar Pradesh</item>
         <item>West Bengal</item>
     </string-array>
-
     <string name="report">REPORT A CRIME :
         <a href="https://cybercrime.gov.in/">"https://cybercrime.gov.in/"</a>
     </string>

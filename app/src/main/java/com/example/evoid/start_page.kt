@@ -10,7 +10,6 @@ import android.view.View
 import android.view.WindowManager
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
-import com.google.android.gms.auth.api.Auth
 import com.google.android.gms.auth.api.signin.GoogleSignIn
 import com.google.android.gms.auth.api.signin.GoogleSignInClient
 import com.google.android.gms.auth.api.signin.GoogleSignInOptions
@@ -54,7 +53,7 @@ class start_page : AppCompatActivity() {
             // Log and toast
             val msg = getString(R.string.msg_token_fmt, token)
             //Log.d(TAG, msg)
-            Toast.makeText(baseContext, msg, Toast.LENGTH_SHORT).show()
+            //Toast.makeText(baseContext, msg, Toast.LENGTH_SHORT).show()
         })
 
         if (auth.currentUser != null)
@@ -71,10 +70,10 @@ class start_page : AppCompatActivity() {
 
         googleSignInClient = GoogleSignIn.getClient(this, gso)
 
-        showHideStart.setOnClickListener() {
+        showHideStart.setOnClickListener {
             if (b == 0)
             {
-                passwordStart.transformationMethod = HideReturnsTransformationMethod.getInstance();
+                passwordStart.transformationMethod = HideReturnsTransformationMethod.getInstance()
                 b = 1;
                 showHideStart.visibility = View.INVISIBLE
                 showHide2Start.visibility = View.VISIBLE
@@ -83,10 +82,10 @@ class start_page : AppCompatActivity() {
 
         }
 
-        showHide2Start.setOnClickListener(){
+        showHide2Start.setOnClickListener {
             if (b==1)
             {
-                passwordStart.transformationMethod = PasswordTransformationMethod.getInstance();
+                passwordStart.transformationMethod = PasswordTransformationMethod.getInstance()
                 b=0
                 showHide2Start.visibility = View.INVISIBLE
                 showHideStart.visibility = View.VISIBLE
@@ -225,10 +224,4 @@ class start_page : AppCompatActivity() {
                 }
             }
     }
-
-
-
-
-
-
 }
