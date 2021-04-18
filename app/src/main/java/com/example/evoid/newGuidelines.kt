@@ -16,6 +16,7 @@ import java.util.*
 
 class newGuidelines : AppCompatActivity() {
     lateinit var mTTS:TextToSpeech
+    var english=0
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_new_guidelines)
