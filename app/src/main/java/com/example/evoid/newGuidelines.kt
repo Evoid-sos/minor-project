@@ -1,13 +1,15 @@
 package com.example.evoid
 
-import android.speech.tts.TextToSpeech
 import android.content.pm.ActivityInfo
 import android.os.Bundle
+import android.speech.tts.TextToSpeech
 import android.text.Html
 import android.view.View
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
-import com.google.firebase.storage.OnPausedListener
+import com.google.mlkit.nl.translate.TranslateLanguage
+import com.google.mlkit.nl.translate.Translation
+import com.google.mlkit.nl.translate.TranslatorOptions
 import kotlinx.android.synthetic.main.activity_new_guidelines.*
 import java.util.*
 
@@ -21,16 +23,30 @@ class newGuidelines : AppCompatActivity() {
         supportActionBar?.setDisplayHomeAsUpEnabled(true);
         supportActionBar!!.title = Html.fromHtml("<font color='#fffffff'>GUIDELINES </font>")
 
+        fun englishToHindi(){
+        val options = TranslatorOptions.Builder()
+            .setSourceLanguage(TranslateLanguage.ENGLISH)
+            .setTargetLanguage(TranslateLanguage.HINDI)
+            .build()
+        val englishHindiTranslator = Translation.getClient(options)
+        }
 
-        fun TxtToSpeech()
+        fun hindiToEnglish(){
+            val options = TranslatorOptions.Builder()
+                .setSourceLanguage(TranslateLanguage.HINDI)
+                .setTargetLanguage(TranslateLanguage.ENGLISH)
+                .build()
+            val hindiEnglishTranslator = Translation.getClient(options)
+        }
+
+        fun TxtToSpeechEnglish()
         {
-            mTTS= TextToSpeech(applicationContext, TextToSpeech.OnInitListener { status ->
-                if (status != TextToSpeech.ERROR)
-                {
-                    mTTS.language= Locale.US
+            mTTS= TextToSpeech(applicationContext) { status ->
+                if (status != TextToSpeech.ERROR) {
+                    mTTS.language = Locale.US
                 }
-            })
-           startSpeak.setOnClickListener {
+            }
+            startSpeak.setOnClickListener {
                val toSpeak = guideText.text.toString()
                if (toSpeak == "")
                {
@@ -44,35 +60,33 @@ class newGuidelines : AppCompatActivity() {
             }
         }
 
-        TxtToSpeech()
-
         fireGuide.setOnClickListener()
         {
             guideText.text =resources.getString(R.string.fire_guidelines_details)
             startSpeak.visibility=View.VISIBLE
             stopSpeak.visibility=View.VISIBLE
-            TxtToSpeech()
+            TxtToSpeechEnglish()
         }
         medicalGuide.setOnClickListener()
         {
             guideText.text=resources.getString(R.string.medic_guidelines_details)
             startSpeak.visibility=View.VISIBLE
             stopSpeak.visibility=View.VISIBLE
-            TxtToSpeech()
+            TxtToSpeechEnglish()
         }
         accidentGuide.setOnClickListener()
         {
             guideText.text=resources.getString(R.string.accident_guidelines_details)
             startSpeak.visibility=View.VISIBLE
             stopSpeak.visibility=View.VISIBLE
-            TxtToSpeech()
+            TxtToSpeechEnglish()
         }
         crimeGuide.setOnClickListener()
         {
             guideText.text= resources.getString(R.string.crime_guidelines_details)
             startSpeak.visibility=View.VISIBLE
             stopSpeak.visibility=View.VISIBLE
-            TxtToSpeech()
+            TxtToSpeechEnglish()
         }
     }
 
