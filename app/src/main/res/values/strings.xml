@@ -1,50 +1,50 @@
 <resources>
-    <string name="app_name">Evoid</string>
-    <string name="logo">Logo</string>
-    <string name="email_id">Email Id</string>
-    <string name="Password">Password</string>
-    <string name="login">LOGIN</string>
-    <string name="forgot_password">\nforgot password\n</string>
-    <string name="new_user_register_here_n">\nNew User?\nregister here\n</string>
-    <string name="register">REGISTER</string>
-    <string name="first_name">First Name</string>
-    <string name="last_name">Last Name</string>
-    <string name="mobile_number">Mobile Number</string>
-    <string name="emailid">Email Id</string>
-    <string name="password">Password</string>
-    <string name="register_now">Register now</string>
-    <string name="backto_login">back to login</string>
-    <string name="mobile_no">Mobile No. :</string>
-    <string name="_976">976*******</string>
-    <string name="eshika_agarwal">Eshika Agarwal</string>
-    <string name="registered">REGISTERED</string>
-    <string name="name">Name</string>
-    <string name="email_id_registered">Email Id :</string>
-    <string name="agarwaleshi_gmail_com">agarwaleshi@gmail.com</string>
-    <string name="registered_on">Registered on :</string>
-    <string name="_03_10_2020">03/10/2020</string>
-    <string name="back_tologin">back to login</string>
-    <string name="reset_password">RESET PASSWORD</string>
-    <string name="please_enter_your_email_id">Please Enter Your Email Id</string>
-    <string name="Email_id">Email Id</string>
-    <string name="reset">Reset</string>
-    <string name="back_to_login">back to login</string>
-    <string name="todo">TODO</string>
-    <string name="PB">panicButton</string>
-    <string name="action_settings">Settings</string>
-    <string name="guidelines">Guidelines</string>
-    <string name="covid_19_helplines">COVID-19 Helplines</string>
-    <string name="cyber_crime_protection_guideline">Cyber Crime Protection Guidelines</string>
-    <string name="Instructions">Instructions</string>
-    <string name="selected_item">Selected item:</string>
-    <string name="logout">logout</string>
-    <string name="address">Address</string>
-    <string name="bloodType">Blood Type</string>
-    <string name="allergies">Allergies</string>
-    <string name="medications">Medications</string>
-    <string name="medicalNotes">Medical Notes</string>
-    <string name="organDonor">Organ Donor</string>
-    <string name="medicalinfo">My Medical Information</string>
+    <string name="app_name" translatable="false">Evoid</string>
+    <string name="logo" translatable="false">Logo</string>
+    <string name="email_id" translatable="false">Email Id</string>
+    <string name="Password" translatable="false">Password</string>
+    <string name="login" translatable="false">LOGIN</string>
+    <string name="forgot_password" translatable="false">\nforgot password\n</string>
+    <string name="new_user_register_here_n" translatable="false">\nNew User?\nregister here\n</string>
+    <string name="register" translatable="false">REGISTER</string>
+    <string name="first_name" translatable="false">First Name</string>
+    <string name="last_name" translatable="false">Last Name</string>
+    <string name="mobile_number" translatable="false">Mobile Number</string>
+    <string name="emailid" translatable="false">Email Id</string>
+    <string name="password" translatable="false">Password</string>
+    <string name="register_now" translatable="false">Register now</string>
+    <string name="backto_login" translatable="false">back to login</string>
+    <string name="mobile_no" translatable="false">Mobile No. :</string>
+    <string name="_976" translatable="false">976*******</string>
+    <string name="eshika_agarwal" translatable="false">Eshika Agarwal</string>
+    <string name="registered" translatable="false">REGISTERED</string>
+    <string name="name" translatable="false">Name</string>
+    <string name="email_id_registered" translatable="false">Email Id :</string>
+    <string name="agarwaleshi_gmail_com" translatable="false">agarwaleshi@gmail.com</string>
+    <string name="registered_on" translatable="false">Registered on :</string>
+    <string name="_03_10_2020" translatable="false">03/10/2020</string>
+    <string name="back_tologin" translatable="false">back to login</string>
+    <string name="reset_password" translatable="false">RESET PASSWORD</string>
+    <string name="please_enter_your_email_id" translatable="false">Please Enter Your Email Id</string>
+    <string name="Email_id" translatable="false">Email Id</string>
+    <string name="reset" translatable="false">Reset</string>
+    <string name="back_to_login" translatable="false">back to login</string>
+    <string name="todo" translatable="false">TODO</string>
+    <string name="PB" translatable="false">panicButton</string>
+    <string name="action_settings" translatable="false">Settings</string>
+    <string name="guidelines" translatable="false">Guidelines</string>
+    <string name="covid_19_helplines" translatable="false">COVID-19 Helplines</string>
+    <string name="cyber_crime_protection_guideline" translatable="false">Cyber Crime Protection Guidelines</string>
+    <string name="Instructions" translatable="false">Instructions</string>
+    <string name="selected_item" translatable="false">Selected item:</string>
+    <string name="logout" translatable="false">logout</string>
+    <string name="address" translatable="false">Address</string>
+    <string name="bloodType" translatable="false">Blood Type</string>
+    <string name="allergies" translatable="false">Allergies</string>
+    <string name="medications" translatable="false">Medications</string>
+    <string name="medicalNotes" translatable="false">Medical Notes</string>
+    <string name="organDonor" translatable="false">Organ Donor</string>
+    <string name="medicalinfo" translatable="false">My Medical Information</string>
 
 
     <string-array name="States">
@@ -87,16 +87,16 @@
         <item>Uttar Pradesh</item>
         <item>West Bengal</item>
     </string-array>
-    <string name="report">REPORT A CRIME :
+    <string name="report" translatable="false">REPORT A CRIME :
         <a href="https://cybercrime.gov.in/">"https://cybercrime.gov.in/"</a>
     </string>
 
-    <string name="moreHelp"><a href="https://www.thelivelovelaughfoundation.org/find-help/helplines">FIND MORE HELP</a></string>
+    <string name="moreHelp" translatable="false"><a href="https://www.thelivelovelaughfoundation.org/find-help/helplines">FIND MORE HELP</a></string>
 
-    <string name="mentalWellbeing">
+    <string name="mentalWellbeing" translatable="false">
     5 STEPS TO MENTAL WELLBEING \n
     </string>
-    <string name="steps">
+    <string name="steps" translatable="false">
         1. Connect with other people: Good relationships are important for your mental wellbeing. They can: \n
         - Help you to build a sense of belonging and self-worth \n
         - Give you an opportunity to share positive experiences \n
@@ -117,7 +117,7 @@
         5. Pay attention to the present moment (mindfulness) :Paying more attention to the present moment can improve your mental wellbeing. This includes your thoughts and feelings, your body and the world around you. \n \n \n \n \n \n \n \n
     </string>
 
-    <string name="cyber_security_guidelines_details">
+    <string name="cyber_security_guidelines_details" translatable="false">
                     Make the passwords more complicated by combining letters, numbers, special
                         characters (minimum 10 characters in total) and change them on a regular
                         basis.\n\nUse anti-virus/malware software\n\nPrevent spyware from infiltrating your computer by installing and updating
@@ -165,39 +165,38 @@
         Avoid shortcuts through
                         wooded areas, parking lots, or alleys.\n
     </string>
-    <string name="title_activity_main_nav_drawer">mainNavDrawer</string>
-    <string name="navigation_drawer_open">Open navigation drawer</string>
-    <string name="navigation_drawer_close">Close navigation drawer</string>
-    <string name="nav_header_title">Android Studio</string>
-    <string name="nav_header_subtitle">android.studio@android.com</string>
-    <string name="nav_header_desc">Navigation header</string>
+    <string name="title_activity_main_nav_drawer" translatable="false">mainNavDrawer</string>
+    <string name="navigation_drawer_open" translatable="false">Open navigation drawer</string>
+    <string name="navigation_drawer_close" translatable="false">Close navigation drawer</string>
+    <string name="nav_header_title" translatable="false">Android Studio</string>
+    <string name="nav_header_subtitle" translatable="false">android.studio@android.com</string>
+    <string name="nav_header_desc" translatable="false">Navigation header</string>
 
-    <string name="menu_home">Home</string>
-    <string name="menu_gallery">Gallery</string>
-    <string name="menu_slideshow">Slideshow</string>
-    <string name="forgot_password_start">forgot password ?</string>
-    <string name="register_start">Register</string>
-    <string name="choose_a_state_to_display_helpline_number">CHOOSE A STATE TO DISPLAY HELPLINE NUMBER</string>
-    <string name="textview_covid">TextView</string>
-    <string name="tap_the_image_to_view_guidelines">TAP THE IMAGE TO VIEW GUIDELINES</string>
-    <string name="cyberscrime_scroll" />
-    <string name="questions" />
-    <string name="hi">hi</string>
-    <string name="email_id_prof">Email Id</string>
-    <string name="mobile_number_prof">Mobile Number</string>
-    <string name="update">Update</string>
-    <string name="tap_to_view_guidelines">TAP TO VIEW GUIDELINES</string>
-    <string name="medical_n_emergency">\n\nMedical \n Emergency</string>
-    <string name="fire">\n\n\nFIRE</string>
-    <string name="accident">\n\n\nAccident</string>
-    <string name="crime">\n\n\nCrime</string>
-    <string name="register_user">Register</string>
-    <string name="user_name">User</string>
-    <string name="logout_menu">Logout</string>
-    <string name="dialogMessage">Thank you for downloading our app.\nPlease go through the help menu to understand how the app works.</string>
-    <string name="title_activity_user_location">Map</string>
-    <string name="title_activity_help_location">Map</string>
-    <string name="hello_blank_fragment">Hello blank fragment</string>
-    <string name="msg_token_fmt" />
-
+    <string name="menu_home" translatable="false">Home</string>
+    <string name="menu_gallery" translatable="false">Gallery</string>
+    <string name="menu_slideshow" translatable="false">Slideshow</string>
+    <string name="forgot_password_start" translatable="false">forgot password ?</string>
+    <string name="register_start" translatable="false">Register</string>
+    <string name="choose_a_state_to_display_helpline_number" translatable="false">CHOOSE A STATE TO DISPLAY HELPLINE NUMBER</string>
+    <string name="textview_covid" translatable="false">TextView</string>
+    <string name="tap_the_image_to_view_guidelines" translatable="false">TAP THE IMAGE TO VIEW GUIDELINES</string>
+    <string name="cyberscrime_scroll" translatable="false" />
+    <string name="questions" translatable="false" />
+    <string name="hi" translatable="false">hi</string>
+    <string name="email_id_prof" translatable="false">Email Id</string>
+    <string name="mobile_number_prof" translatable="false">Mobile Number</string>
+    <string name="update" translatable="false">Update</string>
+    <string name="tap_to_view_guidelines" translatable="false">TAP TO VIEW GUIDELINES</string>
+    <string name="medical_n_emergency" translatable="false">\n\nMedical \n Emergency</string>
+    <string name="fire" translatable="false">\n\n\nFIRE</string>
+    <string name="accident" translatable="false">\n\n\nAccident</string>
+    <string name="crime" translatable="false">\n\n\nCrime</string>
+    <string name="register_user" translatable="false">Register</string>
+    <string name="user_name" translatable="false">User</string>
+    <string name="logout_menu" translatable="false">Logout</string>
+    <string name="dialogMessage" translatable="false">Thank you for downloading our app.\nPlease go through the help menu to understand how the app works.</string>
+    <string name="title_activity_user_location" translatable="false">Map</string>
+    <string name="title_activity_help_location" translatable="false">Map</string>
+    <string name="hello_blank_fragment" translatable="false">Hello blank fragment</string>
+    <string name="msg_token_fmt" translatable="false" />
 </resources>

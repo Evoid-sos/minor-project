@@ -158,9 +158,26 @@
                 android:text="Stop Audio"
                 android:textColor="@color/white"
                 android:visibility="invisible"
-                android:layout_marginLeft="200dp"
+                android:layout_marginStart="200dp"
                 android:layout_marginTop="-49dp"
                 android:background="@drawable/button_rounded_corners"/>
+
+            <ImageView
+                android:id="@+id/translatetohindi"
+                android:layout_width="100dp"
+                android:layout_height="100dp"
+                android:layout_marginStart="111dp"
+                app:srcCompat="@drawable/tohindi"
+                android:visibility="invisible"/>
+
+            <ImageView
+                android:id="@+id/translatetoenglish"
+                android:layout_width="100dp"
+                android:layout_height="100dp"
+                android:layout_marginStart="111dp"
+                android:layout_marginTop="-100dp"
+                app:srcCompat="@drawable/toenglish"
+                android:visibility="invisible"/>
 
         </LinearLayout>
     </androidx.core.widget.NestedScrollView>
