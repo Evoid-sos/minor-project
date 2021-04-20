@@ -46,8 +46,9 @@
     <string name="organDonor" translatable="false">Organ Donor</string>
     <string name="medicalinfo" translatable="false">My Medical Information</string>
     <string name="language" translatable="false"> Language</string>
-    <string name="hindi_lang"> Hindi</string>
+    <string name="hindi_lang" translatable="false"> Hindi</string>
     <string name="displayTextLanguage" translatable="false"> * Translations are only available on guidelines as of now. </string>
+    <string name="displayTextLanguageH" translatable="false"> * अनुवाद अभी दिशानिर्देशों पर ही उपलब्ध हैं। </string>
 
 
     <string-array name="States">
@@ -132,7 +133,7 @@
                         origin.\n\n\n
     </string>
 
-    <string name="fire_guidelines_details" translatable="false">
+    <string name="fire_guidelines_details">
         Immediately pull the nearest fire alarm as you exit the building.\n\nWhen evacuating the building, be sure to feel
         doors for heat before opening them to be sure there is no fire danger on the other side.\n\nIf there is smoke in the air,
         stay low to the ground, to reduce inhalation exposure. Keep one hand on the wall to prevent disorientation and
@@ -140,34 +141,61 @@
         area and await further instructions from emergency personnel.\n
     </string>
 
-    <string name="medic_guidelines_details" translatable="false">
+    <string name="fire_guidelines_detailsH">
+        भवन से बाहर निकलते ही तुरंत आग लगने वाले अलार्म को खींचें। \n \n
+        इमारत को खाली करते समय, उन्हें खोलने से पहले गर्मी के लिए दरवाजे महसूस करना सुनिश्चित करें।\n \n
+        अगर हवा में धुआं है तो जमीन के पास रहें। भटकाव को रोकने के लिए दीवार पर एक हाथ रखें। निकटतम निकास के लिए क्रॉल करें। \n \n
+        खतरे से दूर होने के बाद, अपने आपातकालीन संपर्क को कॉल करें और उन्हें आग की सूचना दें। किसी सुरक्षित स्थान पर जाए और आपातकालीन कर्मियों से आगे निर्देश के लिए प्रतीक्षा करें।\n \n
+    </string>
+
+    <string name="medic_guidelines_details">
                     Keep a first-aid kit handy at home and work.\n\nHaving an emergency app on your
         smartphone allows first responders access to critical medical information stored on your phone without knowing the
                         passcode on the phone’s lock screen. Information can include prescriptions,
                         allergies, medical conditions, blood type and emergency contacts.\n\nIf you do have to go the E.R., be prepared.
-        Bring a list of current
-                        medications, including how long the medicine has been taken and how
+                        Bring a list of current
+                        medications, including since when the medicine is being taken and how
                         often.\n
     </string>
 
-    <string name="accident_guidelines_details" translatable="false">
-                     The first and foremost thing is your own safety, this will enable you to
+    <string name="medic_guidelines_detailsH">
+        घर और काम पर प्राथमिक चिकित्सा किट को संभाल कर रखें।\n \n
+        अपने फोन पर एक आपातकालीन ऐप रखें।\n \n
+        यदि आपको अस्पताल जाने की आवश्यकता है, तो दवाओं की एक सूची लें, जिसमें यह शामिल हो कि दवा कबसे ली जा रही है और कितनी बार ली गई है। \n \n
+    </string>
+
+    <string name="accident_guidelines_details">
+                     The first and foremost thing is your own safety. This will enable you to
                         help others and get time to analyze the complete situation with a better
                         viewpoint.\n\nOnce you have reached safety, the next step is to make sure that everyone
                         involved in the accident is safe and assess your own and their possible
                         injuries.\n\nOnce everyone involved has been diagnosed to be safe, it is imperative
                         that you file a police report of the accident at the earliest and in as
-                        detailed a manner as you can manage.\n
+                        detailed manner as possible.\n
     </string>
 
-    <string name="crime_guidelines_details" translatable="false">
+    <string name="accident_guidelines_detailsH">
+        सबसे पहली और महत्वपूर्ण बात आपकी खुद की सुरक्षा है। इससे आप दूसरों की मदद कर पाएंगे और बेहतर तरह से पूरी स्थिति का विश्लेषण करने के लिए समय निकाल पाएंगे। \n \n \n
+        एक बार जब आप सुरक्षित जगह पर पहुंच जाएँ, तो जाँच लेन कि दुर्घटना में शामिल सभी लोग सुरक्षित हैं और अपनी और उनकी संभावित चोटों का आकलन करें। \n \n \n
+        एक बार सभी के सुरक्षित हो जाने के बाद, यह जरूरी है कि आप जल्द से जल्द इस दुर्घटना की विस्तृत पुलिस रिपोर्ट दर्ज करें। \n \n \n
+    </string>
+
+    <string name="crime_guidelines_details">
                     Be AWARE of your surroundings at all times and trust your INSTINCTS.\n\nWalk with your head
         upright. Make eye contact. Thieves often target victims
                         who are not paying attention to their surroundings or who are looking
-                        down.\n\nPlan your route, know where you are going before leaving.\n\nStick to well-lighted, well-traveled streets.
+                        down.\n\nPlan your route. Know where you are going before leaving.\n\nStick to well-lighted, crowded streets.
         Avoid shortcuts through
                         wooded areas, parking lots, or alleys.\n
     </string>
+
+    <string name="crime_guidelines_detailsH">
+        हर समय अपने प्रतिवेश से अवगत रहें और अपनी प्रवृत्ति पर भरोसा रखें।\n \n
+        अपने सिर को सीधा रखकर चलें। आँखों से संपर्क बनाने की कोशिश करें। चोर अक्सर उन पीड़ित लोगों को निशाना बनाते हैं जो अपने प्रतिवेश पर ध्यान नहीं दे रहे हैं या जो नीचे देख रहे हैं। \n \n \n
+        अपने मार्ग की योजना बनाएं। अच्छी रोशनी वाली सड़कों का इस्तेमाल करें। जंगल, पार्किंग स्थल या गलियों से ना जाएं। \n \n
+    </string>
+
+
     <string name="title_activity_main_nav_drawer" translatable="false">mainNavDrawer</string>
     <string name="navigation_drawer_open" translatable="false">Open navigation drawer</string>
     <string name="navigation_drawer_close" translatable="false">Close navigation drawer</string>

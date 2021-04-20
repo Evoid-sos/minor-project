@@ -1,7 +1,9 @@
 package com.example.evoid
 
+import android.annotation.SuppressLint
 import android.app.Activity
 import android.content.Intent
+import android.graphics.drawable.Drawable
 import android.net.Uri
 import android.telephony.SmsManager
 import android.view.View
@@ -9,7 +11,6 @@ import android.widget.EditText
 import android.widget.TextView
 import android.widget.Toast
 import com.bumptech.glide.Glide
-import com.example.evoid.pictures
 import com.google.android.material.navigation.NavigationView
 import com.google.firebase.auth.ktx.auth
 import com.google.firebase.firestore.FirebaseFirestore
@@ -261,6 +262,161 @@ class firestoreClass {
 
                 Toast.makeText(activity, "Image sent", Toast.LENGTH_SHORT).show()
 
+            }
+    }
+
+    fun updateLanguage(s: String) {
+        mFireStore.collection(constants.USERS)
+            .document(getCurrentUserId())
+            .update(mapOf(
+                "lang" to s
+            ))
+    }
+
+    fun loadLanguagePage(
+        activity: Activity,
+        hindiTextLanguage: TextView,
+        hindiLanguage: CircleImageView,
+        englishTextLanguage: TextView,
+        englishLanguage: CircleImageView,
+        displayTextLanguage: TextView,
+        drawable: Drawable,
+        drawable1: Drawable,
+        drawable2: Drawable,
+        drawable4: Drawable,
+        color: Int,
+        color1: Int
+    ) {
+        var loggedInUser:User
+        mFireStore.collection(constants.USERS)
+            .document(getCurrentUserId())
+            .get().addOnSuccessListener {document->
+                loggedInUser = document.toObject(User::class.java)!!
+                if (loggedInUser.lang == "en")
+                {
+                    changeContentToEnglish(activity,
+                        hindiLanguage,
+                        hindiTextLanguage,
+                        englishLanguage,
+                        englishTextLanguage,
+                        displayTextLanguage,
+                        drawable,
+                        drawable1,
+                        drawable2,
+                        drawable4,
+                        color,
+                        color1)
+                }
+                if (loggedInUser.lang == "hi")
+                {
+                    changeContentToHindi(activity,
+                        hindiLanguage,
+                        hindiTextLanguage,
+                        englishLanguage,
+                        englishTextLanguage,
+                        displayTextLanguage,
+                        drawable,
+                        drawable1,
+                        drawable2,
+                        drawable4,
+                        color,
+                        color1)
+                }
+            }
+
+    }
+
+    @SuppressLint("ResourceAsColor")
+    private fun changeContentToHindi(
+        activity: Activity,
+        hindiLanguage: CircleImageView,
+        hindiTextLanguage: TextView,
+        englishLanguage: CircleImageView,
+        englishTextLanguage: TextView,
+        displayTextLanguage: TextView,
+        drawable: Drawable,
+        drawable1: Drawable,
+        drawable2: Drawable,
+        drawable4: Drawable,
+        color: Int,
+        color1: Int
+    ) {
+        hindiTextLanguage.setTextColor(color)
+        englishTextLanguage.setTextColor(color1)
+        displayTextLanguage.setText(R.string.displayTextLanguageH)
+        hindiLanguage.setImageDrawable(drawable)
+        englishLanguage.setImageDrawable(drawable4)
+    }
+
+
+    @SuppressLint("ResourceAsColor")
+    private fun changeContentToEnglish(
+        activity: Activity,
+        hindiLanguage: CircleImageView,
+        hindiTextLanguage: TextView,
+        englishLanguage: CircleImageView,
+        englishTextLanguage: TextView,
+        displayTextLanguage: TextView,
+        drawable: Drawable,
+        drawable1: Drawable,
+        drawable2: Drawable,
+        drawable4: Drawable,
+        color: Int,
+        color1: Int
+    ) {
+        hindiTextLanguage.setTextColor(color1)
+        englishTextLanguage.setTextColor(color)
+        displayTextLanguage.setText(R.string.displayTextLanguage)
+        hindiLanguage.setImageDrawable(drawable2)
+        englishLanguage.setImageDrawable(drawable1)
+    }
+
+    fun loadGuidelines(guideText: TextView, button: String) {
+        var loggedInUser: User
+        mFireStore.collection(constants.USERS)
+            .document(getCurrentUserId())
+            .get().addOnSuccessListener { document ->
+                loggedInUser = document.toObject(User::class.java)!!
+                if (loggedInUser.lang == "en") {
+
+                    if (button == "fire")
+                    {
+                        guideText.setText(R.string.fire_guidelines_details)
+                    }
+                    if (button == "medical")
+                    {
+                        guideText.setText(R.string.medic_guidelines_details)
+                    }
+                    if (button == "accident")
+                    {
+                        guideText.setText(R.string.accident_guidelines_details)
+                    }
+                    if (button == "crime")
+                    {
+                        guideText.setText(R.string.crime_guidelines_details)
+                    }
+
+                }
+                if (loggedInUser.lang == "hi") {
+
+                    if (button == "fire")
+                    {
+                        guideText.setText(R.string.fire_guidelines_detailsH)
+                    }
+                    if (button == "medical")
+                    {
+                        guideText.setText(R.string.medic_guidelines_detailsH)
+                    }
+                    if (button == "accident")
+                    {
+                        guideText.setText(R.string.accident_guidelines_detailsH)
+                    }
+                    if (button == "crime")
+                    {
+                        guideText.setText(R.string.crime_guidelines_detailsH)
+                    }
+
+                }
             }
     }
 }

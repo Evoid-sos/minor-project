@@ -48,9 +48,10 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
+        <activity android:name=".baseActivity"></activity>
         <activity
             android:name=".language"
-            android:theme="@style/actionBlack"/>
+            android:theme="@style/actionBlack" />
         <activity
             android:name=".nearbyHelp"
             android:theme="@style/actionBlack" />

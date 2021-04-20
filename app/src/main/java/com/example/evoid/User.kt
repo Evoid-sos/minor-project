@@ -10,7 +10,8 @@ data class User (
         val phoneNumber:Long = 0,
         val emailId:String = "",
         val fcmToken:String = "",
-        val image:String = ""
+        val image:String = "",
+        val lang:String = "en"
 
 ): Parcelable {
         constructor(parcel: Parcel) : this(
@@ -18,6 +19,7 @@ data class User (
                 parcel.readString()!!,
                 parcel.readString()!!,
                 parcel.readLong(),
+                parcel.readString()!!,
                 parcel.readString()!!,
                 parcel.readString()!!,
                 parcel.readString()!!
@@ -36,6 +38,7 @@ data class User (
                 writeString(emailId)
                 writeString(fcmToken)
                 writeString(image)
+                writeString(lang)
 
         }
 
