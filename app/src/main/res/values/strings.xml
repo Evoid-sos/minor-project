@@ -45,6 +45,9 @@
     <string name="medicalNotes" translatable="false">Medical Notes</string>
     <string name="organDonor" translatable="false">Organ Donor</string>
     <string name="medicalinfo" translatable="false">My Medical Information</string>
+    <string name="language" translatable="false"> Language</string>
+    <string name="hindi_lang"> Hindi</string>
+    <string name="displayTextLanguage" translatable="false"> * Translations are only available on guidelines as of now. </string>
 
 
     <string-array name="States">
@@ -129,7 +132,7 @@
                         origin.\n\n\n
     </string>
 
-    <string name="fire_guidelines_details">
+    <string name="fire_guidelines_details" translatable="false">
         Immediately pull the nearest fire alarm as you exit the building.\n\nWhen evacuating the building, be sure to feel
         doors for heat before opening them to be sure there is no fire danger on the other side.\n\nIf there is smoke in the air,
         stay low to the ground, to reduce inhalation exposure. Keep one hand on the wall to prevent disorientation and
@@ -137,7 +140,7 @@
         area and await further instructions from emergency personnel.\n
     </string>
 
-    <string name="medic_guidelines_details">
+    <string name="medic_guidelines_details" translatable="false">
                     Keep a first-aid kit handy at home and work.\n\nHaving an emergency app on your
         smartphone allows first responders access to critical medical information stored on your phone without knowing the
                         passcode on the phone’s lock screen. Information can include prescriptions,
@@ -147,7 +150,7 @@
                         often.\n
     </string>
 
-    <string name="accident_guidelines_details">
+    <string name="accident_guidelines_details" translatable="false">
                      The first and foremost thing is your own safety, this will enable you to
                         help others and get time to analyze the complete situation with a better
                         viewpoint.\n\nOnce you have reached safety, the next step is to make sure that everyone
@@ -157,7 +160,7 @@
                         detailed a manner as you can manage.\n
     </string>
 
-    <string name="crime_guidelines_details">
+    <string name="crime_guidelines_details" translatable="false">
                     Be AWARE of your surroundings at all times and trust your INSTINCTS.\n\nWalk with your head
         upright. Make eye contact. Thieves often target victims
                         who are not paying attention to their surroundings or who are looking
@@ -199,4 +202,5 @@
     <string name="title_activity_help_location" translatable="false">Map</string>
     <string name="hello_blank_fragment" translatable="false">Hello blank fragment</string>
     <string name="msg_token_fmt" translatable="false" />
+
 </resources>

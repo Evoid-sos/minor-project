@@ -48,9 +48,9 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-
-
-
+        <activity
+            android:name=".language"
+            android:theme="@style/actionBlack"/>
         <activity
             android:name=".nearbyHelp"
             android:theme="@style/actionBlack" />
@@ -131,12 +131,11 @@
             android:windowSoftInputMode="adjustResize" />
         <activity android:name=".MainActivity" />
 
-
         <service
             android:name=".MyFirebaseMessagingService"
             android:exported="false">
             <intent-filter>
-                <action android:name="com.google.firebase.MESSAGING_EVENT"/>
+                <action android:name="com.google.firebase.MESSAGING_EVENT" />
             </intent-filter>
         </service>
 
@@ -150,4 +149,5 @@
                 android:resource="@xml/provider_path" />
         </provider>
     </application>
+
 </manifest>
