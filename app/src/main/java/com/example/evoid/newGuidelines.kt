@@ -8,7 +8,6 @@ import android.view.View
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 
-
 import kotlinx.android.synthetic.main.activity_new_guidelines.*
 import java.util.*
 
@@ -17,6 +16,7 @@ class newGuidelines : AppCompatActivity() {
 
     lateinit var mTTS:TextToSpeech
     var flag=0
+    var locale = Locale("hi_IN")
     override fun onCreate(savedInstanceState: Bundle?) {
 
         super.onCreate(savedInstanceState)
@@ -31,17 +31,18 @@ class newGuidelines : AppCompatActivity() {
         {
             mTTS= TextToSpeech(applicationContext) { status ->
                 if (status != TextToSpeech.ERROR) {
-                    mTTS.language = Locale.US
+                    mTTS.language = locale
+                    mTTS.setLanguage(locale)
                 }
             }
             startSpeak.setOnClickListener {
                val toSpeak = guideText.text.toString()
                if (toSpeak == "")
                {
-                   Toast.makeText(this,"Nothing To Speak",Toast.LENGTH_SHORT).show()
+                   Toast.makeText(this, "Nothing To Speak", Toast.LENGTH_SHORT).show()
                }
                else
-                   mTTS.speak(toSpeak,TextToSpeech.QUEUE_FLUSH,null)
+                   mTTS.speak(toSpeak, TextToSpeech.QUEUE_FLUSH, null)
            }
             stopSpeak.setOnClickListener {
                 stopAudio()
@@ -96,7 +97,7 @@ class newGuidelines : AppCompatActivity() {
         }
         else
         {
-            Toast.makeText(this,"Not Speaking",Toast.LENGTH_SHORT).show()
+            Toast.makeText(this, "Not Speaking", Toast.LENGTH_SHORT).show()
         }
     }
 

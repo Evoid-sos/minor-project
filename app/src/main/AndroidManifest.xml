@@ -11,6 +11,13 @@
         <package android:name="com.google.android.contacts" />
     </queries>
 
+    <queries>
+        <intent>
+            <action android:name="android.intent.action.TTS_SERVICE" />
+        </intent>
+
+    </queries>
+
     <uses-permission
         android:name="android.permission.CALL_PHONE"
         tools:remove="android:maxSdkVersion" />
@@ -48,7 +55,7 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".baseActivity"></activity>
+
         <activity
             android:name=".language"
             android:theme="@style/actionBlack" />
