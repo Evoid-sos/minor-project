@@ -419,4 +419,82 @@ class firestoreClass {
                 }
             }
     }
+
+    fun loadMedicalInformation(
+        name: EditText,
+        address: EditText,
+        bloodType: EditText,
+        allergies: EditText,
+        medications: EditText,
+        medicalNotes: EditText,
+        organDonor: EditText
+    ) {
+        getname(name)
+        mFireStore.collection(constants.USERS)
+                .document(getCurrentUserId())
+                .collection(constants.MedicalDetails)
+                .get().addOnSuccessListener { sub->
+                if (sub.isEmpty){
+                    print("hi")
+
+                }
+                else
+                {
+
+                    var loggedInUser: MedicalDetails? = null
+                    mFireStore.collection(constants.USERS)
+                        .document(getCurrentUserId())
+                        .collection(constants.MedicalDetails)
+                        .document(getCurrentUserId())
+                        .get().addOnSuccessListener { document ->
+                            loggedInUser = document.toObject(MedicalDetails::class.java)!!
+                            getname(name)
+                            address.setText(loggedInUser!!.address)
+                            bloodType.setText(loggedInUser!!.bloodType)
+                            allergies.setText(loggedInUser!!.allergies)
+                            medications.setText(loggedInUser!!.medications)
+                            medicalNotes.setText(loggedInUser!!.medicalNotes)
+                            organDonor.setText(loggedInUser!!.organDonor)
+                        }
+                }
+            }
+
+    }
+
+    fun updateMedicalInformation(
+        address: String,
+        bloodType: String,
+        medications: String,
+        medicalNotes: String,
+        organDonor: String,
+        name: String
+    ) {
+        mFireStore.collection(constants.USERS)
+            .document(getCurrentUserId())
+            .collection(constants.MedicalDetails)
+            .document(getCurrentUserId())
+            .update(mapOf(
+                "address" to address,
+                "bloodType" to bloodType,
+                "medications" to medications,
+                "medicalNotes" to medicalNotes,
+                "organDonor" to organDonor,
+                "name" to name
+            ))
+
+    }
+
+    fun getname(name: EditText) {
+        var fullName:String = ""
+        var loggedInUserName: User
+        mFireStore.collection(constants.USERS)
+            .document(getCurrentUserId())
+            .get().addOnSuccessListener { document->
+                loggedInUserName = document.toObject(User::class.java)!!
+                fullName = loggedInUserName.firstName + " " + loggedInUserName.lastName
+                name.setText(fullName)
+            }
+    }
+
+
 }
