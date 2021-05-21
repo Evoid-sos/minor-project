@@ -38,12 +38,17 @@
     <string name="Instructions" translatable="false">Instructions</string>
     <string name="selected_item" translatable="false">Selected item:</string>
     <string name="logout" translatable="false">logout</string>
-    <string name="address" translatable="false">Address</string>
-    <string name="bloodType" translatable="false">Blood Type</string>
-    <string name="allergies" translatable="false">Allergies</string>
-    <string name="medications" translatable="false">Medications</string>
-    <string name="medicalNotes" translatable="false">Medical Notes</string>
-    <string name="organDonor" translatable="false">Organ Donor</string>
+    <string name="address" translatable="false">Address :</string>
+    <string name="bloodType" translatable="false">Blood Type :</string>
+    <string name="allergies" translatable="false">Allergies :</string>
+    <string name="medications" translatable="false">Medications :</string>
+    <string name="medicalNotes" translatable="false">Medical Notes :</string>
+    <string name="unknown" translatable="false">Unknown</string>
+    <string name="organDonor" translatable="false">Organ Donor :</string>
+    <string name="bloodTypeHint" translatable="false">Ex: B+, O+</string>
+    <string name="allergiesHint" translatable="false">Ex: Peanuts, Eggs</string>
+    <string name="medicationsHint" translatable="false">Ex: Aspirin, Paracetamol</string>
+    <string name="medicalNotesHint" translatable="false">Ex: Asthma, Diabetes</string>
     <string name="medicalinfo" translatable="false">My Medical Information</string>
     <string name="language" translatable="false"> Language</string>
     <string name="hindi_lang" translatable="false"> Hindi</string>

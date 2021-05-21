@@ -37,136 +37,245 @@
             android:layout_width="match_parent"
             android:layout_height="match_parent">
 
+            <TextView
+                android:id="@+id/labelNameMedicalInformation"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="35dp"
+                android:layout_marginTop="30dp"
+                android:layout_marginEnd="30dp"
+                android:textColor="#ffffff"
+                android:text= "Name :"
+                android:textStyle="bold|italic"
+                android:textSize="18sp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent">
+
+            </TextView>
 
             <EditText
                 android:id="@+id/nameMedicalInformation"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="30dp"
-                android:layout_marginTop="30dp"
                 android:layout_marginEnd="30dp"
                 android:backgroundTint="#FF8F70"
                 android:clickable="false"
                 android:editable="false"
                 android:enabled="false"
-                android:hint="@string/name"
                 android:inputType="none"
-                android:textColor="#ffffff"
-                android:textColorHint="#80ffffff"
+                android:textColor="#edecec"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent">
+                app:layout_constraintTop_toBottomOf="@+id/labelNameMedicalInformation">
 
             </EditText>
+
+            <TextView
+                android:id="@+id/labelAddressMedicalInformation"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="35dp"
+                android:layout_marginTop="30dp"
+                android:layout_marginEnd="30dp"
+                android:textColor="#ffffff"
+                android:text= "@string/address"
+                android:textStyle="bold|italic"
+                android:textSize="18sp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf= "@+id/nameMedicalInformation">
+
+            </TextView>
 
             <EditText
                 android:id="@+id/addressMedicalInformation"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="30dp"
-                android:layout_marginTop="10dp"
                 android:layout_marginEnd="30dp"
                 android:backgroundTint="#80ffffff"
-                android:hint="@string/address"
                 android:inputType="textPostalAddress|textMultiLine"
-                android:textColor="#FFFFFF"
+                android:textColor="#edecec"
+                android:hint="@string/unknown"
                 android:textColorHint="#80ffffff"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@id/nameMedicalInformation">
+                app:layout_constraintTop_toBottomOf="@id/labelAddressMedicalInformation">
 
             </EditText>
+
+            <TextView
+                android:id="@+id/labelBloodTypeMedicalInformation"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="35dp"
+                android:layout_marginTop="30dp"
+                android:layout_marginEnd="30dp"
+                android:textColor="#ffffff"
+                android:text= "@string/bloodType"
+                android:textStyle="bold|italic"
+                android:textSize="18sp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf= "@+id/addressMedicalInformation">
+
+            </TextView>
 
             <EditText
                 android:id="@+id/bloodTypeMedicalInformation"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="30dp"
-                android:layout_marginTop="10dp"
                 android:layout_marginEnd="30dp"
                 android:backgroundTint="#80ffffff"
-                android:hint="@string/bloodType"
                 android:inputType="text"
-                android:textColor="#FFFFFF"
+                android:hint="@string/bloodTypeHint"
+                android:textColor="#edecec"
                 android:textColorHint="#80ffffff"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@id/addressMedicalInformation">
+                app:layout_constraintTop_toBottomOf="@id/labelBloodTypeMedicalInformation">
 
             </EditText>
+
+            <TextView
+                android:id="@+id/labelAllergiesMedicalInformation"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="35dp"
+                android:layout_marginTop="30dp"
+                android:layout_marginEnd="30dp"
+                android:textColor="#ffffff"
+                android:text= "@string/allergies"
+                android:textStyle="bold|italic"
+                android:textSize="18sp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf= "@+id/bloodTypeMedicalInformation">
+
+            </TextView>
 
             <EditText
                 android:id="@+id/allergiesMedicalInformation"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="30dp"
-                android:layout_marginTop="10dp"
                 android:layout_marginEnd="30dp"
                 android:backgroundTint="#80ffffff"
-                android:hint="@string/allergies"
                 android:inputType="textMultiLine"
-                android:textColor="#FFFFFF"
+                android:hint="@string/allergiesHint"
+                android:textColor="#edecec"
                 android:textColorHint="#80ffffff"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@id/bloodTypeMedicalInformation">
+                app:layout_constraintTop_toBottomOf="@id/labelAllergiesMedicalInformation">
 
             </EditText>
+
+            <TextView
+                android:id="@+id/labelMedicationsMedicalInformation"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="35dp"
+                android:layout_marginTop="30dp"
+                android:layout_marginEnd="30dp"
+                android:textColor="#ffffff"
+                android:text= "@string/medications"
+                android:textStyle="bold|italic"
+                android:textSize="18sp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf= "@+id/allergiesMedicalInformation">
+
+            </TextView>
 
             <EditText
                 android:id="@+id/medicationsMedicalInformation"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="30dp"
-                android:layout_marginTop="10dp"
                 android:layout_marginEnd="30dp"
                 android:backgroundTint="#80ffffff"
-                android:hint="@string/medications"
                 android:inputType="textMultiLine"
-                android:textColor="#FFFFFF"
+                android:textColor="#edecec"
+                android:hint="@string/medicationsHint"
                 android:textColorHint="#80ffffff"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@id/allergiesMedicalInformation">
+                app:layout_constraintTop_toBottomOf="@id/labelMedicationsMedicalInformation">
 
             </EditText>
+
+            <TextView
+                android:id="@+id/labelMedicalNotesMedicalInformation"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="35dp"
+                android:layout_marginTop="30dp"
+                android:layout_marginEnd="30dp"
+                android:textColor="#ffffff"
+                android:text= "@string/medicalNotes"
+                android:textStyle="bold|italic"
+                android:textSize="18sp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf= "@+id/medicationsMedicalInformation">
+
+            </TextView>
 
             <EditText
                 android:id="@+id/medicalNotesMedicalInformation"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="30dp"
-                android:layout_marginTop="10dp"
                 android:layout_marginEnd="30dp"
                 android:layout_marginBottom="30dp"
                 android:backgroundTint="#80ffffff"
-                android:hint="@string/medicalNotes"
                 android:inputType="textMultiLine"
-                android:textColor="#FFFFFF"
+                android:hint="@string/medicalNotesHint"
+                android:textColor="#edecec"
                 android:textColorHint="#80ffffff"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@id/medicationsMedicalInformation">
+                app:layout_constraintTop_toBottomOf="@id/labelMedicalNotesMedicalInformation">
 
             </EditText>
+
+            <TextView
+                android:id="@+id/labelOrganDonorMedicalInformation"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="35dp"
+                android:layout_marginTop="30dp"
+                android:layout_marginEnd="30dp"
+                android:textColor="#ffffff"
+                android:text= "@string/organDonor"
+                android:textStyle="bold|italic"
+                android:textSize="18sp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf= "@+id/medicalNotesMedicalInformation">
+
+            </TextView>
 
             <EditText
                 android:id="@+id/organDonorMedicalInformation"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="30dp"
-                android:layout_marginTop="10dp"
                 android:layout_marginEnd="30dp"
                 android:layout_marginBottom="30dp"
                 android:backgroundTint="#80ffffff"
-                android:hint="@string/organDonor"
                 android:inputType="text"
-                android:textColor="#FFFFFF"
+                android:textColor="#edecec"
+                android:hint="@string/unknown"
                 android:textColorHint="#80ffffff"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@id/medicalNotesMedicalInformation">
+                app:layout_constraintTop_toBottomOf="@id/labelOrganDonorMedicalInformation">
 
             </EditText>
 
