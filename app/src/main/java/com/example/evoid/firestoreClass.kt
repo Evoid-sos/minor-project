@@ -429,13 +429,18 @@ class firestoreClass {
         medicalNotes: EditText,
         organDonor: EditText
     ) {
+        val data = hashMapOf("organDonor" to "no")
         getname(name)
         mFireStore.collection(constants.USERS)
                 .document(getCurrentUserId())
                 .collection(constants.MedicalDetails)
                 .get().addOnSuccessListener { sub->
                 if (sub.isEmpty){
-                    print("hi")
+                    mFireStore.collection(constants.USERS)
+                        .document(getCurrentUserId())
+                        .collection(constants.MedicalDetails)
+                        .document(getCurrentUserId())
+                        .set(data, SetOptions.merge())
 
                 }
                 else
@@ -467,19 +472,22 @@ class firestoreClass {
         medications: String,
         medicalNotes: String,
         organDonor: String,
-        name: String
+        name: String,
+        allergies: String
     ) {
+
         mFireStore.collection(constants.USERS)
             .document(getCurrentUserId())
             .collection(constants.MedicalDetails)
             .document(getCurrentUserId())
             .update(mapOf(
+                "name" to name,
                 "address" to address,
                 "bloodType" to bloodType,
+                "allergies" to allergies,
                 "medications" to medications,
                 "medicalNotes" to medicalNotes,
-                "organDonor" to organDonor,
-                "name" to name
+                "organDonor" to organDonor
             ))
 
     }

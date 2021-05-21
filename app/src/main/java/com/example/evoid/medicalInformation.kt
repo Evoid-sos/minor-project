@@ -24,7 +24,7 @@ class medicalInformation : AppCompatActivity() {
             firestoreClass().updateMedicalInformation(addressMedicalInformation.text.toString(),
                 bloodTypeMedicalInformation.text.toString(), medicationsMedicalInformation.text.toString(),
                 medicalNotesMedicalInformation.text.toString(), organDonorMedicalInformation.text.toString(),
-                nameMedicalInformation.text.toString())
+                nameMedicalInformation.text.toString(), allergiesMedicalInformation.text.toString())
             Toast.makeText(this, "Updated", Toast.LENGTH_SHORT).show()
         }
 
