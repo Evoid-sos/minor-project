@@ -60,6 +60,7 @@ class MainActivity2 : AppCompatActivity(),NavigationView.OnNavigationItemSelecte
         })
 
         val navigationView : NavigationView = this.findViewById(R.id.nav_view)
+        navigationView.itemIconTintList = null
         val headerView : View = navigationView.getHeaderView(0)
         var image = headerView.findViewById<de.hdodenhof.circleimageview.CircleImageView>(R.id.profileIconNav)
         image.setOnClickListener{

@@ -35,7 +35,7 @@
     <string name="guidelines" translatable="false">Guidelines</string>
     <string name="covid_19_helplines" translatable="false">COVID-19 Helplines</string>
     <string name="cyber_crime_protection_guideline" translatable="false">Cyber Crime Protection Guidelines</string>
-    <string name="Instructions" translatable="false">Instructions</string>
+    <string name="Instructions" translatable="false">App Usage Instructions</string>
     <string name="selected_item" translatable="false">Selected item:</string>
     <string name="logout" translatable="false">logout</string>
     <string name="address" translatable="false">Address :</string>
@@ -50,7 +50,7 @@
     <string name="medicationsHint" translatable="false">Ex: Aspirin, Paracetamol</string>
     <string name="medicalNotesHint" translatable="false">Ex: Asthma, Diabetes</string>
     <string name="medicalinfo" translatable="false">My Medical Information</string>
-    <string name="language" translatable="false"> Language</string>
+    <string name="language" translatable="false">App Language</string>
     <string name="hindi_lang" translatable="false"> Hindi</string>
     <string name="displayTextLanguage" translatable="false"> * Translations are only available on guidelines as of now. </string>
     <string name="displayTextLanguageH" translatable="false"> * अनुवाद अभी दिशानिर्देशों पर ही उपलब्ध हैं। </string>
