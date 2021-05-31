@@ -1,38 +1,38 @@
 <?xml version="1.0" encoding="utf-8"?>
 <menu xmlns:android="http://schemas.android.com/apk/res/android">
     <item android:title="Find Help Near Me"
-        android:icon="@drawable/nearhelpicon"
+        android:icon="@drawable/nearhelp1"
         android:id="@+id/nearhelp"/>
     <item
         android:title="@string/guidelines"
-        android:icon="@drawable/guidelinesicon"
+        android:icon="@drawable/guidelines"
         android:id="@+id/guidelines" />
     <item
         android:title="@string/covid_19_helplines"
-        android:icon="@drawable/covidhelpicon"
+        android:icon="@drawable/mask"
         android:id="@+id/covid" />
     <item
         android:title="@string/cyber_crime_protection_guideline"
-        android:icon="@drawable/cybercrimeicon"
+        android:icon="@drawable/cyber"
         android:id="@+id/cybercrime" />
     <item
         android:title="@string/medicalinfo"
         android:id="@+id/medicalInfo"
-        android:icon="@drawable/medicinfoicon"
+        android:icon="@drawable/medicalform"
         />
     <item
         android:title="@string/language"
         android:id="@+id/appLanguage"
-        android:icon="@drawable/languageicon"
+        android:icon="@drawable/language"
         />
     <item
         android:title="@string/Instructions"
         android:id="@+id/help"
-        android:icon="@drawable/usageicon"
+        android:icon="@drawable/faq"
         />
     <item
         android:title="@string/logout_menu"
         android:id="@+id/logout"
-        android:icon="@drawable/logouticon"
+        android:icon="@drawable/logout"
         />
 </menu>

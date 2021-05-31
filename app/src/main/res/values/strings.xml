@@ -54,6 +54,10 @@
     <string name="hindi_lang" translatable="false"> Hindi</string>
     <string name="displayTextLanguage" translatable="false"> * Translations are only available on guidelines as of now. </string>
     <string name="displayTextLanguageH" translatable="false"> * अनुवाद अभी दिशानिर्देशों पर ही उपलब्ध हैं। </string>
+    <string name="startAudio">Start Audio</string>
+    <string name="stopAudio">Stop Audio</string>
+    <string name="startAudioHindi">ऑडियो शुरू करें</string>
+    <string name="stopAudioHindi">ऑडियो बंद करें</string>
 
 
     <string-array name="States">
@@ -96,7 +100,11 @@
         <item>Uttar Pradesh</item>
         <item>West Bengal</item>
     </string-array>
-    <string name="report" translatable="false">REPORT A CRIME :
+    <string name="report">REPORT A CRIME :
+        <a href="https://cybercrime.gov.in/">"https://cybercrime.gov.in/"</a>
+    </string>
+
+    <string name="reportHindi">जुर्म की खबर दें :
         <a href="https://cybercrime.gov.in/">"https://cybercrime.gov.in/"</a>
     </string>
 
@@ -126,24 +134,36 @@
         5. Pay attention to the present moment (mindfulness) :Paying more attention to the present moment can improve your mental wellbeing. This includes your thoughts and feelings, your body and the world around you. \n \n \n \n \n \n \n \n
     </string>
 
-    <string name="cyber_security_guidelines_details" translatable="false">
-                    Make the passwords more complicated by combining letters, numbers, special
-                        characters (minimum 10 characters in total) and change them on a regular
-                        basis.\n\nUse anti-virus/malware software\n\nPrevent spyware from infiltrating your computer by installing and updating
-                        anti-spyware software.\n\nMake sure your social networking profiles (e.g. Facebook, Twitter, YouTube,
-                        MSN, etc.) are set to private.\n\nBe careful what information you post online. Once it is on the Internet,
-                        it is there forever\n\nTurn on automatic updates to prevent potential attacks on older
-                        software.\n\nPublic Wi-Fi, a.k.a. “Hot Spots”, are also vulnerable. Avoid conducting
-                        financial or corporate transactions on these networks.\n\nAlways think before you click on a link or file of unknown
-                        origin.\n\n\n
+    <string name="cyber_security_guidelines_details">
+        Make the passwords more complicated by combining letters, numbers, special
+        characters (minimum 10 characters in total) and change them on a regular
+        basis.\n\nUse anti-virus/malware software\n\nPrevent spyware from infiltrating your computer by installing and updating
+        anti-spyware software.\n\nMake sure your social networking profiles (e.g. Facebook, Twitter, YouTube,
+        MSN, etc.) are set to private.\n\nBe careful what information you post online. Once it is on the Internet,
+        it is there forever.\n\nTurn on automatic updates to prevent potential attacks on older
+        software.\n\nPublic Wi-Fi, a.k.a. “Hot Spots”, are also vulnerable. Avoid conducting
+        financial or corporate transactions on these networks.\n\nAlways think before you click on a link or file of unknown
+        origin.\n\n\n
+    </string>
+    <string name="cyber_security_guidelines_details_hindi">
+        अक्षरों, संख्याओं, विशेष वर्णों (कम से कम 10 वर्ण) को मिलाकर पासवर्ड को अधिक जटिल बनाएं और उन्हें नियमित रूप से बदलें।
+        \n\nएंटी-वायरस/मैलवेयर सॉफ़्टवेयर का उपयोग करें
+        \n\nएंटी-स्पाइवेयर सॉफ़्टवेयर इंस्टॉल और अपडेट करके स्पाइवेयर को अपने कंप्यूटर में घुसपैठ करने से रोकें।
+        \n\nसुनिश्चित करें कि आपके सोशल नेटवर्किंग प्रोफाइल (जैसे फेसबुक, ट्विटर, यूट्यूब, आदि) निजी पर सेट हैं।
+        \n\nसावधान रहें कि आप कौन सी खबर ऑनलाइन पोस्ट कर रहे हैं। एक बार जब यह इंटरनेट पर आ जाता है, तो यह हमेशा के लिए होता है।
+        \n\nपुराने सॉफ़्टवेयर पर संभावित हमलों को रोकने के लिए स्वचालित अपडेट चालू करें।
+        \n\nसार्वजनिक वाई-फाई, उर्फ "हॉट स्पॉट", भी असुरक्षित हैं।
+        इन नेटवर्कों पर वित्तीय या कॉर्पोरेट लेनदेन करने से बचें।
+        \n\nअज्ञात मूल के किसी लिंक या फ़ाइल पर क्लिक करने से पहले हमेशा सोचें।\n\n\n
     </string>
 
     <string name="fire_guidelines_details">
-        Immediately pull the nearest fire alarm as you exit the building.\n\nWhen evacuating the building, be sure to feel
-        doors for heat before opening them to be sure there is no fire danger on the other side.\n\nIf there is smoke in the air,
-        stay low to the ground, to reduce inhalation exposure. Keep one hand on the wall to prevent disorientation and
-        crawl to the nearest exit.\n\nOnce away, and clear from danger, call your emergency contact and inform them of the fire.\n\nGo to your refuge
-        area and await further instructions from emergency personnel.\n
+        Immediately pull the nearest fire alarm as you exit the building.
+        \n\nWhen evacuating the building, be sure to feel doors for heat before opening them to be sure there is no fire danger on the other side.
+        \n\nIf there is smoke in the air, stay low to the ground, to reduce inhalation exposure. Keep one hand on the wall to prevent disorientation and
+        crawl to the nearest exit.
+        \n\nOnce away, and clear from danger, call your emergency contact and inform them of the fire.
+        \n\nGo to your refuge area and await further instructions from emergency personnel.\n
     </string>
 
     <string name="fire_guidelines_detailsH">
@@ -154,13 +174,13 @@
     </string>
 
     <string name="medic_guidelines_details">
-                    Keep a first-aid kit handy at home and work.\n\nHaving an emergency app on your
+        Keep a first-aid kit handy at home and work.\n\nHaving an emergency app on your
         smartphone allows first responders access to critical medical information stored on your phone without knowing the
-                        passcode on the phone’s lock screen. Information can include prescriptions,
-                        allergies, medical conditions, blood type and emergency contacts.\n\nIf you do have to go the E.R., be prepared.
-                        Bring a list of current
-                        medications, including since when the medicine is being taken and how
-                        often.\n
+        passcode on the phone’s lock screen. Information can include prescriptions,
+        allergies, medical conditions, blood type and emergency contacts.\n\nIf you do have to go the E.R., be prepared.
+        Bring a list of current
+        medications, including since when the medicine is being taken and how
+        often.\n
     </string>
 
     <string name="medic_guidelines_detailsH">
@@ -215,18 +235,24 @@
     <string name="register_start" translatable="false">Register</string>
     <string name="choose_a_state_to_display_helpline_number" translatable="false">CHOOSE A STATE TO DISPLAY HELPLINE NUMBER</string>
     <string name="textview_covid" translatable="false">TextView</string>
-    <string name="tap_the_image_to_view_guidelines" translatable="false">TAP THE IMAGE TO VIEW GUIDELINES</string>
+    <string name="tap_the_image_to_view_guidelines">TAP THE IMAGE TO VIEW GUIDELINES</string>
+    <string name="tap_the_image_to_view_guidelines_hindi">दिशानिर्देश देखने के लिए आइकन दबाये</string>
     <string name="cyberscrime_scroll" translatable="false" />
     <string name="questions" translatable="false" />
     <string name="hi" translatable="false">hi</string>
     <string name="email_id_prof" translatable="false">Email Id</string>
     <string name="mobile_number_prof" translatable="false">Mobile Number</string>
     <string name="update" translatable="false">Update</string>
-    <string name="tap_to_view_guidelines" translatable="false">TAP TO VIEW GUIDELINES</string>
-    <string name="medical_n_emergency" translatable="false">\n\nMedical \n Emergency</string>
-    <string name="fire" translatable="false">\n\n\nFIRE</string>
-    <string name="accident" translatable="false">\n\n\nAccident</string>
-    <string name="crime" translatable="false">\n\n\nCrime</string>
+    <string name="tap_to_view_guidelines">TAP TO VIEW GUIDELINES</string>
+    <string name="tap_to_view_guidelines_hindi">दिशानिर्देश देखने के लिए आइकन दबाये</string>
+    <string name="medical_n_emergency">\n\nMedical \n Emergency</string>
+    <string name="medical_n_emergency_hindi">\n\nआपात \n चिकित्सा</string>
+    <string name="fire">\n\n\nFIRE</string>
+    <string name="fire_hindi">\n\n\nआग</string>
+    <string name="accident">\n\n\nAccident</string>
+    <string name="accident_hindi">\n\n\nऐक्सीडेंट</string>
+    <string name="crime">\n\n\nCrime</string>
+    <string name="crime_hindi">\n\n\nअपराध</string>
     <string name="register_user" translatable="false">Register</string>
     <string name="user_name" translatable="false">User</string>
     <string name="logout_menu" translatable="false">Logout</string>

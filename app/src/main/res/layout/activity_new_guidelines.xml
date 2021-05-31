@@ -146,7 +146,7 @@
                 android:id="@+id/startSpeak"
                 android:layout_width="124dp"
                 android:layout_height="wrap_content"
-                android:text="Start Audio"
+                android:text="@string/startAudio"
                 android:visibility="invisible"
                 android:textColor="@color/white"
                 android:background="@drawable/button_rounded_corners"/>
@@ -155,7 +155,7 @@
                 android:id="@+id/stopSpeak"
                 android:layout_width="124dp"
                 android:layout_height="wrap_content"
-                android:text="Stop Audio"
+                android:text="@string/stopAudio"
                 android:textColor="@color/white"
                 android:visibility="invisible"
                 android:layout_marginStart="200dp"

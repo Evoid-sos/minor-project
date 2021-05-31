@@ -7,6 +7,7 @@ import android.graphics.drawable.Drawable
 import android.net.Uri
 import android.telephony.SmsManager
 import android.view.View
+import android.widget.Button
 import android.widget.EditText
 import android.widget.TextView
 import android.widget.Toast
@@ -371,13 +372,14 @@ class firestoreClass {
         englishLanguage.setImageDrawable(drawable1)
     }
 
-    fun loadGuidelines(guideText: TextView, button: String) {
+    fun loadGuidelines(guideText: TextView, button: String, textView5: TextView) {
         var loggedInUser: User
         mFireStore.collection(constants.USERS)
             .document(getCurrentUserId())
             .get().addOnSuccessListener { document ->
                 loggedInUser = document.toObject(User::class.java)!!
                 if (loggedInUser.lang == "en") {
+
 
                     if (button == "fire")
                     {
@@ -398,6 +400,7 @@ class firestoreClass {
 
                 }
                 if (loggedInUser.lang == "hi") {
+
 
                     if (button == "fire")
                     {
@@ -502,6 +505,100 @@ class firestoreClass {
                 fullName = loggedInUserName.firstName + " " + loggedInUserName.lastName
                 name.setText(fullName)
             }
+    }
+
+    fun loadGuidelinesPage(
+        textView5: TextView?,
+        medicalGuide: Button,
+        accidentGuide: Button,
+        fireGuide: Button,
+        crimeGuide: Button,
+        startSpeak: Button,
+        stopSpeak: Button
+    ) {
+        var loggedInUser: User
+        mFireStore.collection(constants.USERS)
+            .document(getCurrentUserId())
+            .get().addOnSuccessListener { document ->
+                loggedInUser = document.toObject(User::class.java)!!
+                if (loggedInUser.lang == "en") {
+
+                    if (textView5 != null) {
+                        textView5.setText(R.string.tap_to_view_guidelines)
+                        medicalGuide.setText(R.string.medical_n_emergency)
+                        accidentGuide.setText(R.string.accident)
+                        fireGuide.setText(R.string.fire)
+                        crimeGuide.setText(R.string.crime)
+                        startSpeak.setText(R.string.startAudio)
+                        stopSpeak.setText(R.string.stopAudio)
+                    }
+
+
+                }
+                if (loggedInUser.lang == "hi") {
+
+                    if (textView5 != null) {
+                        textView5.setText(R.string.tap_to_view_guidelines_hindi)
+                        medicalGuide.setText(R.string.medical_n_emergency_hindi)
+                        accidentGuide.setText(R.string.accident_hindi)
+                        fireGuide.setText(R.string.fire_hindi)
+                        crimeGuide.setText(R.string.crime_hindi)
+                        startSpeak.setText(R.string.startAudioHindi)
+                        stopSpeak.setText(R.string.stopAudioHindi)
+                    }
+
+
+
+                }
+            }
+
+
+    }
+
+    fun loadCyberProtectionPage(textView6: TextView, reportLink: TextView) {
+        var loggedInUser: User
+        mFireStore.collection(constants.USERS)
+            .document(getCurrentUserId())
+            .get().addOnSuccessListener { document ->
+                loggedInUser = document.toObject(User::class.java)!!
+                if (loggedInUser.lang == "en") {
+
+                    textView6.setText(R.string.tap_the_image_to_view_guidelines)
+                    reportLink.setText(R.string.report)
+
+
+                }
+                if (loggedInUser.lang == "hi") {
+
+                    textView6.setText(R.string.tap_the_image_to_view_guidelines_hindi)
+                    reportLink.setText(R.string.reportHindi)
+
+
+                }
+            }
+
+    }
+
+    fun loadCyberProtectionGuidelines(showGuidelines: TextView?) {
+        var loggedInUser: User
+        mFireStore.collection(constants.USERS)
+            .document(getCurrentUserId())
+            .get().addOnSuccessListener { document ->
+                loggedInUser = document.toObject(User::class.java)!!
+                if (loggedInUser.lang == "en") {
+
+                    showGuidelines!!.setText(R.string.cyber_security_guidelines_details)
+
+
+                }
+                if (loggedInUser.lang == "hi") {
+
+                    showGuidelines!!.setText(R.string.cyber_security_guidelines_details_hindi)
+
+
+                }
+            }
+
     }
 
 

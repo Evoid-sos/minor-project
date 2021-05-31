@@ -26,6 +26,8 @@ class newGuidelines : AppCompatActivity() {
 
         supportActionBar!!.title = Html.fromHtml("<font color='#fffffff'>GUIDELINES </font>")
 
+        firestoreClass().loadGuidelinesPage(textView5, medicalGuide, accidentGuide, fireGuide, crimeGuide, startSpeak, stopSpeak)
+
 
         fun TxtToSpeechEnglish()
         {
@@ -53,21 +55,21 @@ class newGuidelines : AppCompatActivity() {
         {
             startSpeak.visibility=View.VISIBLE
             stopSpeak.visibility=View.VISIBLE
-            firestoreClass().loadGuidelines(guideText, "fire")
+            firestoreClass().loadGuidelines(guideText, "fire", textView5)
             TxtToSpeechEnglish()
         }
         medicalGuide.setOnClickListener()
         {
             startSpeak.visibility=View.VISIBLE
             stopSpeak.visibility=View.VISIBLE
-            firestoreClass().loadGuidelines(guideText, "medical")
+            firestoreClass().loadGuidelines(guideText, "medical", textView5)
         }
 
         accidentGuide.setOnClickListener()
         {
             startSpeak.visibility=View.VISIBLE
             stopSpeak.visibility=View.VISIBLE
-            firestoreClass().loadGuidelines(guideText, "accident")
+            firestoreClass().loadGuidelines(guideText, "accident", textView5)
         }
 
 
@@ -75,7 +77,7 @@ class newGuidelines : AppCompatActivity() {
         {
             startSpeak.visibility=View.VISIBLE
             stopSpeak.visibility=View.VISIBLE
-            firestoreClass().loadGuidelines(guideText, "crime")
+            firestoreClass().loadGuidelines(guideText, "crime", textView5)
         }
     }
 
