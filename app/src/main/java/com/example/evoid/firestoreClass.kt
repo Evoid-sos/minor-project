@@ -546,9 +546,6 @@ class firestoreClass {
                         startSpeak.setText(R.string.startAudioHindi)
                         stopSpeak.setText(R.string.stopAudioHindi)
                     }
-
-
-
                 }
             }
 

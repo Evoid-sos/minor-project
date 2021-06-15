@@ -34,7 +34,7 @@ class newGuidelines : AppCompatActivity() {
             mTTS= TextToSpeech(applicationContext) { status ->
                 if (status != TextToSpeech.ERROR) {
                     mTTS.language = locale
-                    mTTS.setLanguage(locale)
+                    mTTS.language = locale
                 }
             }
             startSpeak.setOnClickListener {

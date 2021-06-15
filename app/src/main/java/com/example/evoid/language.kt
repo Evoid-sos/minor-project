@@ -39,9 +39,6 @@ class language : AppCompatActivity() {
 
     }
 
-
-
-
     override fun onSupportNavigateUp(): Boolean {
         onBackPressed()
         return true
