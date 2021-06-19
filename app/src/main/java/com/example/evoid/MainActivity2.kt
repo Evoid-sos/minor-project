@@ -14,12 +14,14 @@ import androidx.viewpager.widget.ViewPager
 import com.google.android.material.navigation.NavigationView
 import com.google.android.material.tabs.TabLayout
 import com.google.firebase.auth.ktx.auth
+import com.google.firebase.firestore.FirebaseFirestore
 import com.google.firebase.ktx.Firebase
 import kotlinx.android.synthetic.main.activity_main2.*
 import kotlinx.android.synthetic.main.content_main.*
 
 class MainActivity2 : AppCompatActivity(),NavigationView.OnNavigationItemSelectedListener{
     lateinit var tabLayout: TabLayout
+    private val mFireStore = FirebaseFirestore.getInstance()
     lateinit var viewPager: ViewPager
     lateinit var drawerLayout: DrawerLayout
     lateinit var navigationView: NavigationView
@@ -41,14 +43,9 @@ class MainActivity2 : AppCompatActivity(),NavigationView.OnNavigationItemSelecte
         tabLayout = findViewById(R.id.tabLayout)
         viewPager = findViewById(R.id.viewPager)
         setSupportActionBar(toolbar)
-        tabLayout.addTab(tabLayout.newTab().setText("EMERGENCY"))
-        tabLayout.addTab(tabLayout.newTab().setText("EMERGENCY CONTACTS"))
-        tabLayout.addTab(tabLayout.newTab().setText("MENTAL HEALTH AWARENESS"))
-        tabLayout.tabGravity = TabLayout.GRAVITY_FILL
-        val adapter = MyAdapter(this, supportFragmentManager,
-            tabLayout.tabCount)
-        viewPager.adapter = adapter
-        viewPager.addOnPageChangeListener(TabLayout.TabLayoutOnPageChangeListener(tabLayout))
+        tabLayoutLang()
+
+
         tabLayout.addOnTabSelectedListener(object : TabLayout.OnTabSelectedListener {
             override fun onTabSelected(tab: TabLayout.Tab) {
                 viewPager.currentItem = tab.position
@@ -132,6 +129,48 @@ class MainActivity2 : AppCompatActivity(),NavigationView.OnNavigationItemSelecte
         } else {
             super.onBackPressed()
         }
+    }
+
+    fun tabLayoutLang() {
+        var loggedInUser: User
+        mFireStore.collection(constants.USERS)
+            .document(getCurrentUserId())
+            .get().addOnSuccessListener { document ->
+                loggedInUser = document.toObject(User::class.java)!!
+                if (loggedInUser.lang == "en") {
+
+                    tabLayout.addTab(tabLayout.newTab().setText("EMERGENCY"))
+                    tabLayout.addTab(tabLayout.newTab().setText("EMERGENCY CONTACTS"))
+                    tabLayout.addTab(tabLayout.newTab().setText("MENTAL HEALTH AWARENESS"))
+
+                    tabLayout.tabGravity = TabLayout.GRAVITY_FILL
+                    val adapter = MyAdapter(this, supportFragmentManager,
+                        tabLayout.tabCount)
+                    viewPager.adapter = adapter
+                    viewPager.addOnPageChangeListener(TabLayout.TabLayoutOnPageChangeListener(tabLayout))
+
+                }
+                if (loggedInUser.lang == "hi") {
+
+                    tabLayout.addTab(tabLayout.newTab().setText("आपातकालीन"))
+                    tabLayout.addTab(tabLayout.newTab().setText("आपातकालीन संपर्क"))
+                    tabLayout.addTab(tabLayout.newTab().setText("मानसिक स्वास्थ्य जागरूकता"))
+
+                    tabLayout.tabGravity = TabLayout.GRAVITY_FILL
+                    val adapter = MyAdapter(this, supportFragmentManager,
+                        tabLayout.tabCount)
+                    viewPager.adapter = adapter
+                    viewPager.addOnPageChangeListener(TabLayout.TabLayoutOnPageChangeListener(tabLayout))
+
+                }
+            }
+
+    }
+
+    fun getCurrentUserId():String
+    {
+        val uid = Firebase.auth.currentUser!!.uid
+        return uid
     }
 
 

@@ -15,15 +15,21 @@ import android.os.Bundle
 import android.os.Handler
 import android.os.Looper
 import android.preference.PreferenceManager
+import android.text.Html
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.Toast
 import androidx.annotation.RequiresApi
+import androidx.appcompat.app.ActionBar
 import androidx.camera.core.Camera
 import androidx.core.content.ContextCompat.checkSelfPermission
+import androidx.core.view.isVisible
 import androidx.fragment.app.Fragment
 import com.google.android.gms.location.*
+import com.google.firebase.auth.ktx.auth
+import com.google.firebase.firestore.FirebaseFirestore
+import com.google.firebase.ktx.Firebase
 import kotlinx.android.synthetic.main.fragment_emergency.*
 import kotlinx.android.synthetic.main.fragment_emergency.view.*
 
@@ -32,6 +38,7 @@ class emergency : Fragment() {
     private lateinit var fusedLocationClient: FusedLocationProviderClient
     private var mPlayer: MediaPlayer? = null
 
+    private val mFireStore = FirebaseFirestore.getInstance()
     val REQUEST_PHONE_CALL = 1
     val REQUEST_SEND_SMS = 100
     val REQUEST_CAMERA = 3
@@ -76,6 +83,9 @@ class emergency : Fragment() {
             //change the value of your sharedPreferences
             sharedPreferences.edit().putBoolean("IS_FIRST_TIME", false).apply()
         }
+
+        buttonSetVisibility()
+
         mPlayer = MediaPlayer.create(activity, R.raw.alarm)
         view.startAlarm.setOnClickListener {
             if (flag == 0) {
@@ -86,6 +96,17 @@ class emergency : Fragment() {
                 mPlayer?.isLooping=true
             }
         }
+
+        view.startAlarmHindi.setOnClickListener {
+            if (flag == 0) {
+                flag = 1
+                startAlarmHindi.visibility = View.INVISIBLE
+                stopAlarmHindi.visibility = View.VISIBLE
+                mPlayer?.start()
+                mPlayer?.isLooping=true
+            }
+        }
+
         view.stopAlarm.setOnClickListener {
             if (flag==1)
             {
@@ -96,6 +117,18 @@ class emergency : Fragment() {
 
             }
         }
+
+        view.stopAlarmHindi.setOnClickListener {
+            if (flag==1)
+            {
+                flag=0
+                stopAlarmHindi.visibility = View.INVISIBLE
+                startAlarmHindi.visibility = View.VISIBLE
+                mPlayer?.pause()
+
+            }
+        }
+
         view.startFlash.setOnClickListener()
         {
             if(flashflag==0)
@@ -108,6 +141,20 @@ class emergency : Fragment() {
                 }
             }
         }
+
+        view.startFlashHindi.setOnClickListener()
+        {
+            if(flashflag==0)
+            {
+                flashflag=1
+                startFlashHindi.visibility=View.INVISIBLE
+                stopFlashHindi.visibility=View.VISIBLE
+                if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
+                    openFlashLight()
+                }
+            }
+        }
+
         view.stopFlash.setOnClickListener()
         {
             if (flashflag==1)
@@ -121,19 +168,57 @@ class emergency : Fragment() {
             }
         }
 
+        view.stopFlashHindi.setOnClickListener()
+        {
+            if (flashflag==1)
+            {
+                flashflag=0
+                stopFlashHindi.visibility = View.INVISIBLE
+                startFlashHindi.visibility = View.VISIBLE
+                if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
+                    openFlashLight()
+                }
+            }
+        }
+
+
         view.fireHelpline.setOnClickListener {
             fire=1
             askPermission()
         }
+
+        view.fireHelplineHindi.setOnClickListener {
+            fire=1
+            askPermission()
+        }
+
         view.womenHelpline.setOnClickListener {
             women = 1
             askPermission()
         }
+
+        view.womenHelplineHindi.setOnClickListener {
+            women = 1
+            askPermission()
+        }
+
         view.policeHelpline.setOnClickListener {
             police=1
             askPermission()
         }
+
+        view.policeHelplineHindi.setOnClickListener {
+            police=1
+            askPermission()
+        }
+
         view.ambulanceHelpline.setOnClickListener {
+            ambulance=1
+            askPermission()
+
+        }
+
+        view.ambulanceHelplineHindi.setOnClickListener {
             ambulance=1
             askPermission()
 
@@ -144,10 +229,22 @@ class emergency : Fragment() {
             Handler(Looper.getMainLooper()).postDelayed({ askCameraPerm() }, 1000)
 
         }
+
+        view.emergencybuttonHindi.setOnClickListener {
+            askLocationPerm()
+            Handler(Looper.getMainLooper()).postDelayed({ askCameraPerm() }, 1000)
+
+        }
         view.showlocation.setOnClickListener {
             val intent = Intent(this.context,userLocation::class.java)
             startActivity(intent)
         }
+
+        view.showlocationHindi.setOnClickListener {
+            val intent = Intent(this.context,userLocation::class.java)
+            startActivity(intent)
+        }
+
         // Return the fragment view/layout
         return view
     }
@@ -367,6 +464,113 @@ class emergency : Fragment() {
             takePicture()
 
         }
+    }
+
+    fun buttonSetVisibility() {
+        var loggedInUser: User
+        mFireStore.collection(constants.USERS)
+            .document(getCurrentUserId())
+            .get().addOnSuccessListener { document ->
+                loggedInUser = document.toObject(User::class.java)!!
+                if (loggedInUser.lang == "en") {
+
+                    womenHelpline.isVisible = true
+                    policeHelpline.isVisible = true
+                    ambulanceHelpline.isVisible = true
+                    fireHelpline.isVisible = true
+                    emergencybutton.isVisible = true
+                    startAlarm.isVisible = true
+                    stopAlarm.isVisible = false
+                    startFlash.isVisible = true
+                    stopFlash.isVisible = false
+                    showlocation.isVisible = true
+                    womenHelpline.isClickable = true
+                    policeHelpline.isClickable = true
+                    ambulanceHelpline.isClickable = true
+                    fireHelpline.isClickable = true
+                    emergencybutton.isClickable = true
+                    startAlarm.isClickable = true
+                    stopAlarm.isClickable = true
+                    startFlash.isClickable = true
+                    stopFlash.isClickable = true
+                    showlocation.isClickable = true
+                    womenHelplineHindi.isVisible = false
+                    policeHelplineHindi.isVisible = false
+                    ambulanceHelplineHindi.isVisible = false
+                    fireHelplineHindi.isVisible = false
+                    emergencybuttonHindi.isVisible = false
+                    startAlarmHindi.isVisible = false
+                    stopAlarmHindi.isVisible = false
+                    startFlashHindi.isVisible = false
+                    stopFlashHindi.isVisible = false
+                    showlocationHindi.isVisible = false
+                    womenHelplineHindi.isClickable = false
+                    policeHelplineHindi.isClickable = false
+                    ambulanceHelplineHindi.isClickable = false
+                    fireHelplineHindi.isClickable = false
+                    emergencybuttonHindi.isClickable = false
+                    startAlarmHindi.isClickable = false
+                    stopAlarmHindi.isClickable = false
+                    startFlashHindi.isClickable = false
+                    stopFlashHindi.isClickable = false
+                    showlocationHindi.isClickable = false
+
+
+
+                }
+                if (loggedInUser.lang == "hi") {
+
+                    womenHelplineHindi.isVisible = true
+                    policeHelplineHindi.isVisible = true
+                    ambulanceHelplineHindi.isVisible = true
+                    fireHelplineHindi.isVisible = true
+                    emergencybuttonHindi.isVisible = true
+                    startAlarmHindi.isVisible = true
+                    stopAlarmHindi.isVisible = false
+                    startFlashHindi.isVisible = true
+                    stopFlashHindi.isVisible = false
+                    showlocationHindi.isVisible = true
+                    womenHelplineHindi.isClickable = true
+                    policeHelplineHindi.isClickable = true
+                    ambulanceHelplineHindi.isClickable = true
+                    fireHelplineHindi.isClickable = true
+                    emergencybuttonHindi.isClickable = true
+                    startAlarmHindi.isClickable = true
+                    stopAlarmHindi.isClickable = true
+                    startFlashHindi.isClickable = true
+                    stopFlashHindi.isClickable = true
+                    showlocationHindi.isClickable = true
+                    showlocation.isClickable = true
+                    womenHelpline.isVisible = false
+                    policeHelpline.isVisible = false
+                    ambulanceHelpline.isVisible = false
+                    fireHelpline.isVisible = false
+                    emergencybutton.isVisible = false
+                    startAlarm.isVisible = false
+                    stopAlarm.isVisible = false
+                    startFlash.isVisible = false
+                    stopFlash.isVisible = false
+                    showlocation.isVisible = false
+                    womenHelpline.isClickable = false
+                    policeHelpline.isClickable = false
+                    ambulanceHelpline.isClickable = false
+                    fireHelpline.isClickable = false
+                    emergencybutton.isClickable = false
+                    startAlarm.isClickable = false
+                    stopAlarm.isClickable = false
+                    startFlash.isClickable = false
+                    stopFlash.isClickable = false
+                    showlocation.isClickable = false
+
+                }
+            }
+
+    }
+
+    fun getCurrentUserId():String
+    {
+        val uid = Firebase.auth.currentUser!!.uid
+        return uid
     }
 
 
