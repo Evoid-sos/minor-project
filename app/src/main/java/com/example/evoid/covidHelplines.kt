@@ -7,16 +7,21 @@ import android.view.View
 import android.widget.AdapterView
 import android.widget.ArrayAdapter
 import android.widget.Spinner
+import androidx.appcompat.app.ActionBar
 import androidx.appcompat.app.AppCompatActivity
+import com.google.firebase.auth.ktx.auth
+import com.google.firebase.firestore.FirebaseFirestore
+import com.google.firebase.ktx.Firebase
 import kotlinx.android.synthetic.main.activity_covid_helplines.*
 
 class covidHelplines : AppCompatActivity() {
+    private val mFireStore = FirebaseFirestore.getInstance()
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_covid_helplines)
         this.requestedOrientation = ActivityInfo.SCREEN_ORIENTATION_PORTRAIT
+        getActionBarLang(supportActionBar)
         supportActionBar?.setDisplayHomeAsUpEnabled(true)
-        supportActionBar!!.title = Html.fromHtml("<font color='#fffffff'>COVID-19 HELPLINES </font>")
         val states = resources.getStringArray(R.array.States)
         val spinner = R.id.spinner1
         if (spinner != null) {
@@ -102,5 +107,31 @@ class covidHelplines : AppCompatActivity() {
     override fun onSupportNavigateUp(): Boolean {
         onBackPressed()
         return true
+    }
+
+    fun getActionBarLang(supportActionBar: ActionBar?) {
+        var loggedInUser: User
+        mFireStore.collection(constants.USERS)
+            .document(getCurrentUserId())
+            .get().addOnSuccessListener { document ->
+                loggedInUser = document.toObject(User::class.java)!!
+                if (loggedInUser.lang == "en") {
+
+                    supportActionBar?.title = Html.fromHtml("<font color='#fffffff'>COVID-19 HELPLINES </font>")
+
+                }
+                if (loggedInUser.lang == "hi") {
+
+                    supportActionBar?.title = Html.fromHtml("<font color='#fffffff'>कोविड-19 हेल्पलाइन्स </font>")
+
+                }
+            }
+
+    }
+
+    fun getCurrentUserId():String
+    {
+        val uid = Firebase.auth.currentUser!!.uid
+        return uid
     }
 }

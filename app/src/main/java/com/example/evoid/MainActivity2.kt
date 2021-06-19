@@ -8,7 +8,6 @@ import android.view.View
 import android.widget.Toast
 import androidx.appcompat.app.ActionBarDrawerToggle
 import androidx.appcompat.app.AppCompatActivity
-import androidx.core.app.ActivityCompat
 import androidx.core.view.GravityCompat
 import androidx.drawerlayout.widget.DrawerLayout
 import androidx.viewpager.widget.ViewPager
@@ -18,7 +17,6 @@ import com.google.firebase.auth.ktx.auth
 import com.google.firebase.ktx.Firebase
 import kotlinx.android.synthetic.main.activity_main2.*
 import kotlinx.android.synthetic.main.content_main.*
-import kotlinx.android.synthetic.main.nav_header_main.*
 
 class MainActivity2 : AppCompatActivity(),NavigationView.OnNavigationItemSelectedListener{
     lateinit var tabLayout: TabLayout
@@ -61,14 +59,19 @@ class MainActivity2 : AppCompatActivity(),NavigationView.OnNavigationItemSelecte
 
         val navigationView : NavigationView = this.findViewById(R.id.nav_view)
         navigationView.itemIconTintList = null
+        val menu = navigationView.menu
         val headerView : View = navigationView.getHeaderView(0)
         var image = headerView.findViewById<de.hdodenhof.circleimageview.CircleImageView>(R.id.profileIconNav)
         image.setOnClickListener{
             val intent = Intent(this, MyProfile::class.java)
             startActivity(intent)
         }
+        firestoreClass().changeMenuItemsLang(menu)
+
 
     }
+
+
 
 
     private fun signOut()
@@ -93,6 +96,9 @@ class MainActivity2 : AppCompatActivity(),NavigationView.OnNavigationItemSelecte
             else -> super.onOptionsItemSelected(item)
         }
     }
+
+
+
     override fun onNavigationItemSelected(item: MenuItem): Boolean {
         when(item.itemId)
         {
@@ -104,6 +110,14 @@ class MainActivity2 : AppCompatActivity(),NavigationView.OnNavigationItemSelecte
             R.id.appLanguage -> startActivity(Intent(this, language::class.java))
             R.id.help -> startActivity(Intent(this, faqs::class.java))
             R.id.logout -> signOut()
+            R.id.nearhelpH -> startActivity(Intent(this, nearbyHelp::class.java))
+            R.id.guidelinesH -> startActivity(Intent(this, newGuidelines::class.java))
+            R.id.covidH -> startActivity(Intent(this, covidHelplines::class.java))
+            R.id.cybercrimeH -> startActivity(Intent(this, cybersecurity::class.java))
+            R.id.medicalInfoH -> startActivity(Intent(this, medicalInformation::class.java))
+            R.id.appLanguageH -> startActivity(Intent(this, language::class.java))
+            R.id.helpH -> startActivity(Intent(this, faqs::class.java))
+            R.id.logoutH -> signOut()
             else -> Toast.makeText(
                 applicationContext,
                 "Could not complete the request",
@@ -119,4 +133,6 @@ class MainActivity2 : AppCompatActivity(),NavigationView.OnNavigationItemSelecte
             super.onBackPressed()
         }
     }
+
+
 }

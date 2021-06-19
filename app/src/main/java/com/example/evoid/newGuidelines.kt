@@ -6,13 +6,18 @@ import android.speech.tts.TextToSpeech
 import android.text.Html
 import android.view.View
 import android.widget.Toast
+import androidx.appcompat.app.ActionBar
 import androidx.appcompat.app.AppCompatActivity
+import com.google.firebase.auth.ktx.auth
+import com.google.firebase.firestore.FirebaseFirestore
+import com.google.firebase.ktx.Firebase
 
 import kotlinx.android.synthetic.main.activity_new_guidelines.*
 import java.util.*
 
 
 class newGuidelines : AppCompatActivity() {
+    private val mFireStore = FirebaseFirestore.getInstance()
 
     lateinit var mTTS:TextToSpeech
     var flag=0
@@ -22,9 +27,8 @@ class newGuidelines : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_new_guidelines)
         this.requestedOrientation = ActivityInfo.SCREEN_ORIENTATION_PORTRAIT
+        getActionBarLang(supportActionBar)
         supportActionBar?.setDisplayHomeAsUpEnabled(true)
-
-        supportActionBar!!.title = Html.fromHtml("<font color='#fffffff'>GUIDELINES </font>")
 
         firestoreClass().loadGuidelinesPage(textView5, medicalGuide, accidentGuide, fireGuide, crimeGuide, startSpeak, stopSpeak)
 
@@ -110,6 +114,32 @@ class newGuidelines : AppCompatActivity() {
     override fun onSupportNavigateUp(): Boolean {
         onBackPressed()
         return true
+    }
+
+    fun getActionBarLang(supportActionBar: ActionBar?) {
+        var loggedInUser: User
+        mFireStore.collection(constants.USERS)
+            .document(getCurrentUserId())
+            .get().addOnSuccessListener { document ->
+                loggedInUser = document.toObject(User::class.java)!!
+                if (loggedInUser.lang == "en") {
+
+                    supportActionBar?.title = Html.fromHtml("<font color='#fffffff'>GUIDELINES </font>")
+
+                }
+                if (loggedInUser.lang == "hi") {
+
+                    supportActionBar?.title = Html.fromHtml("<font color='#fffffff'>दिशा-निर्देश </font>")
+
+                }
+            }
+
+    }
+
+    fun getCurrentUserId():String
+    {
+        val uid = Firebase.auth.currentUser!!.uid
+        return uid
     }
 
 

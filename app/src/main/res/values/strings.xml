@@ -32,12 +32,31 @@
     <string name="todo" translatable="false">TODO</string>
     <string name="PB" translatable="false">panicButton</string>
     <string name="action_settings" translatable="false">Settings</string>
-    <string name="guidelines" translatable="false">Guidelines</string>
-    <string name="covid_19_helplines" translatable="false">COVID-19 Helplines</string>
-    <string name="cyber_crime_protection_guideline" translatable="false">Cyber Crime Protection Guidelines</string>
-    <string name="Instructions" translatable="false">App Usage Instructions</string>
-    <string name="selected_item" translatable="false">Selected item:</string>
-    <string name="logout" translatable="false">logout</string>
+    // MENU ITEMS
+    <string name="find_help_near_me">Find Help Near Me</string>
+    <string name="guidelines">Guidelines</string>
+    <string name="covid_19_helplines">COVID-19 Helplines</string>
+    <string name="cyber_crime_protection_guideline">Cyber Crime Protection Guidelines</string>
+    <string name="medicalinfo">My Medical Information</string>
+    <string name="language">App Language</string>
+    <string name="Instructions">App Usage Instructions</string>
+    <string name="logout_menu">Logout</string>
+    //
+    // MENU ITEMS HINDI
+    <string name="find_help_near_me_hindi">आस-पास सहायता प्राप्त करें</string>
+    <string name="guidelines_hindi">दिशा-निर्देश</string>
+    <string name="covid_19_helplines_hindi">कोविड-19 हेल्पलाइन्स</string>
+    <string name="cyber_crime_protection_guideline_hindi">साइबर अपराध सुरक्षा दिशानिर्देश</string>
+    <string name="medicalinfo_hindi">मेरी चिकित्सा जानकारी</string>
+    <string name="language_hindi">ऐप की भाषा</string>
+    <string name="Instructions_hindi">ऐप उपयोग निर्देश</string>
+    <string name="logout_menu_hindi">लॉग आउट</string>
+
+
+
+
+    <string name="logout">Logout</string>
+    <string name="selected_item">Selected item:</string>
     <string name="address" translatable="false">Address :</string>
     <string name="bloodType" translatable="false">Blood Type :</string>
     <string name="allergies" translatable="false">Allergies :</string>
@@ -49,8 +68,8 @@
     <string name="allergiesHint" translatable="false">Ex: Peanuts, Eggs</string>
     <string name="medicationsHint" translatable="false">Ex: Aspirin, Paracetamol</string>
     <string name="medicalNotesHint" translatable="false">Ex: Asthma, Diabetes</string>
-    <string name="medicalinfo" translatable="false">My Medical Information</string>
-    <string name="language" translatable="false">App Language</string>
+
+
     <string name="hindi_lang" translatable="false"> Hindi</string>
     <string name="displayTextLanguage" translatable="false"> * Translations are only available on guidelines as of now. </string>
     <string name="displayTextLanguageH" translatable="false"> * अनुवाद अभी दिशानिर्देशों पर ही उपलब्ध हैं। </string>
@@ -255,11 +274,11 @@
     <string name="crime_hindi">\n\n\nअपराध</string>
     <string name="register_user" translatable="false">Register</string>
     <string name="user_name" translatable="false">User</string>
-    <string name="logout_menu" translatable="false">Logout</string>
     <string name="dialogMessage" translatable="false">Thank you for downloading our app.\nPlease go through the help menu to understand how the app works.</string>
     <string name="title_activity_user_location" translatable="false">Map</string>
     <string name="title_activity_help_location" translatable="false">Map</string>
     <string name="hello_blank_fragment" translatable="false">Hello blank fragment</string>
     <string name="msg_token_fmt" translatable="false" />
+
 
 </resources>

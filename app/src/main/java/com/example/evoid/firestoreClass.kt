@@ -6,11 +6,14 @@ import android.content.Intent
 import android.graphics.drawable.Drawable
 import android.net.Uri
 import android.telephony.SmsManager
+import android.text.Html
+import android.view.Menu
 import android.view.View
 import android.widget.Button
 import android.widget.EditText
 import android.widget.TextView
 import android.widget.Toast
+import androidx.appcompat.app.ActionBar
 import com.bumptech.glide.Glide
 import com.google.android.material.navigation.NavigationView
 import com.google.firebase.auth.ktx.auth
@@ -23,6 +26,7 @@ class firestoreClass {
 
     private val mFireStore = FirebaseFirestore.getInstance()
     var location: locationDetails? = null
+    var lang = ""
     var images:pictures?=null
     var currContact:String?=null
     var currContact1:String?=null
@@ -325,6 +329,7 @@ class firestoreClass {
                 }
             }
 
+
     }
 
     @SuppressLint("ResourceAsColor")
@@ -597,6 +602,44 @@ class firestoreClass {
             }
 
     }
+
+
+    fun changeMenuItemsLang(menu: Menu)
+    {
+
+        var loggedInUser: User
+        mFireStore.collection(constants.USERS)
+            .document(getCurrentUserId())
+            .get().addOnSuccessListener { document ->
+                loggedInUser = document.toObject(User::class.java)!!
+                if (loggedInUser.lang == "en") {
+
+                    menu.findItem(R.id.nearhelpH).isVisible = false
+                    menu.findItem(R.id.guidelinesH).isVisible = false
+                    menu.findItem(R.id.covidH).isVisible = false
+                    menu.findItem(R.id.cybercrimeH).isVisible = false
+                    menu.findItem(R.id.medicalInfoH).isVisible = false
+                    menu.findItem(R.id.appLanguageH).isVisible = false
+                    menu.findItem(R.id.helpH).isVisible = false
+                    menu.findItem(R.id.logoutH).isVisible = false
+
+                }
+                if (loggedInUser.lang == "hi") {
+
+                    menu.findItem(R.id.nearhelp).isVisible = false
+                    menu.findItem(R.id.guidelines).isVisible = false
+                    menu.findItem(R.id.covid).isVisible = false
+                    menu.findItem(R.id.cybercrime).isVisible = false
+                    menu.findItem(R.id.medicalInfo).isVisible = false
+                    menu.findItem(R.id.appLanguage).isVisible = false
+                    menu.findItem(R.id.help).isVisible = false
+                    menu.findItem(R.id.logout).isVisible = false
+
+                }
+            }
+    }
+
+
 
 
 }

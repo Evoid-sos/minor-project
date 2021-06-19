@@ -6,15 +6,20 @@ import android.net.Uri
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.text.Html
+import androidx.appcompat.app.ActionBar
+import com.google.firebase.auth.ktx.auth
+import com.google.firebase.firestore.FirebaseFirestore
+import com.google.firebase.ktx.Firebase
 import kotlinx.android.synthetic.main.activity_nearby_help.*
 
 class nearbyHelp : AppCompatActivity() {
+    private val mFireStore = FirebaseFirestore.getInstance()
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_nearby_help)
         this.requestedOrientation = ActivityInfo.SCREEN_ORIENTATION_PORTRAIT
+        getActionBarLang(supportActionBar)
         supportActionBar?.setDisplayHomeAsUpEnabled(true)
-        supportActionBar!!.title = Html.fromHtml("<font color='#fffffff'>FIND HELP NEAR ME </font>")
         policeStations.setOnClickListener {
             val uri: Uri =
                 Uri.parse("https://www.google.com/maps/search/police+stations+near+me") // missing 'http://' will cause crashed
@@ -49,5 +54,31 @@ class nearbyHelp : AppCompatActivity() {
     override fun onSupportNavigateUp(): Boolean {
         onBackPressed()
         return true
+    }
+
+    fun getActionBarLang(supportActionBar: ActionBar?) {
+        var loggedInUser: User
+        mFireStore.collection(constants.USERS)
+            .document(getCurrentUserId())
+            .get().addOnSuccessListener { document ->
+                loggedInUser = document.toObject(User::class.java)!!
+                if (loggedInUser.lang == "en") {
+
+                    supportActionBar?.title = Html.fromHtml("<font color='#fffffff'>FIND HELP NEAR ME </font>")
+
+                }
+                if (loggedInUser.lang == "hi") {
+
+                    supportActionBar?.title = Html.fromHtml("<font color='#fffffff'>आस-पास सहायता प्राप्त करें </font>")
+
+                }
+            }
+
+    }
+
+    fun getCurrentUserId():String
+    {
+        val uid = Firebase.auth.currentUser!!.uid
+        return uid
     }
 }

@@ -1,8 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <menu xmlns:android="http://schemas.android.com/apk/res/android">
-    <item android:title="Find Help Near Me"
+    <item
         android:icon="@drawable/nearhelp1"
-        android:id="@+id/nearhelp"/>
+        android:id="@+id/nearhelp"
+        android:title="@string/find_help_near_me" />
     <item
         android:title="@string/guidelines"
         android:icon="@drawable/guidelines"
@@ -33,6 +34,42 @@
     <item
         android:title="@string/logout_menu"
         android:id="@+id/logout"
+        android:icon="@drawable/logout"
+        />
+    <item
+        android:icon="@drawable/nearhelp1"
+        android:id="@+id/nearhelpH"
+        android:title="@string/find_help_near_me_hindi" />
+    <item
+        android:title="@string/guidelines_hindi"
+        android:icon="@drawable/guidelines"
+        android:id="@+id/guidelinesH" />
+    <item
+        android:title="@string/covid_19_helplines_hindi"
+        android:icon="@drawable/mask"
+        android:id="@+id/covidH" />
+    <item
+        android:title="@string/cyber_crime_protection_guideline_hindi"
+        android:icon="@drawable/cyber"
+        android:id="@+id/cybercrimeH" />
+    <item
+        android:title="@string/medicalinfo_hindi"
+        android:id="@+id/medicalInfoH"
+        android:icon="@drawable/medicalform"
+        />
+    <item
+        android:title="@string/language_hindi"
+        android:id="@+id/appLanguageH"
+        android:icon="@drawable/language"
+        />
+    <item
+        android:title="@string/Instructions_hindi"
+        android:id="@+id/helpH"
+        android:icon="@drawable/faq"
+        />
+    <item
+        android:title="@string/logout_menu_hindi"
+        android:id="@+id/logoutH"
         android:icon="@drawable/logout"
         />
 </menu>
