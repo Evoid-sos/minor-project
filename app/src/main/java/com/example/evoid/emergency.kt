@@ -14,13 +14,11 @@ import android.os.Bundle
 import android.os.Handler
 import android.os.Looper
 import android.preference.PreferenceManager
-import android.text.Html
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.Toast
 import androidx.annotation.RequiresApi
-import androidx.appcompat.app.ActionBar
 import androidx.camera.core.Camera
 import androidx.core.content.ContextCompat.checkSelfPermission
 import androidx.core.view.isVisible
@@ -31,7 +29,6 @@ import com.google.firebase.firestore.FirebaseFirestore
 import com.google.firebase.ktx.Firebase
 import kotlinx.android.synthetic.main.fragment_emergency.*
 import kotlinx.android.synthetic.main.fragment_emergency.view.*
-import java.lang.Exception
 
 
 class emergency : Fragment() {
@@ -71,7 +68,9 @@ class emergency : Fragment() {
 
             //performing positive action
             builder.setPositiveButton("OK"){ _, _ ->
-                Toast.makeText(activity,"Please swipe right to add emergency contacts",Toast.LENGTH_LONG).show()
+                Toast.makeText(activity,
+                    "Please swipe right to add emergency contacts",
+                    Toast.LENGTH_LONG).show()
             }
             // Create the AlertDialog
             val alertDialog: AlertDialog = builder.create()
@@ -236,12 +235,12 @@ class emergency : Fragment() {
 
         }
         view.showlocation.setOnClickListener {
-            val intent = Intent(this.context,userLocation::class.java)
+            val intent = Intent(this.context, userLocation::class.java)
             startActivity(intent)
         }
 
         view.showlocationHindi.setOnClickListener {
-            val intent = Intent(this.context,userLocation::class.java)
+            val intent = Intent(this.context, userLocation::class.java)
             startActivity(intent)
         }
 
@@ -376,6 +375,7 @@ class emergency : Fragment() {
     }
 
 
+
     private fun getLocationCurrent() {
         try {
             val request = LocationRequest()
@@ -386,20 +386,30 @@ class emergency : Fragment() {
                 activity as MainActivity2,
                 android.Manifest.permission.ACCESS_FINE_LOCATION
             )
-            if (permission == PackageManager.PERMISSION_GRANTED) {
-                fusedLocationClient.requestLocationUpdates(request, object : LocationCallback() {
-                    override fun onLocationResult(locationResult: LocationResult) {
-                        val location: Location? = locationResult.lastLocation
-                        if (location != null) {
-                            val loc = locationDetails(
-                                location.latitude.toString(),
-                                location.longitude.toString()
+            val permission2 = checkSelfPermission(
+                activity as MainActivity2,
+                android.Manifest.permission.ACCESS_COARSE_LOCATION
+            )
+            if (permission == PackageManager.PERMISSION_GRANTED && permission2 == PackageManager.PERMISSION_GRANTED) {
+                try {
+                    fusedLocationClient.requestLocationUpdates(request, object: LocationCallback() {
+                        override fun onLocationResult(locationResult: LocationResult) {
+                            val location: Location? = locationResult.lastLocation
+                            if (location != null) {
+                                val loc = locationDetails(
+                                    location.latitude.toString(),
+                                    location.longitude.toString()
 
-                            )
-                            firestoreClass().updateLocation(loc)
+                                )
+                                firestoreClass().updateLocation(loc)
+                            }
                         }
-                    }
-                }, null)
+                    }, null)
+                }
+                catch (e: Exception){
+                    print("Exception at getting last loc")
+                }
+
 
             }
             askSendSMSPerm()

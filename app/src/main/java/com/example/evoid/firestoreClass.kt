@@ -27,6 +27,8 @@ class firestoreClass {
 
     private val mFireStore = FirebaseFirestore.getInstance()
     var location: locationDetails? = null
+    var lattitude: Double? = null
+    var longitude: Double? = null
     var lang = ""
     var images:pictures?=null
     var currContact:String?=null
@@ -113,6 +115,7 @@ class firestoreClass {
 
     fun getLocation()
     {
+
         mFireStore.collection(constants.USERS)
             .document(getCurrentUserId())
             .collection(constants.locationDetails)
@@ -120,6 +123,8 @@ class firestoreClass {
             .get()
             .addOnSuccessListener { document->
                 location = document.toObject(locationDetails::class.java)
+                lattitude = location?.latitude?.toDoubleOrNull()
+                longitude = location?.longitude?.toDoubleOrNull()
             }
     }
 
@@ -138,18 +143,29 @@ class firestoreClass {
                     handle.postDelayed({ print("") }, 500)
                     currContact = documents.get("contactPhoneNumber").toString()
                     val mySmsManager = SmsManager.getDefault()
-                    mySmsManager.sendTextMessage(currContact,
-                        null,
-                        constants.msg + "\n" + "http://maps.google.com/maps?daddr=${location!!.latitude.toDouble()},${location!!.longitude.toDouble()}",
-                        null,
-                        null)
+
+                    if (lattitude != null && longitude != null){
+                        mySmsManager.sendTextMessage(currContact,
+                            null,
+                            constants.msg + "\n" + "http://maps.google.com/maps?daddr=$lattitude,$longitude",
+                            null,
+                            null)
+                    }
+                    else{
+                        mySmsManager.sendTextMessage(currContact,
+                            null,
+                            constants.msg + "\n" + "http://maps.google.com/maps?daddr=28.5979774,77.0503338",
+                            null,
+                            null)
+                    }
+
 
                 }
 
                 Toast.makeText(activity, "Location sent", Toast.LENGTH_SHORT).show()
 
             }}
-        catch (e: Exception)
+        catch (e: java.lang.NullPointerException)
         {
             print("ExceptionCaught")
         }
