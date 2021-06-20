@@ -119,6 +119,49 @@
         <item>Uttar Pradesh</item>
         <item>West Bengal</item>
     </string-array>
+
+    <string-array name="StatesHindi">
+        <item>अंडमान निकोबार द्वीप समूह</item>
+        <item>आंध्रप्रदेश</item>
+        <item>अरुणाचल प्रदेश</item>
+        <item>असम</item>
+        <item>बिहार</item>
+        <item>चंडीगढ़</item>
+        <item>छत्तीसगढ़</item>
+        <item>दादर एवं नगर हवेली</item>
+        <item>दमन एवं दीव</item>
+        <item>दिल्ली</item>
+        <item>गोवा</item>
+        <item>गुजरात</item>
+        <item>हरियाणा</item>
+        <item>हिमांचल प्रदेश</item>
+        <item>जम्मू</item>
+        <item>झारखण्ड</item>
+        <item>कर्नाटक</item>
+        <item>कश्मीर</item>
+        <item>केरल</item>
+        <item>लद्दाख</item>
+        <item>लक्षद्वीप</item>
+        <item>मध्यप्रदेश</item>
+        <item>महाराष्ट्र</item>
+        <item>मणिपुर</item>
+        <item>मेघालय</item>
+        <item>मिजोरम</item>
+        <item>नागालैंड</item>
+        <item>ओडिशा</item>
+        <item>पुडुचेरी</item>
+        <item>पंजाब</item>
+        <item>राजस्थान</item>
+        <item>सिक्किम</item>
+        <item>तमिलनाडु</item>
+        <item>तेलंगाना</item>
+        <item>त्रिपुरा</item>
+        <item>उत्तराखण्ड</item>
+        <item>उत्तर प्रदेश</item>
+        <item>पश्चिम बंगाल</item>
+    </string-array>
+
+
     <string name="report">REPORT A CRIME :
         <a href="https://cybercrime.gov.in/">"https://cybercrime.gov.in/"</a>
     </string>
@@ -279,7 +322,12 @@
     <string name="menu_slideshow" translatable="false">Slideshow</string>
     <string name="forgot_password_start" translatable="false">forgot password ?</string>
     <string name="register_start" translatable="false">Register</string>
-    <string name="choose_a_state_to_display_helpline_number" translatable="false">CHOOSE A STATE TO DISPLAY HELPLINE NUMBER</string>
+
+
+    <string name="choose_a_state_to_display_helpline_number">CHOOSE A STATE TO DISPLAY HELPLINE NUMBER</string>
+    <string name="choose_a_state_to_display_helpline_number_hindi">हेल्पलाइन नंबर प्रदर्शित करने के लिए एक राज्य चुनें</string>
+
+
     <string name="textview_covid" translatable="false">TextView</string>
     <string name="tap_the_image_to_view_guidelines">TAP THE IMAGE TO VIEW GUIDELINES</string>
     <string name="tap_the_image_to_view_guidelines_hindi">दिशानिर्देश देखने के लिए आइकन दबाये</string>
