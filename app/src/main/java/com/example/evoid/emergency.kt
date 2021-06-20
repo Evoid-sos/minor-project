@@ -32,6 +32,7 @@ import com.google.firebase.firestore.FirebaseFirestore
 import com.google.firebase.ktx.Firebase
 import kotlinx.android.synthetic.main.fragment_emergency.*
 import kotlinx.android.synthetic.main.fragment_emergency.view.*
+import java.lang.Exception
 
 
 class emergency : Fragment() {
@@ -364,7 +365,14 @@ class emergency : Fragment() {
         }
         else
         {
-            getLocationCurrent()
+            try {
+                getLocationCurrent()
+            }
+            catch (e: Exception)
+            {
+                print("ExceptionCaught")
+            }
+
         }
     }
 
