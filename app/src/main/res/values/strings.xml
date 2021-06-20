@@ -307,6 +307,18 @@
     <string name="hello_blank_fragment" translatable="false">Hello blank fragment</string>
     <string name="msg_token_fmt" translatable="false" />
 
+    <string name="policeStations">Police Stations</string>
+    <string name="hospitals">Hospitals</string>
+    <string name="fireStations">Fire Stations</string>
+    <string name="oldAgeHomes">Senior Citizen\'s Shelters</string>
+    <string name="pharmacies">Pharmacies</string>
+
+    <string name="policeStationsHindi">पुलिस स्टेशन</string>
+    <string name="hospitalsHindi">अस्पताल</string>
+    <string name="fireStationsHindi">दमकल केंद्र</string>
+    <string name="oldAgeHomesHindi">वरिष्ठ नागरिकों के लिए आश्रय</string>
+    <string name="pharmaciesHindi">फार्मेसी</string>
+
 
 
 </resources>

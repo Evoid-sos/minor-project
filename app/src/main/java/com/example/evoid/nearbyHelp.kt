@@ -10,6 +10,7 @@ import androidx.appcompat.app.ActionBar
 import com.google.firebase.auth.ktx.auth
 import com.google.firebase.firestore.FirebaseFirestore
 import com.google.firebase.ktx.Firebase
+import kotlinx.android.synthetic.main.activity_faqs.*
 import kotlinx.android.synthetic.main.activity_nearby_help.*
 
 class nearbyHelp : AppCompatActivity() {
@@ -20,6 +21,7 @@ class nearbyHelp : AppCompatActivity() {
         this.requestedOrientation = ActivityInfo.SCREEN_ORIENTATION_PORTRAIT
         getActionBarLang(supportActionBar)
         supportActionBar?.setDisplayHomeAsUpEnabled(true)
+        buttonSetVisibilityHere()
         policeStations.setOnClickListener {
             val uri: Uri =
                 Uri.parse("https://www.google.com/maps/search/police+stations+near+me") // missing 'http://' will cause crashed
@@ -80,5 +82,34 @@ class nearbyHelp : AppCompatActivity() {
     {
         val uid = Firebase.auth.currentUser!!.uid
         return uid
+    }
+
+
+    fun buttonSetVisibilityHere() {
+        var loggedInUser: User
+        mFireStore.collection(constants.USERS)
+            .document(getCurrentUserId())
+            .get().addOnSuccessListener { document ->
+                loggedInUser = document.toObject(User::class.java)!!
+                if (loggedInUser.lang == "en") {
+
+                    textView3.setText(R.string.policeStations)
+                    textView4.setText(R.string.hospitals)
+                    textView5.setText(R.string.fireStations)
+                    textView6.setText(R.string.oldAgeHomes)
+                    textView7.setText(R.string.pharmacies)
+
+                }
+                if (loggedInUser.lang == "hi") {
+
+                    textView3.setText(R.string.policeStationsHindi)
+                    textView4.setText(R.string.hospitalsHindi)
+                    textView5.setText(R.string.fireStationsHindi)
+                    textView6.setText(R.string.oldAgeHomesHindi)
+                    textView7.setText(R.string.pharmaciesHindi)
+
+                }
+            }
+
     }
 }
