@@ -33,10 +33,25 @@
         android:layout_height="79dp"
         android:layout_marginStart="43dp"
         android:layout_marginTop="200dp"
+        android:visibility="invisible"
+        android:clickable="false"
         android:layout_marginBottom="583dp"
         android:src="@drawable/fortisstress"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toStartOf="@+id/Icallhelp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <ImageView
+        android:id="@+id/fortisHelplineHindi"
+        android:layout_width="146dp"
+        android:layout_height="79dp"
+        android:layout_marginStart="43dp"
+        android:layout_marginTop="200dp"
+        android:layout_marginBottom="583dp"
+        android:src="@drawable/fortisstresshindi"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toStartOf="@+id/IcallhelpHindi"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
@@ -48,10 +63,26 @@
         android:layout_marginTop="200dp"
         android:layout_marginEnd="43dp"
         android:layout_marginBottom="583dp"
+        android:visibility="invisible"
+        android:clickable="false"
         android:src="@drawable/icall"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toEndOf="@+id/fortisHelpline"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <ImageView
+        android:id="@+id/IcallhelpHindi"
+        android:layout_width="146dp"
+        android:layout_height="79dp"
+        android:layout_marginStart="40dp"
+        android:layout_marginTop="200dp"
+        android:layout_marginEnd="43dp"
+        android:layout_marginBottom="583dp"
+        android:src="@drawable/icallhindi"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/fortisHelplineHindi"
         app:layout_constraintTop_toTopOf="parent" />
 
     <ScrollView
