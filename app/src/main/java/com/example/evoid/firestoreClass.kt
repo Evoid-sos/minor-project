@@ -21,6 +21,7 @@ import com.google.firebase.firestore.FirebaseFirestore
 import com.google.firebase.firestore.SetOptions
 import com.google.firebase.ktx.Firebase
 import de.hdodenhof.circleimageview.CircleImageView
+import java.lang.Exception
 
 class firestoreClass {
 
@@ -124,6 +125,7 @@ class firestoreClass {
 
 
     fun getContacts(activity: Activity){
+        try{
         getLocation()
         val handler = android.os.Handler()
         handler.postDelayed({ print("") }, 500)
@@ -146,8 +148,11 @@ class firestoreClass {
 
                 Toast.makeText(activity, "Location sent", Toast.LENGTH_SHORT).show()
 
-            }
-
+            }}
+        catch (e: Exception)
+        {
+            print("ExceptionCaught")
+        }
     }
 
     fun loadMyProfile(

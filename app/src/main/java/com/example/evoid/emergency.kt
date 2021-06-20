@@ -1,6 +1,5 @@
 package com.example.evoid
 
-import android.annotation.SuppressLint
 import android.app.AlertDialog
 import android.content.Context
 import android.content.Intent
@@ -370,7 +369,7 @@ class emergency : Fragment() {
             }
             catch (e: Exception)
             {
-                print("ExceptionCaught")
+                print("Exception at asklocationperm")
             }
 
         }
@@ -378,35 +377,47 @@ class emergency : Fragment() {
 
 
     private fun getLocationCurrent() {
-        val request = LocationRequest()
-        request.interval = 10000
-        request.fastestInterval = 5000
-        request.priority = LocationRequest.PRIORITY_HIGH_ACCURACY
-        val permission = checkSelfPermission(
-            activity as MainActivity2,
-            android.Manifest.permission.ACCESS_FINE_LOCATION
-        )
-        if (permission == PackageManager.PERMISSION_GRANTED) {
-            fusedLocationClient.requestLocationUpdates(request, object : LocationCallback() {
-                override fun onLocationResult(locationResult: LocationResult) {
-                    val location: Location? = locationResult.lastLocation
-                    if (location != null) {
-                        val loc = locationDetails(
-                            location.latitude.toString(),
-                            location.longitude.toString()
+        try {
+            val request = LocationRequest()
+            request.interval = 10000
+            request.fastestInterval = 5000
+            request.priority = LocationRequest.PRIORITY_HIGH_ACCURACY
+            val permission = checkSelfPermission(
+                activity as MainActivity2,
+                android.Manifest.permission.ACCESS_FINE_LOCATION
+            )
+            if (permission == PackageManager.PERMISSION_GRANTED) {
+                fusedLocationClient.requestLocationUpdates(request, object : LocationCallback() {
+                    override fun onLocationResult(locationResult: LocationResult) {
+                        val location: Location? = locationResult.lastLocation
+                        if (location != null) {
+                            val loc = locationDetails(
+                                location.latitude.toString(),
+                                location.longitude.toString()
 
-                        )
-                        firestoreClass().updateLocation(loc)
+                            )
+                            firestoreClass().updateLocation(loc)
+                        }
                     }
-                }
-            }, null)
+                }, null)
 
-    }
-        askSendSMSPerm()
+            }
+            askSendSMSPerm()
+        }
+        catch (e: Exception)
+        {
+            print("Exception at getcurrentloc")
+        }
     }
 
     private fun sendSMSToContacts() {
-        firestoreClass().getContacts(activity as MainActivity2)
+        try {
+            firestoreClass().getContacts(activity as MainActivity2)
+        }
+        catch (e: Exception)
+        {
+            print("Exception at sendSMStocontacts")
+        }
     }
 
     private fun askPermission() {
