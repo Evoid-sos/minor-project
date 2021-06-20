@@ -250,30 +250,7 @@ class firestoreClass {
 
     }
 
-    fun shareToWhatsapp(imgBack: Uri, imgFront: Uri, activity: Activity)
-    {
-        mFireStore.collection(constants.USERS)
-            .document(getCurrentUserId())
-            .collection(constants.ContactsDetails)
-            .get()
-            .addOnSuccessListener { results ->
-                for (documents in results) {
-                    val currContact = documents.get("contactPhoneNumber").toString()
-                    val sendIntent = Intent("android.intent.action.MAIN")
-                    sendIntent.putExtra(Intent.EXTRA_STREAM, imgBack)
-                    sendIntent.putExtra("jid", "91$currContact@s.whatsapp.net")
-                    sendIntent.action = Intent.ACTION_SEND
-                    sendIntent.setPackage("com.whatsapp")
-                    sendIntent.type = "image/jpeg"
-                    activity.startActivity(sendIntent)
-                    val handle = android.os.Handler()
-                    handle.postDelayed({ print("") }, 500)
-                }
 
-                Toast.makeText(activity, "Image sent", Toast.LENGTH_SHORT).show()
-
-            }
-    }
 
     fun updateLanguage(s: String) {
         mFireStore.collection(constants.USERS)
