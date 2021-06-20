@@ -37,8 +37,11 @@ class language : AppCompatActivity() {
 
             firestoreClass().updateLanguage("hi")
             callFirestoreFunction()
-            startActivity(Intent(this, MainActivity2::class.java))
             finish()
+            val intent = Intent(applicationContext, start_page::class.java)
+            intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP or Intent.FLAG_ACTIVITY_CLEAR_TASK or Intent.FLAG_ACTIVITY_NEW_TASK)
+            intent.putExtra("EXIT", true)
+            startActivity(intent)
 
         }
 
@@ -46,13 +49,18 @@ class language : AppCompatActivity() {
 
             firestoreClass().updateLanguage("en")
             callFirestoreFunction()
-            startActivity(Intent(this, MainActivity2::class.java))
             finish()
+            val intent = Intent(applicationContext, start_page::class.java)
+            intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP or Intent.FLAG_ACTIVITY_CLEAR_TASK or Intent.FLAG_ACTIVITY_NEW_TASK)
+            intent.putExtra("EXIT", true)
+            startActivity(intent)
 
         }
 
 
     }
+
+
 
     override fun onSupportNavigateUp(): Boolean {
         onBackPressed()

@@ -33,6 +33,9 @@ class start_page : AppCompatActivity() {
 
     @SuppressLint("StringFormatInvalid")
     override fun onCreate(savedInstanceState: Bundle?) {
+        if (getIntent().getBooleanExtra("EXIT", false)) {
+            finish();
+        }
         auth = Firebase.auth
         var b = 0
         super.onCreate(savedInstanceState)

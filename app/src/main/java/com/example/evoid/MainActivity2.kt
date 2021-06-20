@@ -28,6 +28,8 @@ class MainActivity2 : AppCompatActivity(),NavigationView.OnNavigationItemSelecte
     var auth = Firebase.auth
 
     override fun onCreate(savedInstanceState: Bundle?) {
+
+
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main2)
         this.requestedOrientation = ActivityInfo.SCREEN_ORIENTATION_PORTRAIT
