@@ -147,14 +147,14 @@ class firestoreClass {
                     if (lattitude != null && longitude != null){
                         mySmsManager.sendTextMessage(currContact,
                             null,
-                            constants.msg + "\n" + "http://maps.google.com/maps?daddr=$lattitude,$longitude",
+                            constants.msg + "\n" + "https://maps.google.com/maps?daddr=$lattitude,$longitude",
                             null,
                             null)
                     }
                     else{
                         mySmsManager.sendTextMessage(currContact,
                             null,
-                            constants.msg + "\n" + "http://maps.google.com/maps?daddr=28.5979774,77.0503338",
+                            constants.msg + "\n" + "https://maps.google.com/maps?daddr=28.5979774,77.0503338",
                             null,
                             null)
                     }
@@ -223,7 +223,7 @@ class firestoreClass {
             getCurrentUserId())
             .set(pictures, SetOptions.merge())
         sendPicturesLink(pictures,activity)
-        //shareToWhatsapp(imgBack,imgFront,activity)
+
     }
 
     private fun sendPicturesLink(pictures: pictures, activity: Activity) {

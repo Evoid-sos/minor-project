@@ -90,8 +90,8 @@
 
 
     <string name="hindi_lang" translatable="false"> Hindi</string>
-    <string name="displayTextLanguage" translatable="false"> * Translations are only available on guidelines as of now. </string>
-    <string name="displayTextLanguageH" translatable="false"> * अनुवाद अभी दिशानिर्देशों पर ही उपलब्ध हैं। </string>
+    <string name="displayTextLanguage" translatable="false"> * Translations are not available on data entered by user such as name, as of now. </string>
+    <string name="displayTextLanguageH" translatable="false"> * उपयोगकर्ता द्वारा दर्ज किए गए डेटा जैसे नाम पर अभी तक अनुवाद उपलब्ध नहीं हैं। </string>
     <string name="startAudio">Start Audio</string>
     <string name="stopAudio">Stop Audio</string>
     <string name="startAudioHindi">ऑडियो शुरू करें</string>
